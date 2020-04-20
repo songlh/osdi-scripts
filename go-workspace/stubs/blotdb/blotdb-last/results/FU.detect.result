@@ -1,0 +1,13 @@
+Successfully built whole program. Now running checkers
+----------Bug[1]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of buggy instruction:
+Inst:	return t31, nil:error
+	File: /data/suz305/go-workspace/stubs/blotdb/blotdb-last/src/go.etcd.io/bbolt/db.go:611
+----------Bug[2]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of buggy instruction:
+Inst:	return t55, nil:error
+	File: /data/suz305/go-workspace/stubs/blotdb/blotdb-last/src/go.etcd.io/bbolt/db.go:582
+Now trying to build unchecked packages separately...
+Checked all packages containing concurrency. Now exit

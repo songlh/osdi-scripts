@@ -1,0 +1,30 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/prometheus/prometheus/scrape  Num of Lock & <-: 117
+----------Bug[1]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of buggy instruction:
+Inst:	return t22, t23
+	File: /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/head.go:1632
+Successful. Package NO. 1 : github.com/prometheus/prometheus/tsdb  Num of Lock & <-: 139
+Successful. Package NO. 2 : github.com/prometheus/prometheus/storage/remote  Num of Lock & <-: 43
+Successful. Package NO. 3 : github.com/prometheus/prometheus/rules  Num of Lock & <-: 42
+Successful. Package NO. 4 : github.com/prometheus/prometheus/discovery  Num of Lock & <-: 139
+Successful. Package NO. 5 : github.com/prometheus/prometheus/promql  Num of Lock & <-: 28
+Successful. Package NO. 6 : github.com/prometheus/prometheus/cmd/prometheus  Num of Lock & <-: 25
+----------Bug[2]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/notifier/notifier.go	Line:486, 512, 500, 
+Successful. Package NO. 7 : github.com/prometheus/prometheus/notifier  Num of Lock & <-: 25
+Successful. Package NO. 8 : github.com/prometheus/prometheus/util/treecache  Num of Lock & <-: 15
+Successful. Package NO. 9 : github.com/prometheus/prometheus/web  Num of Lock & <-: 29
+Successful. Package NO. 10 : github.com/prometheus/prometheus/documentation/examples/custom-sd/adapter-usage  Num of Lock & <-: 5
+Successful. Package NO. 11 : github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/influxdb  Num of Lock & <-: 4
+Successful. Package NO. 12 : github.com/prometheus/prometheus/pkg/logging  Num of Lock & <-: 4
+Successful. Package NO. 13 : github.com/prometheus/prometheus/pkg/gate  Num of Lock & <-: 3
+Successful. Package NO. 14 : github.com/prometheus/prometheus/storage  Num of Lock & <-: 45
+Successful. Package NO. 15 : github.com/prometheus/prometheus/documentation/examples/custom-sd/adapter  Num of Lock & <-: 2
+Successful. Package NO. 16 : github.com/prometheus/prometheus/util/testutil  Num of Lock & <-: 1
+Successful. Package NO. 17 : github.com/prometheus/prometheus/prompb  Num of Lock & <-: 1
+Checked all packages containing concurrency. Now exit
