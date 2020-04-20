@@ -1,0 +1,8 @@
+Successfully built whole program. Now running checkers
+----------Bug[1]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go	Line:1775
+
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/junegunn/fzf/src  Num of Lock & <-: 62

@@ -1,0 +1,57 @@
+Failed to build the whole program. The entrance package or its dependencies have error. load_err
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : github.com/gogs/gogs/internal/sync  Num of Lock & <-: 8  error: type_err
+Fail. Package NO. 1 : github.com/gogs/gogs/internal/process  Num of Lock & <-: 6  error: type_err
+Fail. Package NO. 2 : github.com/gogs/gogs/internal/email  Num of Lock & <-: 4  error: type_err
+Fail. Package NO. 3 : github.com/gogs/gogs/internal/db  Num of Lock & <-: 3  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/gogs/gogs/internal/db/errors
+	Successfully built sub-Package NO. 1 :	 github.com/gogs/gogs/internal/db/migrations
+	Successfully built sub-Package NO. 2 :	 github.com/gogs/gogs/internal/dbutil
+Fail. Package NO. 4 : github.com/gogs/gogs/internal/ssh  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 5 : github.com/gogs/gogs/internal/httplib  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 6 : github.com/gogs/gogs/internal/route/repo  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 7 : github.com/gogs/gogs/internal/gitutil  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 8 : github.com/gogs/gogs/internal/route  Num of Lock & <-: 1  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/gogs/gogs/internal/route/repo
+	Successfully built sub-Package NO. 1 :	 github.com/gogs/gogs/internal/route/admin
+	Successfully built sub-Package NO. 2 :	 github.com/gogs/gogs/internal/route/api/v1
+	Successfully built sub-Package NO. 3 :	 github.com/gogs/gogs/internal/route/api/v1/admin
+	Successfully built sub-Package NO. 4 :	 github.com/gogs/gogs/internal/route/api/v1/convert
+	Successfully built sub-Package NO. 5 :	 github.com/gogs/gogs/internal/route/api/v1/misc
+	Successfully built sub-Package NO. 6 :	 github.com/gogs/gogs/internal/route/api/v1/org
+	Successfully built sub-Package NO. 7 :	 github.com/gogs/gogs/internal/route/api/v1/repo
+	Successfully built sub-Package NO. 8 :	 github.com/gogs/gogs/internal/route/api/v1/user
+	Successfully built sub-Package NO. 9 :	 github.com/gogs/gogs/internal/route/dev
+	Successfully built sub-Package NO. 10 :	 github.com/gogs/gogs/internal/route/lfs
+	Successfully built sub-Package NO. 11 :	 github.com/gogs/gogs/internal/route/org
+	Successfully built sub-Package NO. 12 :	 github.com/gogs/gogs/internal/route/user
+Fail. Package NO. 9 : github.com/gogs/gogs/internal/form  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 10 : github.com/gogs/gogs/internal/avatar  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 11 : github.com/gogs/gogs/internal/cmd  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 12 : github.com/gogs/gogs/internal/conf  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 13 : github.com/gogs/gogs/internal/context  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 14 : github.com/gogs/gogs/internal/cron  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 15 : github.com/gogs/gogs/internal/auth/pam  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 16 : github.com/gogs/gogs/internal/auth/ldap  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 17 : github.com/gogs/gogs/internal/errutil  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 18 : github.com/gogs/gogs/internal/authutil  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 19 : github.com/gogs/gogs/internal/auth/github  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 20 : github.com/gogs/gogs/internal/auth  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/gogs/gogs/internal/authutil
+Fail. Package NO. 21 : github.com/gogs/gogs/internal/lazyregexp  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 22 : github.com/gogs/gogs/internal/lfsutil  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 23 : github.com/gogs/gogs/internal/markup  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 24 : github.com/gogs/gogs/internal/mocks  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 25 : github.com/gogs/gogs/internal/osutil  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 26 : github.com/gogs/gogs/internal/pathutil  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 27 : github.com/gogs/gogs/internal/assets/templates  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 28 : github.com/gogs/gogs/internal/app  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 29 : github.com/gogs/gogs/internal/assets/public  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 30 : github.com/gogs/gogs/internal/assets/conf  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 31 : github.com/gogs/gogs/internal/strutil  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 32 : github.com/gogs/gogs/internal/assets  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/gogs/gogs/internal/assets/templates
+Fail. Package NO. 33 : github.com/gogs/gogs/internal/template  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/gogs/gogs/internal/template/highlight
+Fail. Package NO. 34 : github.com/gogs/gogs/internal/testutil  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 35 : github.com/gogs/gogs/internal/tool  Num of Lock & <-: 0  error: type_err

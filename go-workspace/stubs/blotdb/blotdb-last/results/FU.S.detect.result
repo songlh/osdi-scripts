@@ -1,0 +1,3 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : go.etcd.io/bbolt/cmd/bbolt  Num of Lock & <-: 0

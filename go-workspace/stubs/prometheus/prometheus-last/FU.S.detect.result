@@ -1,0 +1,53 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/prometheus/prometheus/tsdb  Num of Lock & <-: 139
+Successful. Package NO. 1 : github.com/prometheus/prometheus/discovery  Num of Lock & <-: 139
+Successful. Package NO. 2 : github.com/prometheus/prometheus/scrape  Num of Lock & <-: 118
+Successful. Package NO. 3 : github.com/prometheus/prometheus/storage  Num of Lock & <-: 45
+Successful. Package NO. 4 : github.com/prometheus/prometheus/storage/remote  Num of Lock & <-: 43
+----------Bug[1]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/storage/remote/queue_manager_test.go	Line:263
+
+Successful. Package NO. 5 : github.com/prometheus/prometheus/rules  Num of Lock & <-: 42
+Successful. Package NO. 6 : github.com/prometheus/prometheus/web  Num of Lock & <-: 29
+----------Bug[2]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/notifier/notifier.go	Line:486, 512, 500
+
+Successful. Package NO. 7 : github.com/prometheus/prometheus/promql  Num of Lock & <-: 28
+Successful. Package NO. 8 : github.com/prometheus/prometheus/cmd/prometheus  Num of Lock & <-: 25
+Successful. Package NO. 9 : github.com/prometheus/prometheus/notifier  Num of Lock & <-: 25
+Successful. Package NO. 10 : github.com/prometheus/prometheus/util/treecache  Num of Lock & <-: 15
+Successful. Package NO. 11 : github.com/prometheus/prometheus/documentation/examples/custom-sd/adapter-usage  Num of Lock & <-: 5
+Successful. Package NO. 12 : github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/influxdb  Num of Lock & <-: 4
+Successful. Package NO. 13 : github.com/prometheus/prometheus/pkg/logging  Num of Lock & <-: 4
+Successful. Package NO. 14 : github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter  Num of Lock & <-: 4
+Successful. Package NO. 15 : github.com/prometheus/prometheus/pkg/gate  Num of Lock & <-: 3
+Successful. Package NO. 16 : github.com/prometheus/prometheus/documentation/examples/custom-sd/adapter  Num of Lock & <-: 2
+Successful. Package NO. 17 : github.com/prometheus/prometheus/util/testutil  Num of Lock & <-: 1
+Successful. Package NO. 18 : github.com/prometheus/prometheus/prompb  Num of Lock & <-: 1
+Successful. Package NO. 19 : github.com/prometheus/prometheus/pkg/rulefmt  Num of Lock & <-: 0
+Successful. Package NO. 20 : github.com/prometheus/prometheus/pkg/relabel  Num of Lock & <-: 0
+Successful. Package NO. 21 : github.com/prometheus/prometheus/pkg/runtime  Num of Lock & <-: 0
+Successful. Package NO. 22 : github.com/prometheus/prometheus/pkg/textparse  Num of Lock & <-: 0
+Successful. Package NO. 23 : github.com/prometheus/prometheus/pkg/pool  Num of Lock & <-: 0
+Successful. Package NO. 24 : github.com/prometheus/prometheus/pkg/value  Num of Lock & <-: 0
+Successful. Package NO. 25 : github.com/prometheus/prometheus/pkg/modtimevfs  Num of Lock & <-: 0
+Successful. Package NO. 26 : github.com/prometheus/prometheus/pkg/labels  Num of Lock & <-: 0
+Successful. Package NO. 27 : github.com/prometheus/prometheus/pkg/exemplar  Num of Lock & <-: 0
+Successful. Package NO. 28 : github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/opentsdb  Num of Lock & <-: 0
+Fail. Package NO. 29 : github.com/prometheus/prometheus/scripts  Num of Lock & <-: 0  error: type_err
+Successful. Package NO. 30 : github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter/graphite  Num of Lock & <-: 0
+Successful. Package NO. 31 : github.com/prometheus/prometheus/pkg/timestamp  Num of Lock & <-: 0
+Successful. Package NO. 32 : github.com/prometheus/prometheus/template  Num of Lock & <-: 0
+Successful. Package NO. 33 : github.com/prometheus/prometheus/documentation/examples/remote_storage/example_write_adapter  Num of Lock & <-: 0
+Successful. Package NO. 34 : github.com/prometheus/prometheus/util/httputil  Num of Lock & <-: 0
+Successful. Package NO. 35 : github.com/prometheus/prometheus/util/promlint  Num of Lock & <-: 0
+Successful. Package NO. 36 : github.com/prometheus/prometheus/util/stats  Num of Lock & <-: 0
+Successful. Package NO. 37 : github.com/prometheus/prometheus/util/strutil  Num of Lock & <-: 0
+Successful. Package NO. 38 : github.com/prometheus/prometheus/util/teststorage  Num of Lock & <-: 0
+Successful. Package NO. 39 : github.com/prometheus/prometheus/config  Num of Lock & <-: 0
+Successful. Package NO. 40 : github.com/prometheus/prometheus/cmd/promtool  Num of Lock & <-: 0

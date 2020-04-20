@@ -1,0 +1,8 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/gin-gonic/gin/binding  Num of Lock & <-: 0
+Successful. Package NO. 1 : github.com/gin-gonic/gin/ginS  Num of Lock & <-: 0
+Successful. Package NO. 2 : github.com/gin-gonic/gin/internal/bytesconv  Num of Lock & <-: 0
+Successful. Package NO. 3 : github.com/gin-gonic/gin/internal/json  Num of Lock & <-: 0
+Successful. Package NO. 4 : github.com/gin-gonic/gin/render  Num of Lock & <-: 0
+Successful. Package NO. 5 : github.com/gin-gonic/gin/testdata/protoexample  Num of Lock & <-: 0

@@ -1,0 +1,348 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/cockroachdb/cockroach/pkg/ui  Num of Lock & <-: 3910
+Fail. Package NO. 1 : github.com/cockroachdb/cockroach/pkg/kv  Num of Lock & <-: 1600  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/concurrency
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/rangefeed
+	Failed to build sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/kv/kvnemesis
+	Failed to build sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/kv/bulk
+	Successfully built sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/kv/kvbase
+Fail. Package NO. 2 : github.com/cockroachdb/cockroach/pkg/kv/kvserver  Num of Lock & <-: 1395  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/concurrency
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/rangefeed
+	Successfully built sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait
+	Failed to build sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/spanlatch
+	Successfully built sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/provider
+	Failed to build sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/idalloc
+	Failed to build sub-Package NO. 6 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptcache
+	Successfully built sub-Package NO. 7 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/transport
+	Successfully built sub-Package NO. 8 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/tscache
+	Successfully built sub-Package NO. 9 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/intentresolver
+	Successfully built sub-Package NO. 10 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/raftentry
+	Successfully built sub-Package NO. 11 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/transport/testutils
+	Successfully built sub-Package NO. 12 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/minprop
+	Successfully built sub-Package NO. 13 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/provider/testutils
+	Failed to build sub-Package NO. 14 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptreconcile
+	Failed to build sub-Package NO. 15 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/reports
+	Failed to build sub-Package NO. 16 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/compactor
+	Successfully built sub-Package NO. 17 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts
+	Successfully built sub-Package NO. 18 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnrecovery
+	Successfully built sub-Package NO. 19 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/container
+	Successfully built sub-Package NO. 20 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/split
+	Failed to build sub-Package NO. 21 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/batcheval
+	Successfully built sub-Package NO. 22 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/storage
+	Failed to build sub-Package NO. 23 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptstorage
+	Successfully built sub-Package NO. 24 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/ctpb
+	Failed to build sub-Package NO. 25 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptverifier
+	Failed to build sub-Package NO. 26 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/rditer
+	Failed to build sub-Package NO. 27 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/spanset
+	Failed to build sub-Package NO. 28 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/stateloader
+	Successfully built sub-Package NO. 29 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/storagebase
+	Successfully built sub-Package NO. 30 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/storagepb
+	Failed to build sub-Package NO. 31 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptprovider
+	Successfully built sub-Package NO. 32 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptpb
+	Successfully built sub-Package NO. 33 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts
+	Failed to build sub-Package NO. 34 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/gc
+	Successfully built sub-Package NO. 35 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/diskmap
+	Successfully built sub-Package NO. 36 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/constraint
+	Successfully built sub-Package NO. 37 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/concurrency/lock
+	Failed to build sub-Package NO. 38 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/abortspan
+	Successfully built sub-Package NO. 39 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/apply
+	Successfully built sub-Package NO. 40 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/batcheval/result
+Fail. Package NO. 3 : github.com/cockroachdb/cockroach/pkg/sql  Num of Lock & <-: 1005  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/sql/flowinfra
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/sql/colexec
+	Successfully built sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/sql/colflow/colrpc
+	Failed to build sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/sql/stats
+	Failed to build sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/sql/pgwire
+	Failed to build sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/sql/rowflow
+	Failed to build sub-Package NO. 6 :	 github.com/cockroachdb/cockroach/pkg/sql/tests
+	Failed to build sub-Package NO. 7 :	 github.com/cockroachdb/cockroach/pkg/sql/rowexec
+	Failed to build sub-Package NO. 8 :	 github.com/cockroachdb/cockroach/pkg/sql/stmtdiagnostics
+	Failed to build sub-Package NO. 9 :	 github.com/cockroachdb/cockroach/pkg/sql/colflow
+	Successfully built sub-Package NO. 10 :	 github.com/cockroachdb/cockroach/pkg/sql/parser
+	Successfully built sub-Package NO. 11 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/props
+	Failed to build sub-Package NO. 12 :	 github.com/cockroachdb/cockroach/pkg/sqlmigrations/leasemanager
+	Failed to build sub-Package NO. 13 :	 github.com/cockroachdb/cockroach/pkg/sqlmigrations
+	Successfully built sub-Package NO. 14 :	 github.com/cockroachdb/cockroach/pkg/sql/gcjob
+	Successfully built sub-Package NO. 15 :	 github.com/cockroachdb/cockroach/pkg/sql/execinfrapb
+	Successfully built sub-Package NO. 16 :	 github.com/cockroachdb/cockroach/pkg/sql/querycache
+	Failed to build sub-Package NO. 17 :	 github.com/cockroachdb/cockroach/pkg/sql/sem/tree
+	Failed to build sub-Package NO. 18 :	 github.com/cockroachdb/cockroach/pkg/sql/execinfra
+	Successfully built sub-Package NO. 19 :	 github.com/cockroachdb/cockroach/pkg/sql/sessiondata
+	Failed to build sub-Package NO. 20 :	 github.com/cockroachdb/cockroach/pkg/sql/row
+	Successfully built sub-Package NO. 21 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/xform
+	Failed to build sub-Package NO. 22 :	 github.com/cockroachdb/cockroach/pkg/sql/sem/builtins
+	Failed to build sub-Package NO. 23 :	 github.com/cockroachdb/cockroach/pkg/sql/logictest
+	Failed to build sub-Package NO. 24 :	 github.com/cockroachdb/cockroach/pkg/sql/sqlbase
+	Failed to build sub-Package NO. 25 :	 github.com/cockroachdb/cockroach/pkg/sql/distsql
+	Successfully built sub-Package NO. 26 :	 github.com/cockroachdb/cockroach/pkg/sql/backfill
+	Failed to build sub-Package NO. 27 :	 github.com/cockroachdb/cockroach/pkg/sql/colcontainer
+	Successfully built sub-Package NO. 28 :	 github.com/cockroachdb/cockroach/pkg/sql/colencoding
+	Successfully built sub-Package NO. 29 :	 github.com/cockroachdb/cockroach/pkg/sql/colexec/execerror
+	Successfully built sub-Package NO. 30 :	 github.com/cockroachdb/cockroach/pkg/sql/colexec/execgen
+	Successfully built sub-Package NO. 31 :	 github.com/cockroachdb/cockroach/pkg/sql/colexec/execgen/cmd/execgen
+	Successfully built sub-Package NO. 32 :	 github.com/cockroachdb/cockroach/pkg/sql/colexec/execpb
+	Successfully built sub-Package NO. 33 :	 github.com/cockroachdb/cockroach/pkg/sql/colexec/typeconv
+	Successfully built sub-Package NO. 34 :	 github.com/cockroachdb/cockroach/pkg/sql/covering
+	Failed to build sub-Package NO. 35 :	 github.com/cockroachdb/cockroach/pkg/sql/gcjob_test
+	Successfully built sub-Package NO. 36 :	 github.com/cockroachdb/cockroach/pkg/sql/lex
+	Successfully built sub-Package NO. 37 :	 github.com/cockroachdb/cockroach/pkg/sql/mutations
+	Successfully built sub-Package NO. 38 :	 github.com/cockroachdb/cockroach/pkg/sql/oidext
+	Successfully built sub-Package NO. 39 :	 github.com/cockroachdb/cockroach/pkg/sql/opt
+	Failed to build sub-Package NO. 40 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/bench
+	Successfully built sub-Package NO. 41 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/cat
+	Successfully built sub-Package NO. 42 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/constraint
+	Successfully built sub-Package NO. 43 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/exec
+	Failed to build sub-Package NO. 44 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/exec/execbuilder
+	Successfully built sub-Package NO. 45 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/idxconstraint
+	Successfully built sub-Package NO. 46 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/memo
+	Successfully built sub-Package NO. 47 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/norm
+	Successfully built sub-Package NO. 48 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/opbench
+	Successfully built sub-Package NO. 49 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/optbuilder
+	Successfully built sub-Package NO. 50 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/optgen/cmd/langgen
+	Successfully built sub-Package NO. 51 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/optgen/cmd/optgen
+	Successfully built sub-Package NO. 52 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/optgen/exprgen
+	Successfully built sub-Package NO. 53 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/optgen/lang
+	Successfully built sub-Package NO. 54 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/ordering
+	Successfully built sub-Package NO. 55 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/props/physical
+	Successfully built sub-Package NO. 56 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/testutils
+	Successfully built sub-Package NO. 57 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/testutils/opttester
+	Successfully built sub-Package NO. 58 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/testutils/testcat
+	Successfully built sub-Package NO. 59 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/testutils/testexpr
+	Successfully built sub-Package NO. 60 :	 github.com/cockroachdb/cockroach/pkg/sql/parser/fuzz
+	Successfully built sub-Package NO. 61 :	 github.com/cockroachdb/cockroach/pkg/sql/pgwire/hba
+	Successfully built sub-Package NO. 62 :	 github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgcode
+	Successfully built sub-Package NO. 63 :	 github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror
+	Successfully built sub-Package NO. 64 :	 github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgwirebase
+	Failed to build sub-Package NO. 65 :	 github.com/cockroachdb/cockroach/pkg/sql/physicalplan
+	Successfully built sub-Package NO. 66 :	 github.com/cockroachdb/cockroach/pkg/sql/physicalplan/replicaoracle
+	Successfully built sub-Package NO. 67 :	 github.com/cockroachdb/cockroach/pkg/sql/privilege
+	Successfully built sub-Package NO. 68 :	 github.com/cockroachdb/cockroach/pkg/sql/roleoption
+	Failed to build sub-Package NO. 69 :	 github.com/cockroachdb/cockroach/pkg/sql/rowcontainer
+	Successfully built sub-Package NO. 70 :	 github.com/cockroachdb/cockroach/pkg/sql/schema
+	Failed to build sub-Package NO. 71 :	 github.com/cockroachdb/cockroach/pkg/sql/schemachange
+	Successfully built sub-Package NO. 72 :	 github.com/cockroachdb/cockroach/pkg/sql/scrub
+	Successfully built sub-Package NO. 73 :	 github.com/cockroachdb/cockroach/pkg/sql/sem/transform
+	Successfully built sub-Package NO. 74 :	 github.com/cockroachdb/cockroach/pkg/sql/span
+	Successfully built sub-Package NO. 75 :	 github.com/cockroachdb/cockroach/pkg/sql/sqltelemetry
+	Successfully built sub-Package NO. 76 :	 github.com/cockroachdb/cockroach/pkg/sql/sqlutil
+	Successfully built sub-Package NO. 77 :	 github.com/cockroachdb/cockroach/pkg/sql/types
+	Successfully built sub-Package NO. 78 :	 github.com/cockroachdb/cockroach/pkg/sql/vtable
+	Successfully built sub-Package NO. 79 :	 github.com/cockroachdb/cockroach/pkg/sql/delegate
+Successful. Package NO. 4 : github.com/cockroachdb/cockroach/pkg/util  Num of Lock & <-: 362
+Fail. Package NO. 5 : github.com/cockroachdb/cockroach/pkg/ccl  Num of Lock & <-: 319  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/kvfeed
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/schemafeed
+	Failed to build sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/cdctest
+	Successfully built sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/schemafeed/schematestutils
+	Successfully built sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/changefeedbase
+Fail. Package NO. 6 : github.com/cockroachdb/cockroach/pkg/cmd/roachtest  Num of Lock & <-: 306  error: load_err
+Fail. Package NO. 7 : github.com/cockroachdb/cockroach/pkg/server  Num of Lock & <-: 305  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/server/serverpb
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/server/debug
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/server/status
+	Successfully built sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/server/debug/pprofui
+	Successfully built sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/server/telemetry
+	Successfully built sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/server/debug/goroutineui
+	Successfully built sub-Package NO. 6 :	 github.com/cockroachdb/cockroach/pkg/server/diagnosticspb
+	Successfully built sub-Package NO. 7 :	 github.com/cockroachdb/cockroach/pkg/server/goroutinedumper
+	Successfully built sub-Package NO. 8 :	 github.com/cockroachdb/cockroach/pkg/server/heapprofiler
+	Successfully built sub-Package NO. 9 :	 github.com/cockroachdb/cockroach/pkg/server/status/statuspb
+Fail. Package NO. 8 : github.com/cockroachdb/cockroach/pkg/jobs  Num of Lock & <-: 181  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/jobs/jobsprotectedts
+	Successfully built sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/jobs/jobspb
+Successful. Package NO. 9 : github.com/cockroachdb/cockroach/pkg/server/serverpb  Num of Lock & <-: 178
+Successful. Package NO. 10 : github.com/cockroachdb/cockroach/pkg/gossip  Num of Lock & <-: 153
+Fail. Package NO. 11 : github.com/cockroachdb/cockroach/pkg/kv/kvclient/kvcoord  Num of Lock & <-: 149  error: load_err
+Successful. Package NO. 12 : github.com/cockroachdb/cockroach/pkg/kv/kvclient  Num of Lock & <-: 149
+Fail. Package NO. 13 : github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl  Num of Lock & <-: 135  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/kvfeed
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/schemafeed
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/cdctest
+	Successfully built sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/schemafeed/schematestutils
+	Successfully built sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/changefeedbase
+Fail. Package NO. 14 : github.com/cockroachdb/cockroach/pkg/ccl/importccl  Num of Lock & <-: 132  error: load_err
+Successful. Package NO. 15 : github.com/cockroachdb/cockroach/pkg/cmd/github-pull-request-make  Num of Lock & <-: 130
+Successful. Package NO. 16 : github.com/cockroachdb/cockroach/pkg/testutils  Num of Lock & <-: 109
+Fail. Package NO. 17 : github.com/cockroachdb/cockroach/pkg/cli  Num of Lock & <-: 93  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/cli/systembench
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/cli/syncbench
+	Successfully built sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/cli/systembench/systembenchpb
+	Successfully built sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/cli/cliflags
+Successful. Package NO. 18 : github.com/cockroachdb/cockroach/pkg/rpc  Num of Lock & <-: 71
+Successful. Package NO. 19 : github.com/cockroachdb/cockroach/pkg/util/stop  Num of Lock & <-: 71
+Successful. Package NO. 20 : github.com/cockroachdb/cockroach/pkg/util/quotapool  Num of Lock & <-: 63
+Successful. Package NO. 21 : github.com/cockroachdb/cockroach/pkg/internal/client/requestbatcher  Num of Lock & <-: 62
+Fail. Package NO. 22 : github.com/cockroachdb/cockroach/pkg/util/log  Num of Lock & <-: 54  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/util/log/logflags
+	Successfully built sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/util/log/testshout
+Fail. Package NO. 23 : github.com/cockroachdb/cockroach/pkg/workload  Num of Lock & <-: 52  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/workload/tpcc
+	Successfully built sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/workload/schemachange
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/workload/bank
+	Successfully built sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/workload/bulkingest
+	Successfully built sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/workload/debug
+	Successfully built sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/workload/examples
+	Successfully built sub-Package NO. 6 :	 github.com/cockroachdb/cockroach/pkg/workload/faker
+	Successfully built sub-Package NO. 7 :	 github.com/cockroachdb/cockroach/pkg/workload/indexes
+	Successfully built sub-Package NO. 8 :	 github.com/cockroachdb/cockroach/pkg/workload/interleavedpartitioned
+	Successfully built sub-Package NO. 9 :	 github.com/cockroachdb/cockroach/pkg/workload/jsonload
+	Successfully built sub-Package NO. 10 :	 github.com/cockroachdb/cockroach/pkg/workload/kv
+	Successfully built sub-Package NO. 11 :	 github.com/cockroachdb/cockroach/pkg/workload/ledger
+	Successfully built sub-Package NO. 12 :	 github.com/cockroachdb/cockroach/pkg/workload/movr
+	Successfully built sub-Package NO. 13 :	 github.com/cockroachdb/cockroach/pkg/workload/querybench
+	Successfully built sub-Package NO. 14 :	 github.com/cockroachdb/cockroach/pkg/workload/querylog
+	Successfully built sub-Package NO. 15 :	 github.com/cockroachdb/cockroach/pkg/workload/queue
+	Successfully built sub-Package NO. 16 :	 github.com/cockroachdb/cockroach/pkg/workload/rand
+	Failed to build sub-Package NO. 17 :	 github.com/cockroachdb/cockroach/pkg/workload/sqlsmith
+	Successfully built sub-Package NO. 18 :	 github.com/cockroachdb/cockroach/pkg/workload/tpch
+	Successfully built sub-Package NO. 19 :	 github.com/cockroachdb/cockroach/pkg/workload/workloadimpl
+Successful. Package NO. 24 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod  Num of Lock & <-: 50
+Successful. Package NO. 25 : github.com/cockroachdb/cockroach/pkg/acceptance  Num of Lock & <-: 49
+Fail. Package NO. 26 : github.com/cockroachdb/cockroach/pkg/ccl/backupccl  Num of Lock & <-: 44  error: load_err
+Successful. Package NO. 27 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/install  Num of Lock & <-: 39
+Fail. Package NO. 28 : github.com/cockroachdb/cockroach/pkg/storage  Num of Lock & <-: 37  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/storage/cloud
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/storage/metamorphic
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/storage/enginepb
+	Successfully built sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/storage/fs
+Successful. Package NO. 29 : github.com/cockroachdb/cockroach/pkg/util/syncutil  Num of Lock & <-: 34
+Successful. Package NO. 30 : github.com/cockroachdb/cockroach/pkg/acceptance/localcluster  Num of Lock & <-: 26
+Successful. Package NO. 31 : github.com/cockroachdb/cockroach/pkg/util/hlc  Num of Lock & <-: 24
+Successful. Package NO. 32 : github.com/cockroachdb/cockroach/pkg/util/timeutil  Num of Lock & <-: 23
+Successful. Package NO. 33 : github.com/cockroachdb/cockroach/pkg/acceptance/cluster  Num of Lock & <-: 18
+Successful. Package NO. 34 : github.com/cockroachdb/cockroach/pkg/util/syncutil/singleflight  Num of Lock & <-: 18
+Successful. Package NO. 35 : github.com/cockroachdb/cockroach/pkg/cmd/cmp-protocol  Num of Lock & <-: 17
+Successful. Package NO. 36 : github.com/cockroachdb/cockroach/pkg/util/tracing  Num of Lock & <-: 16
+Successful. Package NO. 37 : github.com/cockroachdb/cockroach/pkg/util/metric  Num of Lock & <-: 15
+Successful. Package NO. 38 : github.com/cockroachdb/cockroach/pkg/cmd/cmp-protocol/pgconnect  Num of Lock & <-: 15
+Fail. Package NO. 39 : github.com/cockroachdb/cockroach/pkg/ts  Num of Lock & <-: 15  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ts/tspb
+	Successfully built sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/ts/catalog
+	Successfully built sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/ts/testmodel
+Fail. Package NO. 40 : github.com/cockroachdb/cockroach/pkg/internal/sqlsmith  Num of Lock & <-: 14  error: load_err
+Fail. Package NO. 41 : github.com/cockroachdb/cockroach/pkg/workload/tpcc  Num of Lock & <-: 12  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/workload/tpccchecks
+Successful. Package NO. 42 : github.com/cockroachdb/cockroach/pkg/util/retry  Num of Lock & <-: 11
+Fail. Package NO. 43 : github.com/cockroachdb/cockroach/pkg/workload/ycsb  Num of Lock & <-: 10  error: type_err
+Successful. Package NO. 44 : github.com/cockroachdb/cockroach/pkg/config  Num of Lock & <-: 10
+Fail. Package NO. 45 : github.com/cockroachdb/cockroach/pkg/workload/workloadsql  Num of Lock & <-: 9  error: load_err
+Fail. Package NO. 46 : github.com/cockroachdb/cockroach/pkg/workload/cli  Num of Lock & <-: 9  error: type_err
+Successful. Package NO. 47 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm  Num of Lock & <-: 9
+Successful. Package NO. 48 : github.com/cockroachdb/cockroach/pkg/util/interval  Num of Lock & <-: 8
+Successful. Package NO. 49 : github.com/cockroachdb/cockroach/pkg/internal/rsg  Num of Lock & <-: 8
+Successful. Package NO. 50 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/azure  Num of Lock & <-: 8
+Fail. Package NO. 51 : github.com/cockroachdb/cockroach/pkg/security  Num of Lock & <-: 8  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/security/securitytest
+Fail. Package NO. 52 : github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl  Num of Lock & <-: 7  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl/enginepbccl
+Fail. Package NO. 53 : github.com/cockroachdb/cockroach/pkg/ccl/storageccl  Num of Lock & <-: 7  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl
+	Successfully built sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl/enginepbccl
+Successful. Package NO. 54 : github.com/cockroachdb/cockroach/pkg/util/ctxgroup  Num of Lock & <-: 6
+Successful. Package NO. 55 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod-stress  Num of Lock & <-: 6
+Successful. Package NO. 56 : github.com/cockroachdb/cockroach/pkg/workload/histogram  Num of Lock & <-: 5
+Successful. Package NO. 57 : github.com/cockroachdb/cockroach/pkg/cmd/urlcheck/lib/urlcheck  Num of Lock & <-: 5
+Successful. Package NO. 58 : github.com/cockroachdb/cockroach/pkg/cmd/urlcheck  Num of Lock & <-: 5
+Fail. Package NO. 59 : github.com/cockroachdb/cockroach/pkg/cmd/allocsim  Num of Lock & <-: 5  error: load_err
+Successful. Package NO. 60 : github.com/cockroachdb/cockroach/pkg/util/netutil  Num of Lock & <-: 5
+Successful. Package NO. 61 : github.com/cockroachdb/cockroach/pkg/util/grpcutil  Num of Lock & <-: 5
+Successful. Package NO. 62 : github.com/cockroachdb/cockroach/pkg/cmd/zerosum  Num of Lock & <-: 5
+Successful. Package NO. 63 : github.com/cockroachdb/cockroach/pkg/util/sdnotify  Num of Lock & <-: 5
+Successful. Package NO. 64 : github.com/cockroachdb/cockroach/pkg/cmd/cr2pg  Num of Lock & <-: 4
+Fail. Package NO. 65 : github.com/cockroachdb/cockroach/pkg/cmd/smithtest  Num of Lock & <-: 4  error: load_err
+Successful. Package NO. 66 : github.com/cockroachdb/cockroach/pkg/settings  Num of Lock & <-: 4
+Successful. Package NO. 67 : github.com/cockroachdb/cockroach/pkg/util/mon  Num of Lock & <-: 4
+Successful. Package NO. 68 : github.com/cockroachdb/cockroach/pkg/clusterversion  Num of Lock & <-: 4
+Successful. Package NO. 69 : github.com/cockroachdb/cockroach/pkg/util/envutil  Num of Lock & <-: 4
+Fail. Package NO. 70 : github.com/cockroachdb/cockroach/pkg/workload/tpcds  Num of Lock & <-: 3  error: type_err
+Successful. Package NO. 71 : github.com/cockroachdb/cockroach/pkg/base  Num of Lock & <-: 3
+Successful. Package NO. 72 : github.com/cockroachdb/cockroach/pkg/cmd/docgen  Num of Lock & <-: 3
+Successful. Package NO. 73 : github.com/cockroachdb/cockroach/pkg/cmd/reduce  Num of Lock & <-: 3
+Successful. Package NO. 74 : github.com/cockroachdb/cockroach/pkg/util/sysutil  Num of Lock & <-: 3
+Successful. Package NO. 75 : github.com/cockroachdb/cockroach/pkg/util/protoutil  Num of Lock & <-: 3
+Successful. Package NO. 76 : github.com/cockroachdb/cockroach/pkg/util/json  Num of Lock & <-: 2
+Successful. Package NO. 77 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/ssh  Num of Lock & <-: 2
+Fail. Package NO. 78 : github.com/cockroachdb/cockroach/pkg/bench  Num of Lock & <-: 2  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/bench/cmd/pgbenchsetup
+Successful. Package NO. 79 : github.com/cockroachdb/cockroach/pkg/util/contextutil  Num of Lock & <-: 2
+Successful. Package NO. 80 : github.com/cockroachdb/cockroach/pkg/compose/compare/compare  Num of Lock & <-: 1
+Successful. Package NO. 81 : github.com/cockroachdb/cockroach/pkg/util/uuid  Num of Lock & <-: 1
+Successful. Package NO. 82 : github.com/cockroachdb/cockroach/pkg/util/caller  Num of Lock & <-: 1
+Successful. Package NO. 83 : github.com/cockroachdb/cockroach/pkg/compose  Num of Lock & <-: 1
+Successful. Package NO. 84 : github.com/cockroachdb/cockroach/pkg/util/limit  Num of Lock & <-: 1
+Fail. Package NO. 85 : github.com/cockroachdb/cockroach/pkg/ccl/partitionccl  Num of Lock & <-: 1  error: load_err
+Successful. Package NO. 86 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/aws  Num of Lock & <-: 1
+Fail. Package NO. 87 : github.com/cockroachdb/cockroach/pkg/col/coldata  Num of Lock & <-: 0  error: type_err
+Successful. Package NO. 88 : github.com/cockroachdb/cockroach/pkg/cmd/wraprules  Num of Lock & <-: 0
+Fail. Package NO. 89 : github.com/cockroachdb/cockroach/pkg/cmd/workload  Num of Lock & <-: 0  error: load_err
+Fail. Package NO. 90 : github.com/cockroachdb/cockroach/c-deps/protobuf/benchmarks/go  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 91 : github.com/cockroachdb/cockroach/pkg/col/colserde  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/col/colserde/arrowserde
+Successful. Package NO. 92 : github.com/cockroachdb/cockroach/pkg/cmd/uptodate  Num of Lock & <-: 0
+Successful. Package NO. 93 : github.com/cockroachdb/cockroach/pkg/cmd/testfilter  Num of Lock & <-: 0
+Successful. Package NO. 94 : github.com/cockroachdb/cockroach/pkg/cmd/teamcity-trigger  Num of Lock & <-: 0
+Fail. Package NO. 95 : github.com/cockroachdb/cockroach/pkg/cmd/smithcmp  Num of Lock & <-: 0  error: load_err
+Successful. Package NO. 96 : github.com/cockroachdb/cockroach/pkg/cmd/skiperrs  Num of Lock & <-: 0
+Successful. Package NO. 97 : github.com/cockroachdb/cockroach/pkg/cmd/roachvet  Num of Lock & <-: 0
+Successful. Package NO. 98 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/local  Num of Lock & <-: 0
+Successful. Package NO. 99 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/gce  Num of Lock & <-: 0
+Successful. Package NO. 100 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/flagstub  Num of Lock & <-: 0
+Successful. Package NO. 101 : github.com/cockroachdb/cockroach/pkg/col/colserde/arrowserde  Num of Lock & <-: 0
+Successful. Package NO. 102 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/ui  Num of Lock & <-: 0
+Successful. Package NO. 103 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/errors  Num of Lock & <-: 0
+Successful. Package NO. 104 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/config  Num of Lock & <-: 0
+Successful. Package NO. 105 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/cloud  Num of Lock & <-: 0
+Successful. Package NO. 106 : github.com/cockroachdb/cockroach/pkg/col/coltypes  Num of Lock & <-: 0
+Successful. Package NO. 107 : github.com/cockroachdb/cockroach/pkg/cmd/returncheck  Num of Lock & <-: 0
+Successful. Package NO. 108 : github.com/cockroachdb/cockroach/pkg/cmd/publish-provisional-artifacts  Num of Lock & <-: 0
+Successful. Package NO. 109 : github.com/cockroachdb/cockroach/pkg/cmd/publish-artifacts  Num of Lock & <-: 0
+Successful. Package NO. 110 : github.com/cockroachdb/cockroach/pkg/cmd/protoc-gen-gogoroach  Num of Lock & <-: 0
+Successful. Package NO. 111 : github.com/cockroachdb/cockroach/pkg/cmd/prereqs/testdata/src/example.com/test  Num of Lock & <-: 0
+Fail. Package NO. 112 : github.com/cockroachdb/cockroach/pkg/cmd/prereqs/testdata/src/example.com/specialchars  Num of Lock & <-: 0  error: type_err
+Successful. Package NO. 113 : github.com/cockroachdb/cockroach/pkg/cmd/prereqs/testdata/src/example.com/b  Num of Lock & <-: 0
+Fail. Package NO. 114 : github.com/cockroachdb/cockroach/pkg/cmd/prereqs/testdata/src/example.com/a  Num of Lock & <-: 0  error: load_err
+Successful. Package NO. 115 : github.com/cockroachdb/cockroach/pkg/cmd/prereqs  Num of Lock & <-: 0
+Successful. Package NO. 116 : github.com/cockroachdb/cockroach/pkg/cmd/internal/issues  Num of Lock & <-: 0
+Successful. Package NO. 117 : github.com/cockroachdb/cockroach/pkg/cmd/gossipsim  Num of Lock & <-: 0
+Successful. Package NO. 118 : github.com/cockroachdb/cockroach/pkg/roachpb  Num of Lock & <-: 0
+Successful. Package NO. 119 : github.com/cockroachdb/cockroach/pkg/cmd/github-post  Num of Lock & <-: 0
+Successful. Package NO. 120 : github.com/cockroachdb/cockroach/pkg/cmd/generate-binary  Num of Lock & <-: 0
+Successful. Package NO. 121 : github.com/cockroachdb/cockroach/pkg/cmd/fuzz  Num of Lock & <-: 0
+Successful. Package NO. 122 : github.com/cockroachdb/cockroach/pkg/keys  Num of Lock & <-: 0
+Fail. Package NO. 123 : github.com/cockroachdb/cockroach/pkg/cmd/cockroach-short  Num of Lock & <-: 0  error: load_err
+Fail. Package NO. 124 : github.com/cockroachdb/cockroach/pkg/cmd/cockroach-oss  Num of Lock & <-: 0  error: load_err
+Fail. Package NO. 125 : github.com/cockroachdb/cockroach/pkg/cmd/cockroach  Num of Lock & <-: 0  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/cmd/cockroach-short
+Successful. Package NO. 126 : github.com/cockroachdb/cockroach/pkg/cmd/cmpconn  Num of Lock & <-: 0
+Successful. Package NO. 127 : github.com/cockroachdb/cockroach/pkg/cmd/cmp-sql  Num of Lock & <-: 0
+Successful. Package NO. 128 : github.com/cockroachdb/cockroach/pkg/cmd/cmdutil  Num of Lock & <-: 0
+Successful. Package NO. 129 : github.com/cockroachdb/cockroach/pkg/geo  Num of Lock & <-: 0
+Fail. Package NO. 130 : github.com/cockroachdb/cockroach/pkg/ccl/workloadccl/roachmartccl  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 131 : github.com/cockroachdb/cockroach/pkg/ccl/workloadccl/format  Num of Lock & <-: 0  error: load_err
+Fail. Package NO. 132 : github.com/cockroachdb/cockroach/pkg/ccl/workloadccl/cliccl  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 133 : github.com/cockroachdb/cockroach/pkg/ccl/workloadccl/allccl  Num of Lock & <-: 0  error: load_err
+Fail. Package NO. 134 : github.com/cockroachdb/cockroach/pkg/ccl/workloadccl  Num of Lock & <-: 0  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/workloadccl/roachmartccl
+Fail. Package NO. 135 : github.com/cockroachdb/cockroach/pkg/ccl/utilccl/sampledataccl  Num of Lock & <-: 0  error: load_err
+Successful. Package NO. 136 : github.com/cockroachdb/cockroach/pkg/ccl/utilccl/licenseccl  Num of Lock & <-: 0
+Successful. Package NO. 137 : github.com/cockroachdb/cockroach/pkg/ccl/utilccl  Num of Lock & <-: 0
+Successful. Package NO. 138 : github.com/cockroachdb/cockroach/pkg/geo/geopb  Num of Lock & <-: 0
+Fail. Package NO. 139 : github.com/cockroachdb/cockroach/pkg/ccl/serverccl  Num of Lock & <-: 0  error: load_err
+Fail. Package NO. 140 : github.com/cockroachdb/cockroach/pkg/ccl/logictestccl  Num of Lock & <-: 0  error: load_err
+Successful. Package NO. 141 : github.com/cockroachdb/cockroach/pkg/ccl/gssapiccl  Num of Lock & <-: 0
+Fail. Package NO. 142 : github.com/cockroachdb/cockroach/pkg/ccl/followerreadsccl  Num of Lock & <-: 0  error: load_err
+Successful. Package NO. 143 : github.com/cockroachdb/cockroach/pkg/ccl/cmdccl/enc_utils  Num of Lock & <-: 0
+Successful. Package NO. 144 : github.com/cockroachdb/cockroach/pkg/ccl/cliccl/cliflagsccl  Num of Lock & <-: 0
+Fail. Package NO. 145 : github.com/cockroachdb/cockroach/pkg/ccl/cliccl  Num of Lock & <-: 0  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/cliccl/cliflagsccl
+Successful. Package NO. 146 : github.com/cockroachdb/cockroach/pkg/ccl/buildccl  Num of Lock & <-: 0
+Successful. Package NO. 147 : github.com/cockroachdb/cockroach/pkg/ccl/baseccl  Num of Lock & <-: 0
+Successful. Package NO. 148 : github.com/cockroachdb/cockroach/pkg/geo/geos  Num of Lock & <-: 0
+Successful. Package NO. 149 : github.com/cockroachdb/cockroach/pkg/build  Num of Lock & <-: 0
+Successful. Package NO. 150 : github.com/cockroachdb/cockroach/pkg/blobs/blobspb  Num of Lock & <-: 0
+Successful. Package NO. 151 : github.com/cockroachdb/cockroach/pkg/blobs  Num of Lock & <-: 0
+Fail. Package NO. 152 : github.com/cockroachdb/cockroach/c-deps/protobuf/examples  Num of Lock & <-: 0  error: type_err

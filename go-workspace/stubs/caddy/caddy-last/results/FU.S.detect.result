@@ -1,0 +1,32 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : github.com/caddyserver/caddy/modules/caddytls  Num of Lock & <-: 24  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/modules/caddytls/standardstek
+	Successfully built sub-Package NO. 1 :	 github.com/caddyserver/caddy/modules/caddytls/distributedstek
+Fail. Package NO. 1 : github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy  Num of Lock & <-: 12  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy/fastcgi
+Fail. Package NO. 2 : github.com/caddyserver/caddy/modules/caddyhttp  Num of Lock & <-: 12  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy
+	Successfully built sub-Package NO. 1 :	 github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy/fastcgi
+	Successfully built sub-Package NO. 2 :	 github.com/caddyserver/caddy/modules/caddyhttp/rewrite
+	Successfully built sub-Package NO. 3 :	 github.com/caddyserver/caddy/modules/caddyhttp/standard
+	Successfully built sub-Package NO. 4 :	 github.com/caddyserver/caddy/modules/caddyhttp/templates
+Fail. Package NO. 3 : github.com/caddyserver/caddy/modules/caddypki  Num of Lock & <-: 5  error: type_err
+Fail. Package NO. 4 : github.com/caddyserver/caddy/cmd  Num of Lock & <-: 3  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/cmd/caddy
+Fail. Package NO. 5 : github.com/caddyserver/caddy/modules/caddyhttp/headers  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 6 : github.com/caddyserver/caddy/modules/caddyhttp/encode  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/modules/caddyhttp/encode/gzip
+	Successfully built sub-Package NO. 1 :	 github.com/caddyserver/caddy/modules/caddyhttp/encode/zstd
+Fail. Package NO. 7 : github.com/caddyserver/caddy/modules/caddyhttp/fileserver  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 8 : github.com/caddyserver/caddy/modules/caddyhttp/caddyauth  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 9 : github.com/caddyserver/caddy/modules/caddyhttp/requestbody  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 10 : github.com/caddyserver/caddy/caddyconfig  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/caddyconfig/httpcaddyfile
+	Successfully built sub-Package NO. 1 :	 github.com/caddyserver/caddy/caddyconfig/caddyfile
+Fail. Package NO. 11 : github.com/caddyserver/caddy/caddytest/integration  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 12 : github.com/caddyserver/caddy/caddytest  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/caddytest/integration
+Fail. Package NO. 13 : github.com/caddyserver/caddy/modules/filestorage  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 14 : github.com/caddyserver/caddy/modules/logging  Num of Lock & <-: 0  error: type_err
+Fail. Package NO. 15 : github.com/caddyserver/caddy/modules/standard  Num of Lock & <-: 0  error: type_err

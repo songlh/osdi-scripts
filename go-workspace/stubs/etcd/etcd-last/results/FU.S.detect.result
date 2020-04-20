@@ -1,0 +1,85 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : go.etcd.io/etcd/etcdserver  Num of Lock & <-: 635
+Successful. Package NO. 1 : go.etcd.io/etcd/clientv3  Num of Lock & <-: 412
+Successful. Package NO. 2 : go.etcd.io/etcd/integration  Num of Lock & <-: 214
+Successful. Package NO. 3 : go.etcd.io/etcd/mvcc  Num of Lock & <-: 206
+Successful. Package NO. 4 : go.etcd.io/etcd/clientv3/integration  Num of Lock & <-: 202
+Successful. Package NO. 5 : go.etcd.io/etcd/raft  Num of Lock & <-: 144
+Successful. Package NO. 6 : go.etcd.io/etcd/proxy/grpcproxy  Num of Lock & <-: 129
+Successful. Package NO. 7 : go.etcd.io/etcd/pkg/proxy  Num of Lock & <-: 97
+Successful. Package NO. 8 : go.etcd.io/etcd/lease  Num of Lock & <-: 63
+Successful. Package NO. 9 : go.etcd.io/etcd/contrib/raftexample  Num of Lock & <-: 60
+Successful. Package NO. 10 : go.etcd.io/etcd/client  Num of Lock & <-: 46
+Successful. Package NO. 11 : go.etcd.io/etcd/auth  Num of Lock & <-: 45
+Successful. Package NO. 12 : go.etcd.io/etcd/etcdctl  Num of Lock & <-: 43
+Successful. Package NO. 13 : go.etcd.io/etcd/pkg/transport  Num of Lock & <-: 41
+Successful. Package NO. 14 : go.etcd.io/etcd/tests/e2e  Num of Lock & <-: 39
+Successful. Package NO. 15 : go.etcd.io/etcd/etcdctl/ctlv3/command  Num of Lock & <-: 36
+Successful. Package NO. 16 : go.etcd.io/etcd/etcdctl/ctlv3  Num of Lock & <-: 36
+Successful. Package NO. 17 : go.etcd.io/etcd/tools/benchmark  Num of Lock & <-: 36
+----------Bug[1]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/tools/benchmark/cmd/stm.go	Line:183
+
+Successful. Package NO. 18 : go.etcd.io/etcd/tools/benchmark/cmd  Num of Lock & <-: 36
+Successful. Package NO. 19 : go.etcd.io/etcd/pkg/report  Num of Lock & <-: 32
+Successful. Package NO. 20 : go.etcd.io/etcd/pkg/fileutil  Num of Lock & <-: 31
+Successful. Package NO. 21 : go.etcd.io/etcd/pkg/wait  Num of Lock & <-: 29
+Successful. Package NO. 22 : go.etcd.io/etcd/pkg/adt  Num of Lock & <-: 28
+Successful. Package NO. 23 : go.etcd.io/etcd/functional/agent  Num of Lock & <-: 23
+Successful. Package NO. 24 : go.etcd.io/etcd/functional/tester  Num of Lock & <-: 23
+Successful. Package NO. 25 : go.etcd.io/etcd/pkg/testutil  Num of Lock & <-: 17
+Successful. Package NO. 26 : go.etcd.io/etcd/embed  Num of Lock & <-: 17
+Successful. Package NO. 27 : go.etcd.io/etcd/wal  Num of Lock & <-: 14
+Successful. Package NO. 28 : go.etcd.io/etcd/pkg/schedule  Num of Lock & <-: 13
+Successful. Package NO. 29 : go.etcd.io/etcd/functional/runner  Num of Lock & <-: 13
+Successful. Package NO. 30 : go.etcd.io/etcd/etcdmain  Num of Lock & <-: 11
+Successful. Package NO. 31 : go.etcd.io/etcd/tools/etcd-dump-metrics  Num of Lock & <-: 10
+Successful. Package NO. 32 : go.etcd.io/etcd/pkg/osutil  Num of Lock & <-: 8
+Successful. Package NO. 33 : go.etcd.io/etcd/etcdctl/ctlv2  Num of Lock & <-: 7
+Successful. Package NO. 34 : go.etcd.io/etcd/etcdctl/ctlv2/command  Num of Lock & <-: 7
+Successful. Package NO. 35 : go.etcd.io/etcd/proxy/tcpproxy  Num of Lock & <-: 7
+Successful. Package NO. 36 : go.etcd.io/etcd/functional/cmd/etcd-proxy  Num of Lock & <-: 6
+Successful. Package NO. 37 : go.etcd.io/etcd/proxy/httpproxy  Num of Lock & <-: 6
+Successful. Package NO. 38 : go.etcd.io/etcd/pkg/expect  Num of Lock & <-: 5
+Successful. Package NO. 39 : go.etcd.io/etcd/tools/local-tester/bridge  Num of Lock & <-: 4
+Successful. Package NO. 40 : go.etcd.io/etcd/pkg/mock/mockserver  Num of Lock & <-: 2
+Successful. Package NO. 41 : go.etcd.io/etcd/pkg/netutil  Num of Lock & <-: 2
+Successful. Package NO. 42 : go.etcd.io/etcd/pkg/types  Num of Lock & <-: 2
+Successful. Package NO. 43 : go.etcd.io/etcd/pkg/contention  Num of Lock & <-: 2
+Successful. Package NO. 44 : go.etcd.io/etcd/functional/rpcpb  Num of Lock & <-: 1
+Successful. Package NO. 45 : go.etcd.io/etcd/Documentation/learning/lock/client  Num of Lock & <-: 1
+----------Bug[2]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/Documentation/learning/lock/client/client.go	Line:201
+
+Successful. Package NO. 46 : go.etcd.io/etcd/pkg/mock/mockwait  Num of Lock & <-: 1
+Successful. Package NO. 47 : go.etcd.io/etcd/pkg/crc  Num of Lock & <-: 0
+Successful. Package NO. 48 : go.etcd.io/etcd/pkg/httputil  Num of Lock & <-: 0
+Successful. Package NO. 49 : go.etcd.io/etcd/pkg/idutil  Num of Lock & <-: 0
+Successful. Package NO. 50 : go.etcd.io/etcd/pkg/ioutil  Num of Lock & <-: 0
+Successful. Package NO. 51 : go.etcd.io/etcd/pkg/logutil  Num of Lock & <-: 0
+Successful. Package NO. 52 : go.etcd.io/etcd/pkg/mock/mockstorage  Num of Lock & <-: 0
+Successful. Package NO. 53 : go.etcd.io/etcd/pkg/mock/mockstore  Num of Lock & <-: 0
+Successful. Package NO. 54 : go.etcd.io/etcd/pkg/pathutil  Num of Lock & <-: 0
+Successful. Package NO. 55 : go.etcd.io/etcd/pkg/pbutil  Num of Lock & <-: 0
+Successful. Package NO. 56 : go.etcd.io/etcd/pkg/runtime  Num of Lock & <-: 0
+Successful. Package NO. 57 : go.etcd.io/etcd/pkg/cpuutil  Num of Lock & <-: 0
+Successful. Package NO. 58 : go.etcd.io/etcd/pkg/srv  Num of Lock & <-: 0
+Successful. Package NO. 59 : go.etcd.io/etcd/pkg/stringutil  Num of Lock & <-: 0
+Successful. Package NO. 60 : go.etcd.io/etcd/pkg/systemd  Num of Lock & <-: 0
+Successful. Package NO. 61 : go.etcd.io/etcd/pkg/flags  Num of Lock & <-: 0
+Successful. Package NO. 62 : go.etcd.io/etcd/pkg/tlsutil  Num of Lock & <-: 0
+Successful. Package NO. 63 : go.etcd.io/etcd/pkg/traceutil  Num of Lock & <-: 0
+Successful. Package NO. 64 : go.etcd.io/etcd/functional/cmd/etcd-tester  Num of Lock & <-: 0
+Successful. Package NO. 65 : go.etcd.io/etcd/contrib/recipes  Num of Lock & <-: 0
+Successful. Package NO. 66 : go.etcd.io/etcd/functional/cmd/etcd-runner  Num of Lock & <-: 0
+Successful. Package NO. 67 : go.etcd.io/etcd/functional/cmd/etcd-agent  Num of Lock & <-: 0
+Successful. Package NO. 68 : go.etcd.io/etcd/pkg/debugutil  Num of Lock & <-: 0
+Successful. Package NO. 69 : go.etcd.io/etcd/tools/etcd-dump-db  Num of Lock & <-: 0
+Successful. Package NO. 70 : go.etcd.io/etcd/tools/etcd-dump-logs  Num of Lock & <-: 0
+Successful. Package NO. 71 : go.etcd.io/etcd/version  Num of Lock & <-: 0
+Successful. Package NO. 72 : go.etcd.io/etcd/Documentation/learning/lock/storage  Num of Lock & <-: 0
