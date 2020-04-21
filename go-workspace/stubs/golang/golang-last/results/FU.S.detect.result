@@ -1,0 +1,235 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : runtime  Num of Lock & <-: 1460
+Lowest common: 5
+----------Bug[1]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/math/big/natconv.go	Line:511
+
+Successful. Package NO. 1 : net  Num of Lock & <-: 1207
+Successful. Package NO. 2 : runtime/race  Num of Lock & <-: 906
+Fail. Package NO. 3 : runtime/race/testdata  Num of Lock & <-: 874  error: type_err
+Successful. Package NO. 4 : net/http  Num of Lock & <-: 861
+----------Bug[2]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport_test.go	Line:3714
+
+----------Bug[3]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/net/http/clientserver_test.go	Line:146
+
+----------Bug[4]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport_test.go	Line:3630
+
+----------Bug[5]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport_test.go	Line:3670
+
+Successful. Package NO. 5 : crypto  Num of Lock & <-: 183
+Successful. Package NO. 6 : cmd/compile  Num of Lock & <-: 154
+Lowest common: 1
+----------Bug[6]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/go/constant/value.go	Line:166
+
+Successful. Package NO. 7 : sync  Num of Lock & <-: 148
+Successful. Package NO. 8 : database/sql  Num of Lock & <-: 135
+----------Bug[7]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go	Line:1344
+
+Successful. Package NO. 9 : os  Num of Lock & <-: 132
+Successful. Package NO. 10 : go/types  Num of Lock & <-: 122
+Successful. Package NO. 11 : cmd/go  Num of Lock & <-: 122
+----------Bug[8]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/modfetch/fetch.go	Line:517
+
+Successful. Package NO. 12 : crypto/tls  Num of Lock & <-: 116
+Successful. Package NO. 13 : cmd/internal/obj  Num of Lock & <-: 103
+Successful. Package NO. 14 : cmd/internal/obj/s390x  Num of Lock & <-: 97
+Successful. Package NO. 15 : context  Num of Lock & <-: 78
+Successful. Package NO. 16 : cmd/compile/internal/gc  Num of Lock & <-: 73
+Successful. Package NO. 17 : testing  Num of Lock & <-: 71
+Successful. Package NO. 18 : reflect  Num of Lock & <-: 68
+Successful. Package NO. 19 : os/signal  Num of Lock & <-: 53
+Successful. Package NO. 20 : go/printer  Num of Lock & <-: 48
+Successful. Package NO. 21 : crypto/elliptic  Num of Lock & <-: 47
+Successful. Package NO. 22 : time  Num of Lock & <-: 47
+Successful. Package NO. 23 : cmd/compile/internal/syntax  Num of Lock & <-: 42
+Fail. Package NO. 24 : go/printer/testdata  Num of Lock & <-: 41  error: type_err
+Successful. Package NO. 25 : cmd/compile/internal/ssa  Num of Lock & <-: 37
+Successful. Package NO. 26 : syscall  Num of Lock & <-: 36
+Successful. Package NO. 27 : io  Num of Lock & <-: 33
+Successful. Package NO. 28 : cmd/go/internal/lockedfile  Num of Lock & <-: 25
+Successful. Package NO. 29 : log  Num of Lock & <-: 24
+Successful. Package NO. 30 : cmd/go/internal/modfetch  Num of Lock & <-: 23
+Successful. Package NO. 31 : encoding  Num of Lock & <-: 22
+Successful. Package NO. 32 : go/parser  Num of Lock & <-: 21
+Successful. Package NO. 33 : go/token  Num of Lock & <-: 21
+Fail. Package NO. 34 : cmd/compile/internal/ssa/gen  Num of Lock & <-: 20  error: type_err
+Successful. Package NO. 35 : internal/poll  Num of Lock & <-: 18
+Successful. Package NO. 36 : cmd/go/internal/work  Num of Lock & <-: 16
+Successful. Package NO. 37 : cmd/go/internal/modfetch/codehost  Num of Lock & <-: 16
+Successful. Package NO. 38 : cmd/dist  Num of Lock & <-: 15
+Successful. Package NO. 39 : log/syslog  Num of Lock & <-: 15
+Successful. Package NO. 40 : image  Num of Lock & <-: 14
+Fail. Package NO. 41 : go/doc/testdata  Num of Lock & <-: 12  error: type_err
+Successful. Package NO. 42 : go/doc  Num of Lock & <-: 12
+Successful. Package NO. 43 : expvar  Num of Lock & <-: 11
+Successful. Package NO. 44 : internal/singleflight  Num of Lock & <-: 11
+Fail. Package NO. 45 : cmd/cover/testdata  Num of Lock & <-: 10  error: type_err
+	Successfully built sub-Package NO. 0 :	 cmd/cover/testdata/html
+Successful. Package NO. 46 : encoding/gob  Num of Lock & <-: 10
+Successful. Package NO. 47 : cmd/cover  Num of Lock & <-: 10
+Successful. Package NO. 48 : internal/reflectlite  Num of Lock & <-: 10
+Successful. Package NO. 49 : html  Num of Lock & <-: 9
+Successful. Package NO. 50 : html/template  Num of Lock & <-: 9
+Successful. Package NO. 51 : mime  Num of Lock & <-: 9
+Successful. Package NO. 52 : crypto/rsa  Num of Lock & <-: 9
+Successful. Package NO. 53 : compress/flate  Num of Lock & <-: 9
+----------Bug[9]----------
+	Type: Missing Unlock 	Reason: Unlock operation of a Mutex/RWMutex is missing.
+	Location of multiple buggy instructions:
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/compress/flate/deflate_test.go	Line:207
+
+Successful. Package NO. 54 : math  Num of Lock & <-: 9
+Successful. Package NO. 55 : go/internal/gccgoimporter  Num of Lock & <-: 8
+Successful. Package NO. 56 : cmd/go/internal/test  Num of Lock & <-: 8
+Successful. Package NO. 57 : cmd/link/internal/ld  Num of Lock & <-: 8
+Successful. Package NO. 58 : encoding/base64  Num of Lock & <-: 8
+Successful. Package NO. 59 : cmd/link  Num of Lock & <-: 8
+Successful. Package NO. 60 : go/internal/gcimporter  Num of Lock & <-: 6
+Successful. Package NO. 61 : text/template  Num of Lock & <-: 6
+Successful. Package NO. 62 : archive/zip  Num of Lock & <-: 6
+Fail. Package NO. 63 : go/internal/gcimporter/testdata  Num of Lock & <-: 5  error: type_err
+	Successfully built sub-Package NO. 0 :	 go/internal/gcimporter/testdata/versions
+Fail. Package NO. 64 : go/internal/gccgoimporter/testdata  Num of Lock & <-: 5  error: type_err
+Successful. Package NO. 65 : math/rand  Num of Lock & <-: 5
+Successful. Package NO. 66 : text/template/parse  Num of Lock & <-: 4
+Successful. Package NO. 67 : mime/quotedprintable  Num of Lock & <-: 4
+Successful. Package NO. 68 : cmd/trace  Num of Lock & <-: 4
+Successful. Package NO. 69 : compress/gzip  Num of Lock & <-: 3
+Successful. Package NO. 70 : go/ast  Num of Lock & <-: 3
+Successful. Package NO. 71 : cmd/internal/browser  Num of Lock & <-: 3
+Successful. Package NO. 72 : math/big  Num of Lock & <-: 3
+Successful. Package NO. 73 : go/constant  Num of Lock & <-: 3
+Successful. Package NO. 74 : bufio  Num of Lock & <-: 3
+Successful. Package NO. 75 : crypto/x509  Num of Lock & <-: 3
+Successful. Package NO. 76 : image/jpeg  Num of Lock & <-: 3
+Successful. Package NO. 77 : crypto/rand  Num of Lock & <-: 3
+Successful. Package NO. 78 : mime/multipart  Num of Lock & <-: 3
+Successful. Package NO. 79 : debug/pe  Num of Lock & <-: 2
+Successful. Package NO. 80 : cmd/doc  Num of Lock & <-: 2
+Successful. Package NO. 81 : text/tabwriter  Num of Lock & <-: 2
+Successful. Package NO. 82 : debug/gosym  Num of Lock & <-: 2
+Successful. Package NO. 83 : crypto/internal/randutil  Num of Lock & <-: 2
+Successful. Package NO. 84 : cmd/api  Num of Lock & <-: 2
+Successful. Package NO. 85 : strings  Num of Lock & <-: 2
+Successful. Package NO. 86 : cmd/vet  Num of Lock & <-: 2
+Fail. Package NO. 87 : builtin  Num of Lock & <-: 2  error: type_err
+Successful. Package NO. 88 : compress/bzip2  Num of Lock & <-: 2
+Successful. Package NO. 89 : go/scanner  Num of Lock & <-: 2
+Successful. Package NO. 90 : cmd/oldlink  Num of Lock & <-: 2
+Successful. Package NO. 91 : plugin  Num of Lock & <-: 2
+Successful. Package NO. 92 : cmd/oldlink/internal/ld  Num of Lock & <-: 2
+Successful. Package NO. 93 : cmd/pprof  Num of Lock & <-: 1
+Successful. Package NO. 94 : cmd/asm  Num of Lock & <-: 1
+Successful. Package NO. 95 : cmd/compile/internal/types  Num of Lock & <-: 1
+Successful. Package NO. 96 : cmd/asm/internal/asm  Num of Lock & <-: 1
+Successful. Package NO. 97 : cmd/compile/internal/logopt  Num of Lock & <-: 1
+Successful. Package NO. 98 : container/ring  Num of Lock & <-: 1
+Successful. Package NO. 99 : text/scanner  Num of Lock & <-: 1
+Successful. Package NO. 100 : cmd/vet/testdata/assign  Num of Lock & <-: 1
+Successful. Package NO. 101 : debug/elf  Num of Lock & <-: 1
+Successful. Package NO. 102 : cmd/internal/test2json  Num of Lock & <-: 0
+Successful. Package NO. 103 : cmd/internal/goobj/testdata  Num of Lock & <-: 0
+Successful. Package NO. 104 : cmd/internal/goobj/testdata/mycgo  Num of Lock & <-: 0
+Successful. Package NO. 105 : cmd/internal/goobj  Num of Lock & <-: 0
+Successful. Package NO. 106 : cmd/internal/gcprog  Num of Lock & <-: 0
+Successful. Package NO. 107 : compress/lzw  Num of Lock & <-: 0
+Successful. Package NO. 108 : compress/zlib  Num of Lock & <-: 0
+Successful. Package NO. 109 : container/heap  Num of Lock & <-: 0
+Successful. Package NO. 110 : container/list  Num of Lock & <-: 0
+Successful. Package NO. 111 : cmd/internal/edit  Num of Lock & <-: 0
+Successful. Package NO. 112 : cmd/internal/dwarf  Num of Lock & <-: 0
+Successful. Package NO. 113 : cmd/internal/src  Num of Lock & <-: 0
+Successful. Package NO. 114 : cmd/internal/diff  Num of Lock & <-: 0
+Successful. Package NO. 115 : cmd/internal/buildid  Num of Lock & <-: 0
+Successful. Package NO. 116 : cmd/internal/bio  Num of Lock & <-: 0
+Successful. Package NO. 117 : debug/dwarf  Num of Lock & <-: 0
+Successful. Package NO. 118 : cmd/internal/goobj2  Num of Lock & <-: 0
+Successful. Package NO. 119 : debug/macho  Num of Lock & <-: 0
+Successful. Package NO. 120 : cmd/internal/moddeps  Num of Lock & <-: 0
+Successful. Package NO. 121 : debug/plan9obj  Num of Lock & <-: 0
+Successful. Package NO. 122 : cmd/test2json  Num of Lock & <-: 0
+Successful. Package NO. 123 : errors  Num of Lock & <-: 0
+Successful. Package NO. 124 : flag  Num of Lock & <-: 0
+Successful. Package NO. 125 : fmt  Num of Lock & <-: 0
+Successful. Package NO. 126 : go/build  Num of Lock & <-: 0
+Successful. Package NO. 127 : cmd/pack  Num of Lock & <-: 0
+Successful. Package NO. 128 : go/format  Num of Lock & <-: 0
+Successful. Package NO. 129 : go/importer  Num of Lock & <-: 0
+Successful. Package NO. 130 : go/internal/srcimporter  Num of Lock & <-: 0
+Successful. Package NO. 131 : hash  Num of Lock & <-: 0
+Successful. Package NO. 132 : cmd/link/internal/sym  Num of Lock & <-: 0
+Successful. Package NO. 133 : unsafe  Num of Lock & <-: 0
+Successful. Package NO. 134 : index/suffixarray  Num of Lock & <-: 0
+Successful. Package NO. 135 : internal/bytealg  Num of Lock & <-: 0
+Successful. Package NO. 136 : internal/cfg  Num of Lock & <-: 0
+Successful. Package NO. 137 : internal/cpu  Num of Lock & <-: 0
+Successful. Package NO. 138 : internal/fmtsort  Num of Lock & <-: 0
+Successful. Package NO. 139 : internal/goroot  Num of Lock & <-: 0
+Successful. Package NO. 140 : internal/goversion  Num of Lock & <-: 0
+Successful. Package NO. 141 : internal/lazyregexp  Num of Lock & <-: 0
+Successful. Package NO. 142 : internal/lazytemplate  Num of Lock & <-: 0
+Successful. Package NO. 143 : internal/nettrace  Num of Lock & <-: 0
+Successful. Package NO. 144 : internal/obscuretestdata  Num of Lock & <-: 0
+Successful. Package NO. 145 : internal/oserror  Num of Lock & <-: 0
+Successful. Package NO. 146 : internal/race  Num of Lock & <-: 0
+Successful. Package NO. 147 : internal/syscall/execenv  Num of Lock & <-: 0
+Successful. Package NO. 148 : internal/syscall/unix  Num of Lock & <-: 0
+Fail. Package NO. 149 : internal/syscall/windows  Num of Lock & <-: 0  error: type_err
+	Successfully built sub-Package NO. 0 :	 internal/syscall/windows/registry
+	Successfully built sub-Package NO. 1 :	 internal/syscall/windows/sysdll
+Successful. Package NO. 150 : internal/testenv  Num of Lock & <-: 0
+Successful. Package NO. 151 : internal/testlog  Num of Lock & <-: 0
+Successful. Package NO. 152 : internal/trace  Num of Lock & <-: 0
+Successful. Package NO. 153 : internal/xcoff  Num of Lock & <-: 0
+Successful. Package NO. 154 : cmd/fix  Num of Lock & <-: 0
+Successful. Package NO. 155 : cmd/objdump  Num of Lock & <-: 0
+Successful. Package NO. 156 : cmd/compile/internal/x86  Num of Lock & <-: 0
+Successful. Package NO. 157 : cmd/compile/internal/wasm  Num of Lock & <-: 0
+Successful. Package NO. 158 : cmd/compile/internal/test  Num of Lock & <-: 0
+Successful. Package NO. 159 : cmd/compile/internal/s390x  Num of Lock & <-: 0
+Successful. Package NO. 160 : cmd/compile/internal/riscv64  Num of Lock & <-: 0
+Successful. Package NO. 161 : cmd/compile/internal/ppc64  Num of Lock & <-: 0
+Successful. Package NO. 162 : path  Num of Lock & <-: 0
+Successful. Package NO. 163 : cmd/compile/internal/mips64  Num of Lock & <-: 0
+Successful. Package NO. 164 : cmd/compile/internal/mips  Num of Lock & <-: 0
+Successful. Package NO. 165 : regexp  Num of Lock & <-: 0
+Successful. Package NO. 166 : cmd/compile/internal/arm64  Num of Lock & <-: 0
+Successful. Package NO. 167 : cmd/compile/internal/arm  Num of Lock & <-: 0
+Successful. Package NO. 168 : cmd/compile/internal/amd64  Num of Lock & <-: 0
+Successful. Package NO. 169 : cmd/nm  Num of Lock & <-: 0
+Successful. Package NO. 170 : cmd/cgo  Num of Lock & <-: 0
+Successful. Package NO. 171 : cmd/buildid  Num of Lock & <-: 0
+Successful. Package NO. 172 : sort  Num of Lock & <-: 0
+Successful. Package NO. 173 : strconv  Num of Lock & <-: 0
+Successful. Package NO. 174 : cmd/asm/internal/lex  Num of Lock & <-: 0
+Successful. Package NO. 175 : cmd/asm/internal/flags  Num of Lock & <-: 0
+Successful. Package NO. 176 : cmd/asm/internal/arch  Num of Lock & <-: 0
+Successful. Package NO. 177 : cmd/internal/sys  Num of Lock & <-: 0
+Successful. Package NO. 178 : cmd/addr2line  Num of Lock & <-: 0
+Successful. Package NO. 179 : bytes  Num of Lock & <-: 0
+Successful. Package NO. 180 : unicode  Num of Lock & <-: 0
+Successful. Package NO. 181 : archive/tar  Num of Lock & <-: 0

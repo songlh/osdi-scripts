@@ -2,7 +2,7 @@
 
 # Global
 WORKSPACE=/data/suz305/go-workspace/
-export CHECK=/data/suz305/go-workspace/my-tools/bin/staticchecker_4_10
+export CHECK=/data/suz305/go-workspace/my-tools/bin/gochecker_4_10
 GO_4_10=/data/suz305/go-workspace/go-4.10
 
 function check_go() {
@@ -21,7 +21,7 @@ function check_go() {
     PATH_TO_APP=${GOPATH}/src/
 
     pushd ${PATH_TO_APP} > /dev/null
-    $CHECK -path=${PATH_TO_APP} -include=${APP_URL} -r > ${GOPATH}/results/FU.detect.result; echo "${APP} done"
+    $CHECK -path=${PATH_TO_APP} -include=${APP_URL} -r > ${GOPATH}/results/FU.S.detect.result; echo "${APP} done"
     popd > /dev/null
 
     export PATH=$OLD_PATH
