@@ -1,0 +1,180 @@
+Successfully built whole program. Now running checkers
+----------Bug[1]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/etcdserver/api/membership.RaftCluster	Field:lg
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:278
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:428	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:533	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:367	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:477	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:524	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:480	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:256	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:255	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:248	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:370	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:522	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:390	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:461	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:250	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:252	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:458	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:425	Protected by:[c._mutex]
+----------Bug[2]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/etcdserver/api/membership.RaftCluster	Field:v2store
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:237
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:278
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:457	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:367	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:390	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:389	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:424	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:425	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:524	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:248	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:366	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:458	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:476	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:477	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:252	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:523	Protected by:[c._mutex]
+----------Bug[3]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/etcdserver/api/membership.RaftCluster	Field:be
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:240
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:241
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:249	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:460	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:427	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:479	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:526	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:527	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:392	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:250	Protected by:[c._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/membership/cluster.go:369	Protected by:[c._mutex]
+----------Bug[4]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/mvcc.store	Field:compactMainRev
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore_txn.go:125
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore_txn.go:42	Protected by:[s.mu.R_rwmutexR s.revMu.R_rwmutexR tx.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:177	Protected by:[s.mu.R_rwmutexR s.revMu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:357	Protected by:[tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:363	Protected by:[tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:399	Protected by:[tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:401	Protected by:[tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:333	Protected by:[s.mu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/watchable_store.go:346	Protected by:[s.mu._rwmutexW s.store.revMu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:239	Protected by:[s.revMu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:227	Protected by:[s.revMu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:398	Protected by:[tx._mutex]
+----------Bug[5]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/mvcc.store	Field:currentRev
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:169
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/watchable_store.go:131	Protected by:[s.mu._rwmutexW s.revMu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore_txn.go:108	Protected by:[tw.s.revMu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/watchable_store.go:129	Protected by:[s.mu._rwmutexW s.revMu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:177	Protected by:[s.mu.R_rwmutexR s.revMu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:398	Protected by:[tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore_txn.go:74	Protected by:[s.mu.R_rwmutexR tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:332	Protected by:[s.mu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:399	Protected by:[tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/watchable_store.go:296	Protected by:[s.mu._rwmutexW s.store.revMu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:234	Protected by:[s.revMu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore_txn.go:42	Protected by:[s.mu.R_rwmutexR s.revMu.R_rwmutexR tx.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/kvstore.go:393	Protected by:[tx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/watchable_store.go:345	Protected by:[s.mu._rwmutexW s.store.revMu.R_rwmutexR]
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : go.etcd.io/etcd/integration  Num of Lock & <-: 210
+Successful. Package NO. 1 : go.etcd.io/etcd/clientv3/integration  Num of Lock & <-: 200
+Successful. Package NO. 2 : go.etcd.io/etcd/etcdserver  Num of Lock & <-: 629
+----------Bug[6]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/etcdserver/api/v2store.TTLOptionSet	Field:Refresh
+	Where it is unprotected:
+		Inst at :0
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:322	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:526	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:550	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:215	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:237	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:301	Protected by:[s.world_rwmutexW]
+----------Bug[7]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/etcdserver/api/v2store.Event	Field:EtcdIndex
+	Where it is unprotected:
+		Inst at :0
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/event.go:63
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:184	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:309	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:153	Protected by:[s.world_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:683	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:433	Protected by:[s.world_rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/etcdserver/api/v2store/store.go:228	Protected by:[s.world_rwmutexW]
+Successful. Package NO. 3 : go.etcd.io/etcd/mvcc  Num of Lock & <-: 205
+Successful. Package NO. 4 : go.etcd.io/etcd/raft  Num of Lock & <-: 144
+Successful. Package NO. 5 : go.etcd.io/etcd/clientv3  Num of Lock & <-: 409
+Successful. Package NO. 6 : go.etcd.io/etcd/proxy/grpcproxy  Num of Lock & <-: 126
+Successful. Package NO. 7 : go.etcd.io/etcd/pkg/proxy  Num of Lock & <-: 97
+Successful. Package NO. 8 : go.etcd.io/etcd/contrib/raftexample  Num of Lock & <-: 60
+Successful. Package NO. 9 : go.etcd.io/etcd/lease  Num of Lock & <-: 63
+Successful. Package NO. 10 : go.etcd.io/etcd/client  Num of Lock & <-: 46
+Successful. Package NO. 11 : go.etcd.io/etcd/auth  Num of Lock & <-: 45
+Successful. Package NO. 12 : go.etcd.io/etcd/pkg/transport  Num of Lock & <-: 41
+Successful. Package NO. 13 : go.etcd.io/etcd/tests/e2e  Num of Lock & <-: 39
+Successful. Package NO. 14 : go.etcd.io/etcd/tools/benchmark/cmd  Num of Lock & <-: 36
+Successful. Package NO. 15 : go.etcd.io/etcd/etcdctl/ctlv3/command  Num of Lock & <-: 36
+Successful. Package NO. 16 : go.etcd.io/etcd/pkg/report  Num of Lock & <-: 32
+Successful. Package NO. 17 : go.etcd.io/etcd/pkg/fileutil  Num of Lock & <-: 31
+Successful. Package NO. 18 : go.etcd.io/etcd/pkg/wait  Num of Lock & <-: 29
+Successful. Package NO. 19 : go.etcd.io/etcd/functional/tester  Num of Lock & <-: 23
+Successful. Package NO. 20 : go.etcd.io/etcd/functional/agent  Num of Lock & <-: 23
+Successful. Package NO. 21 : go.etcd.io/etcd/embed  Num of Lock & <-: 17
+Successful. Package NO. 22 : go.etcd.io/etcd/pkg/testutil  Num of Lock & <-: 17
+Successful. Package NO. 23 : go.etcd.io/etcd/wal  Num of Lock & <-: 14
+----------Bug[8]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:go.etcd.io/etcd/wal/walpb.Snapshot	Field:Index
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/walpb/record.pb.go:153
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/walpb/record.pb.go:116
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/walpb/record.pb.go:327
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/wal.go:415	Protected by:[w.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/wal.go:844	Protected by:[w.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/wal.go:414	Protected by:[w.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/wal.go:442	Protected by:[w.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/wal/wal.go:845	Protected by:[w.mu._mutex]
+Successful. Package NO. 24 : go.etcd.io/etcd/pkg/schedule  Num of Lock & <-: 13
+Successful. Package NO. 25 : go.etcd.io/etcd/functional/runner  Num of Lock & <-: 13
+Successful. Package NO. 26 : go.etcd.io/etcd/etcdmain  Num of Lock & <-: 11
+Successful. Package NO. 27 : go.etcd.io/etcd/tools/etcd-dump-metrics  Num of Lock & <-: 10
+Successful. Package NO. 28 : go.etcd.io/etcd/pkg/osutil  Num of Lock & <-: 8
+Successful. Package NO. 29 : go.etcd.io/etcd/etcdctl/ctlv2/command  Num of Lock & <-: 7
+Successful. Package NO. 30 : go.etcd.io/etcd/proxy/tcpproxy  Num of Lock & <-: 7
+Successful. Package NO. 31 : go.etcd.io/etcd/functional/cmd/etcd-proxy  Num of Lock & <-: 6
+Successful. Package NO. 32 : go.etcd.io/etcd/proxy/httpproxy  Num of Lock & <-: 6
+Successful. Package NO. 33 : go.etcd.io/etcd/pkg/expect  Num of Lock & <-: 5
+Successful. Package NO. 34 : go.etcd.io/etcd/tools/local-tester/bridge  Num of Lock & <-: 4
+Successful. Package NO. 35 : go.etcd.io/etcd/pkg/types  Num of Lock & <-: 2
+Successful. Package NO. 36 : go.etcd.io/etcd/pkg/contention  Num of Lock & <-: 2
+Successful. Package NO. 37 : go.etcd.io/etcd/pkg/netutil  Num of Lock & <-: 2
+Successful. Package NO. 38 : go.etcd.io/etcd/pkg/mock/mockserver  Num of Lock & <-: 2
+Successful. Package NO. 39 : go.etcd.io/etcd/Documentation/learning/lock/client  Num of Lock & <-: 1
+Successful. Package NO. 40 : go.etcd.io/etcd/pkg/mock/mockwait  Num of Lock & <-: 1
+Successful. Package NO. 41 : go.etcd.io/etcd/functional/rpcpb  Num of Lock & <-: 1
+Successful. Package NO. 42 : go.etcd.io/etcd/pkg/adt  Num of Lock & <-: 28
+Checked all packages containing concurrency. Now exit

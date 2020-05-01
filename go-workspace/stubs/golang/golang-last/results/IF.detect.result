@@ -1,0 +1,137 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : runtime/race/testdata  Num of Lock & <-: 776  error: type_err
+Successful. Package NO. 1 : net/http  Num of Lock & <-: 852
+----------Bug[1]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:net/http.wantConn	Field:key
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:1371
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:988	Protected by:[t.idleMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:1338	Protected by:[t.connsPerHostMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:1350	Protected by:[t.connsPerHostMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:986	Protected by:[t.idleMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:1353	Protected by:[t.connsPerHostMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:1002	Protected by:[t.idleMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:999	Protected by:[t.idleMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:946	Protected by:[t.idleMu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/net/http/transport.go:1342	Protected by:[t.connsPerHostMu._mutex]
+Successful. Package NO. 2 : runtime  Num of Lock & <-: 1460
+Error when building callgraph with nil Queries:
+ internal error in pointer analysis: ill-typed copy dst=n60615 src=n0 (please report this bug)
+Successful. Package NO. 3 : net  Num of Lock & <-: 1197
+Successful. Package NO. 4 : database/sql  Num of Lock & <-: 134
+----------Bug[2]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:database/sql.driverConn	Field:ci
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:524
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:2445	Protected by:[s.closemu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:2590	Protected by:[s.closemu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:1922	Protected by:[dc.Mutex._mutex]
+----------Bug[3]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:database/sql.Rows	Field:closed
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:2788
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:3062	Protected by:[rs.closemu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:2880	Protected by:[rs.closemu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:3103	Protected by:[rs.closemu._rwmutexW]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:3100	Protected by:[rs.closemu._rwmutexW]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:2840	Protected by:[rs.closemu.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/database/sql/sql.go:2897	Protected by:[rs.closemu.R_rwmutexR]
+Successful. Package NO. 5 : sync  Num of Lock & <-: 147
+Successful. Package NO. 6 : crypto/tls  Num of Lock & <-: 116
+----------Bug[4]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:crypto/tls.recordingConn	Field:flows
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/handshake_test.go:151
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/handshake_test.go:138	Protected by:[r._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/handshake_test.go:140	Protected by:[r._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/handshake_test.go:115	Protected by:[r._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/handshake_test.go:118	Protected by:[r._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/handshake_test.go:120	Protected by:[r._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/handshake_test.go:135	Protected by:[r._mutex]
+Successful. Package NO. 7 : cmd/internal/obj/s390x  Num of Lock & <-: 97
+----------Bug[5]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:cmd/internal/obj.DwarfFixupTable	Field:svec
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:864
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:924
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:803	Protected by:[ft.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:802	Protected by:[ft.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:809	Protected by:[ft.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:854	Protected by:[ft.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:855	Protected by:[ft.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/cmd/internal/obj/objfile.go:857	Protected by:[ft.mu._mutex]
+Successful. Package NO. 8 : context  Num of Lock & <-: 78
+Successful. Package NO. 9 : testing  Num of Lock & <-: 71
+Successful. Package NO. 10 : reflect  Num of Lock & <-: 68
+Error when building callgraph with nil Queries:
+ internal error in pointer analysis: ill-typed copy dst=n10572 src=n0 (please report this bug)
+Successful. Package NO. 11 : os/signal  Num of Lock & <-: 53
+Successful. Package NO. 12 : os  Num of Lock & <-: 132
+Successful. Package NO. 13 : cmd/compile/internal/gc  Num of Lock & <-: 73
+----------Bug[6]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:debug/gosym.LineTable	Field:go12
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:144
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:172	Protected by:[t.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:200	Protected by:[t.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:162	Protected by:[t.mu._mutex]
+----------Bug[7]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:debug/gosym.LineTable	Field:filetab
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:394
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:196	Protected by:[t.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:197	Protected by:[t.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:198	Protected by:[t.mu._mutex]
+		Inst at /data/suz305/go-workspace/go-4.10/src/go/src/debug/gosym/pclntab.go:438	Protected by:[t.mu._mutex]
+Successful. Package NO. 14 : crypto/elliptic  Num of Lock & <-: 47
+Successful. Package NO. 15 : time  Num of Lock & <-: 47
+Successful. Package NO. 16 : cmd/compile/internal/syntax  Num of Lock & <-: 42
+Fail. Package NO. 17 : go/printer/testdata  Num of Lock & <-: 41  error: type_err
+Successful. Package NO. 18 : go/types  Num of Lock & <-: 122
+Successful. Package NO. 19 : runtime/race  Num of Lock & <-: 900
+Successful. Package NO. 20 : io  Num of Lock & <-: 33
+Successful. Package NO. 21 : syscall  Num of Lock & <-: 36
+Successful. Package NO. 22 : go/token  Num of Lock & <-: 21
+Fail. Package NO. 23 : cmd/compile/internal/ssa/gen  Num of Lock & <-: 20  error: type_err
+Successful. Package NO. 24 : go/parser  Num of Lock & <-: 21
+Successful. Package NO. 25 : internal/poll  Num of Lock & <-: 18
+Successful. Package NO. 26 : cmd/compile/internal/ssa  Num of Lock & <-: 37
+Successful. Package NO. 27 : cmd/go/internal/modfetch/codehost  Num of Lock & <-: 16
+Successful. Package NO. 28 : cmd/go/internal/work  Num of Lock & <-: 16
+Successful. Package NO. 29 : cmd/go/internal/lockedfile  Num of Lock & <-: 25
+Successful. Package NO. 30 : cmd/dist  Num of Lock & <-: 15
+Successful. Package NO. 31 : log/syslog  Num of Lock & <-: 15
+Fail. Package NO. 32 : go/doc/testdata  Num of Lock & <-: 12  error: type_err
+Successful. Package NO. 33 : internal/singleflight  Num of Lock & <-: 11
+Successful. Package NO. 34 : expvar  Num of Lock & <-: 11
+Successful. Package NO. 35 : internal/reflectlite  Num of Lock & <-: 10
+Successful. Package NO. 36 : encoding/gob  Num of Lock & <-: 10
+Fail. Package NO. 37 : cmd/cover/testdata  Num of Lock & <-: 10  error: type_err
+Successful. Package NO. 38 : log  Num of Lock & <-: 24
+Successful. Package NO. 39 : crypto/rsa  Num of Lock & <-: 9
+Successful. Package NO. 40 : html/template  Num of Lock & <-: 9
+Successful. Package NO. 41 : encoding/base64  Num of Lock & <-: 8
+Successful. Package NO. 42 : cmd/link/internal/ld  Num of Lock & <-: 8
+Successful. Package NO. 43 : cmd/go/internal/test  Num of Lock & <-: 8
+Successful. Package NO. 44 : cmd/go/internal/modfetch  Num of Lock & <-: 23
+Successful. Package NO. 45 : cmd/go  Num of Lock & <-: 122
+Successful. Package NO. 46 : go/printer  Num of Lock & <-: 48
+Successful. Package NO. 47 : archive/zip  Num of Lock & <-: 6
+Successful. Package NO. 48 : cmd/internal/obj  Num of Lock & <-: 103
+Fail. Package NO. 49 : go/internal/gccgoimporter/testdata  Num of Lock & <-: 5  error: type_err
+Successful. Package NO. 50 : math/rand  Num of Lock & <-: 5

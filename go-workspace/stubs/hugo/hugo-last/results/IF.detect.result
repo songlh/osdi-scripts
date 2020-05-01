@@ -1,0 +1,59 @@
+Successfully built whole program. Now running checkers
+----------Bug[1]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/gohugoio/hugo/tpl/tplimpl.templateStateMap	Field:templates
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/tplimpl/template.go:723
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/tplimpl/template.go:840	Protected by:[t.mu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/tplimpl/template.go:854	Protected by:[t.mu._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/tplimpl/template.go:789	Protected by:[t.mu.R_rwmutexR]
+----------Bug[2]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/gohugoio/hugo/deps.Deps	Field:Metrics
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/partials/partials.go:156
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/hugolib/hugo_sites_build.go:78	Protected by:[h.runningMu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/hugolib/hugo_sites_build.go:161	Protected by:[h.runningMu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/tplimpl/template.go:229	Protected by:[rlocker.R_rwmutexR]
+----------Bug[3]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate.Template	Field:text
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate/hugo_template.go:35
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate/template.go:251	Protected by:[t.nameSpace.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate/template.go:155	Protected by:[t.nameSpace.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate/template.go:162	Protected by:[t.nameSpace.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/hugo/hugo-last/src/github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate/template.go:223	Protected by:[t.nameSpace.mu._mutex]
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/gohugoio/hugo/hugolib  Num of Lock & <-: 24
+Successful. Package NO. 1 : github.com/gohugoio/hugo/commands  Num of Lock & <-: 13
+Successful. Package NO. 2 : github.com/gohugoio/hugo/lazy  Num of Lock & <-: 10
+Successful. Package NO. 3 : github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate  Num of Lock & <-: 9
+Successful. Package NO. 4 : github.com/gohugoio/hugo/resources  Num of Lock & <-: 84
+Successful. Package NO. 5 : github.com/gohugoio/hugo/deploy  Num of Lock & <-: 8
+Successful. Package NO. 6 : github.com/gohugoio/hugo/livereload  Num of Lock & <-: 8
+Successful. Package NO. 7 : github.com/gohugoio/hugo/watcher  Num of Lock & <-: 5
+Successful. Package NO. 8 : github.com/gohugoio/hugo/metrics  Num of Lock & <-: 5
+Successful. Package NO. 9 : github.com/gohugoio/hugo/tpl/internal/go_templates/texttemplate/parse  Num of Lock & <-: 4
+Successful. Package NO. 10 : github.com/gohugoio/hugo/identity  Num of Lock & <-: 4
+Successful. Package NO. 11 : github.com/gohugoio/hugo/common/maps  Num of Lock & <-: 4
+Successful. Package NO. 12 : github.com/gohugoio/hugo/tpl/tplimpl  Num of Lock & <-: 4
+Successful. Package NO. 13 : github.com/gohugoio/hugo/common/para  Num of Lock & <-: 4
+Successful. Package NO. 14 : github.com/gohugoio/hugo/common/types  Num of Lock & <-: 4
+Successful. Package NO. 15 : github.com/gohugoio/hugo/deps  Num of Lock & <-: 3
+Successful. Package NO. 16 : github.com/gohugoio/hugo/hugofs  Num of Lock & <-: 4
+Successful. Package NO. 17 : github.com/gohugoio/hugo/cache/namedmemcache  Num of Lock & <-: 2
+Successful. Package NO. 18 : github.com/gohugoio/hugo/langs  Num of Lock & <-: 2
+Successful. Package NO. 19 : github.com/gohugoio/hugo/helpers  Num of Lock & <-: 2
+Successful. Package NO. 20 : github.com/gohugoio/hugo/tpl/internal/go_templates/texttemplate  Num of Lock & <-: 6
+Successful. Package NO. 21 : github.com/gohugoio/hugo/tpl/partials  Num of Lock & <-: 2
+Successful. Package NO. 22 : github.com/gohugoio/hugo/publisher  Num of Lock & <-: 1
+Successful. Package NO. 23 : github.com/gohugoio/hugo/tpl/strings  Num of Lock & <-: 1
+Successful. Package NO. 24 : github.com/gohugoio/hugo/output  Num of Lock & <-: 1
+Successful. Package NO. 25 : github.com/gohugoio/hugo/tpl/images  Num of Lock & <-: 1
+Successful. Package NO. 26 : github.com/gohugoio/hugo/markup/blackfriday  Num of Lock & <-: 1
+Successful. Package NO. 27 : github.com/gohugoio/hugo/cache/filecache  Num of Lock & <-: 1
+Checked all packages containing concurrency. Now exit

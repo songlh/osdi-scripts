@@ -1,0 +1,38 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/prometheus/prometheus/scrape  Num of Lock & <-: 118
+----------Bug[1]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/prometheus/prometheus/tsdb/chunks.ChunkDiskMapper	Field:curFileMaxt
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:383
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:360	Protected by:[cdm.readPathMtx._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:301	Protected by:[cdm.writePathMtx._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:302	Protected by:[cdm.writePathMtx._rwmutexW]
+----------Bug[2]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/prometheus/prometheus/tsdb/chunks.ChunkDiskMapper	Field:curFileSequence
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:369
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:459	Protected by:[cdm.readPathMtx.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:468	Protected by:[cdm.readPathMtx.R_rwmutexR]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:360	Protected by:[cdm.readPathMtx._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:379	Protected by:[cdm.readPathMtx._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:380	Protected by:[cdm.readPathMtx._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:536	Protected by:[cdm.writePathMtx._rwmutexW]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/tsdb/chunks/head_chunks.go:646	Protected by:[cdm.readPathMtx.R_rwmutexR]
+Successful. Package NO. 1 : github.com/prometheus/prometheus/tsdb  Num of Lock & <-: 138
+Successful. Package NO. 2 : github.com/prometheus/prometheus/storage/remote  Num of Lock & <-: 43
+----------Bug[3]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/prometheus/prometheus/tsdb/record.RefSample	Field:Ref
+	Where it is unprotected:
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/storage/remote/queue_manager.go:336	Protected by:[FP]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/storage/remote/queue_manager.go:316	Protected by:[t.seriesMtx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/storage/remote/queue_manager.go:320	Protected by:[t.seriesMtx._mutex]
+		Inst at /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/storage/remote/queue_manager.go:321	Protected by:[t.seriesMtx._mutex]
+Successful. Package NO. 3 : github.com/prometheus/prometheus/rules  Num of Lock & <-: 42
+Error: during read file: /data/suz305/go-workspace/stubs/prometheus/prometheus-last/src/github.com/prometheus/prometheus/promql/parser/yaccpar 	line: 26 	for inst: &t1.char [#2]

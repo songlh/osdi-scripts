@@ -1,0 +1,129 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : github.com/cockroachdb/cockroach/pkg/kv/kvserver  Num of Lock & <-: 1393  error: load_err
+----------Bug[1]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/cockroachdb/cockroach/pkg/util/stop.Stopper	Field:mu
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:225
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:235
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:484	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:538	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:401	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:437	Protected by:[FP]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:535	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:451	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:251	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:410	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:540	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:475	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:214	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:402	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:394	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:441	Protected by:[FP]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:438	Protected by:[FP]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:390	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:450	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:543	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:252	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:493	Protected by:[s.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go:393	Protected by:[s.mu._mutex]
+----------Bug[2]----------
+	Type: Inconsistent Field Protection 	Reason: a field in a structure is sometimes protected by Mutex, but sometimes unprotected.
+	Structure:github.com/cockroachdb/cockroach/pkg/storage/enginepb.TxnMeta	Field:ID
+	Where it is unprotected:
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:916
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:476
+	Where it is protected:
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:430	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:645	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:723	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/roachpb/data.go:984	Protected by:[FP]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:298	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:332	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:325	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:304	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:452	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:317	Protected by:[q.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:625	Protected by:[push.mu._mutex]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/txn.go:1082	Protected by:[FP]
+		Inst at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait/queue.go:715	Protected by:[q.mu._mutex]
+Fail. Package NO. 1 : github.com/cockroachdb/cockroach/pkg/sql  Num of Lock & <-: 1004  error: load_err
+Fail. Package NO. 2 : github.com/cockroachdb/cockroach/pkg/jobs  Num of Lock & <-: 179  error: load_err
+Fail. Package NO. 3 : github.com/cockroachdb/cockroach/pkg/server/serverpb  Num of Lock & <-: 178  error: type_err
+Fail. Package NO. 4 : github.com/cockroachdb/cockroach/pkg/cmd/roachtest  Num of Lock & <-: 305  error: load_err
+Fail. Package NO. 5 : github.com/cockroachdb/cockroach/pkg/gossip  Num of Lock & <-: 152  error: type_err
+Fail. Package NO. 6 : github.com/cockroachdb/cockroach/pkg/kv/kvclient/kvcoord  Num of Lock & <-: 149  error: load_err
+Fail. Package NO. 7 : github.com/cockroachdb/cockroach/pkg/server  Num of Lock & <-: 303  error: load_err
+Fail. Package NO. 8 : github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl  Num of Lock & <-: 134  error: load_err
+Fail. Package NO. 9 : github.com/cockroachdb/cockroach/pkg/cli  Num of Lock & <-: 93  error: load_err
+Successful. Package NO. 10 : github.com/cockroachdb/cockroach/pkg/util/stop  Num of Lock & <-: 71
+Successful. Package NO. 11 : github.com/cockroachdb/cockroach/pkg/rpc  Num of Lock & <-: 71
+Successful. Package NO. 12 : github.com/cockroachdb/cockroach/pkg/util/quotapool  Num of Lock & <-: 63
+Successful. Package NO. 13 : github.com/cockroachdb/cockroach/pkg/internal/client/requestbatcher  Num of Lock & <-: 62
+Fail. Package NO. 14 : github.com/cockroachdb/cockroach/pkg/ccl/importccl  Num of Lock & <-: 130  error: load_err
+Fail. Package NO. 15 : github.com/cockroachdb/cockroach/pkg/util/log  Num of Lock & <-: 54  error: load_err
+Fail. Package NO. 16 : github.com/cockroachdb/cockroach/pkg/kv  Num of Lock & <-: 1596  error: load_err
+Fail. Package NO. 17 : github.com/cockroachdb/cockroach/pkg/ccl/backupccl  Num of Lock & <-: 44  error: load_err
+Successful. Package NO. 18 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/install  Num of Lock & <-: 39
+Successful. Package NO. 19 : github.com/cockroachdb/cockroach/pkg/testutils  Num of Lock & <-: 109
+Fail. Package NO. 20 : github.com/cockroachdb/cockroach/pkg/storage  Num of Lock & <-: 37  error: load_err
+Fail. Package NO. 21 : github.com/cockroachdb/cockroach/pkg/acceptance/localcluster  Num of Lock & <-: 26  error: type_err
+Successful. Package NO. 22 : github.com/cockroachdb/cockroach/pkg/util/hlc  Num of Lock & <-: 24
+Successful. Package NO. 23 : github.com/cockroachdb/cockroach/pkg/util/timeutil  Num of Lock & <-: 23
+Successful. Package NO. 24 : github.com/cockroachdb/cockroach/pkg/util/syncutil/singleflight  Num of Lock & <-: 18
+Fail. Package NO. 25 : github.com/cockroachdb/cockroach/pkg/acceptance/cluster  Num of Lock & <-: 18  error: type_err
+Successful. Package NO. 26 : github.com/cockroachdb/cockroach/pkg/util/syncutil  Num of Lock & <-: 33
+Successful. Package NO. 27 : github.com/cockroachdb/cockroach/pkg/util/tracing  Num of Lock & <-: 16
+Fail. Package NO. 28 : github.com/cockroachdb/cockroach/pkg/cmd/cmp-protocol/pgconnect  Num of Lock & <-: 15  error: type_err
+Successful. Package NO. 29 : github.com/cockroachdb/cockroach/pkg/util/metric  Num of Lock & <-: 15
+Fail. Package NO. 30 : github.com/cockroachdb/cockroach/pkg/internal/sqlsmith  Num of Lock & <-: 14  error: load_err
+Fail. Package NO. 31 : github.com/cockroachdb/cockroach/pkg/workload/tpcc  Num of Lock & <-: 12  error: type_err
+Fail. Package NO. 32 : github.com/cockroachdb/cockroach/pkg/ts  Num of Lock & <-: 15  error: load_err
+Successful. Package NO. 33 : github.com/cockroachdb/cockroach/pkg/util/retry  Num of Lock & <-: 11
+Fail. Package NO. 34 : github.com/cockroachdb/cockroach/pkg/workload/ycsb  Num of Lock & <-: 10  error: type_err
+Fail. Package NO. 35 : github.com/cockroachdb/cockroach/pkg/config  Num of Lock & <-: 10  error: type_err
+Fail. Package NO. 36 : github.com/cockroachdb/cockroach/pkg/workload/workloadsql  Num of Lock & <-: 9  error: load_err
+Fail. Package NO. 37 : github.com/cockroachdb/cockroach/pkg/workload/cli  Num of Lock & <-: 9  error: type_err
+Successful. Package NO. 38 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/azure  Num of Lock & <-: 8
+Fail. Package NO. 39 : github.com/cockroachdb/cockroach/pkg/security  Num of Lock & <-: 8  error: load_err
+Fail. Package NO. 40 : github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl  Num of Lock & <-: 7  error: load_err
+Successful. Package NO. 41 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod-stress  Num of Lock & <-: 6
+Successful. Package NO. 42 : github.com/cockroachdb/cockroach/pkg/util/ctxgroup  Num of Lock & <-: 6
+Successful. Package NO. 43 : github.com/cockroachdb/cockroach/pkg/util/sdnotify  Num of Lock & <-: 5
+Successful. Package NO. 44 : github.com/cockroachdb/cockroach/pkg/util/netutil  Num of Lock & <-: 5
+Fail. Package NO. 45 : github.com/cockroachdb/cockroach/pkg/internal/rsg  Num of Lock & <-: 8  error: type_err
+Successful. Package NO. 46 : github.com/cockroachdb/cockroach/pkg/workload/histogram  Num of Lock & <-: 5
+Successful. Package NO. 47 : github.com/cockroachdb/cockroach/pkg/cmd/urlcheck/lib/urlcheck  Num of Lock & <-: 5
+Fail. Package NO. 48 : github.com/cockroachdb/cockroach/pkg/cmd/zerosum  Num of Lock & <-: 5  error: type_err
+Successful. Package NO. 49 : github.com/cockroachdb/cockroach/pkg/util/grpcutil  Num of Lock & <-: 5
+Fail. Package NO. 50 : github.com/cockroachdb/cockroach/pkg/cmd/allocsim  Num of Lock & <-: 5  error: load_err
+Fail. Package NO. 51 : github.com/cockroachdb/cockroach/pkg/cmd/smithtest  Num of Lock & <-: 4  error: load_err
+Successful. Package NO. 52 : github.com/cockroachdb/cockroach/pkg/util/mon  Num of Lock & <-: 4
+Successful. Package NO. 53 : github.com/cockroachdb/cockroach/pkg/clusterversion  Num of Lock & <-: 4
+Fail. Package NO. 54 : github.com/cockroachdb/cockroach/pkg/cmd/cr2pg  Num of Lock & <-: 4  error: type_err
+Successful. Package NO. 55 : github.com/cockroachdb/cockroach/pkg/util/envutil  Num of Lock & <-: 4
+Fail. Package NO. 56 : github.com/cockroachdb/cockroach/pkg/acceptance  Num of Lock & <-: 49  error: type_err
+Successful. Package NO. 57 : github.com/cockroachdb/cockroach/pkg/util/interval  Num of Lock & <-: 8
+Successful. Package NO. 58 : github.com/cockroachdb/cockroach/pkg/settings  Num of Lock & <-: 4
+Successful. Package NO. 59 : github.com/cockroachdb/cockroach/pkg/util/sysutil  Num of Lock & <-: 3
+Fail. Package NO. 60 : github.com/cockroachdb/cockroach/pkg/workload/tpcds  Num of Lock & <-: 3  error: type_err
+Successful. Package NO. 61 : github.com/cockroachdb/cockroach/pkg/base  Num of Lock & <-: 3
+Fail. Package NO. 62 : github.com/cockroachdb/cockroach/pkg/cmd/reduce  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 63 : github.com/cockroachdb/cockroach/pkg/workload  Num of Lock & <-: 52  error: load_err
+Fail. Package NO. 64 : github.com/cockroachdb/cockroach/pkg/util/protoutil  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 65 : github.com/cockroachdb/cockroach/pkg/cmd/docgen  Num of Lock & <-: 3  error: type_err
+Successful. Package NO. 66 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/ssh  Num of Lock & <-: 2
+Fail. Package NO. 67 : github.com/cockroachdb/cockroach/pkg/bench  Num of Lock & <-: 2  error: load_err
+Successful. Package NO. 68 : github.com/cockroachdb/cockroach/pkg/util/json  Num of Lock & <-: 2
+Successful. Package NO. 69 : github.com/cockroachdb/cockroach/pkg/util/contextutil  Num of Lock & <-: 2
+Fail. Package NO. 70 : github.com/cockroachdb/cockroach/pkg/cmd/cmp-protocol  Num of Lock & <-: 17  error: type_err
+Successful. Package NO. 71 : github.com/cockroachdb/cockroach/pkg/util/uuid  Num of Lock & <-: 1
+Fail. Package NO. 72 : github.com/cockroachdb/cockroach/pkg/ccl/partitionccl  Num of Lock & <-: 1  error: load_err
+Successful. Package NO. 73 : github.com/cockroachdb/cockroach/pkg/util/limit  Num of Lock & <-: 1
+Successful. Package NO. 74 : github.com/cockroachdb/cockroach/pkg/util/caller  Num of Lock & <-: 1
+Successful. Package NO. 75 : github.com/cockroachdb/cockroach/pkg/util  Num of Lock & <-: 361
+Successful. Package NO. 76 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/aws  Num of Lock & <-: 1
+Successful. Package NO. 77 : github.com/cockroachdb/cockroach/pkg/compose/compare/compare  Num of Lock & <-: 1
+Checked all packages containing concurrency. Now exit
