@@ -1,0 +1,12 @@
+Failed to build the whole program. The entrance package or its dependencies have error. load_err
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : github.com/gogs/gogs/internal/sync  Num of Lock & <-: 8  error: type_err
+Fail. Package NO. 1 : github.com/gogs/gogs/internal/process  Num of Lock & <-: 6  error: type_err
+Fail. Package NO. 2 : github.com/gogs/gogs/internal/email  Num of Lock & <-: 4  error: type_err
+Fail. Package NO. 3 : github.com/gogs/gogs/internal/db  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 4 : github.com/gogs/gogs/internal/ssh  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 5 : github.com/gogs/gogs/internal/httplib  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 6 : github.com/gogs/gogs/internal/route/repo  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 7 : github.com/gogs/gogs/internal/gitutil  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 8 : github.com/gogs/gogs/internal/route  Num of Lock & <-: 1  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/gogs/gogs/internal/route/repo  Num of Lock & <-: 1

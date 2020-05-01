@@ -1,0 +1,455 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/ethereum/go-ethereum/p2p  Num of Lock & <-: 610
+Successful. Package NO. 1 : github.com/ethereum/go-ethereum/eth  Num of Lock & <-: 475
+
+----------Bug[1]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+storage (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go: 406) -> storage
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:374
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:374
+
+----------Bug[2]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+updateLoop (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 358) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:345
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+
+----------Bug[3]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetThreads (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go: 625) -> SetThreads
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go	Line:620
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go	Line:620
+
+----------Bug[4]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+newHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 268) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+
+----------Bug[5]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+accountRLP (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go: 340) -> accountRLP
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:314
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:314
+
+----------Bug[6]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 484) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 347) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 565) -> ResetWithGenesisBlock
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:575
+
+----------Bug[7]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 484) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 347) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 565) -> ResetWithGenesisBlock (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 572) -> SetHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+
+----------Bug[8]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+AddChildIndexer (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 455) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:442
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+Successful. Package NO. 2 : github.com/ethereum/go-ethereum/les  Num of Lock & <-: 368
+
+----------Bug[9]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+BalanceAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 160) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:157
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[10]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+CodeAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 147) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:144
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[11]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+StorageAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 186) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:183
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[12]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 177) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 156) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 187) -> ResetWithGenesisBlock
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:196
+
+----------Bug[13]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 177) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 156) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 187) -> ResetWithGenesisBlock (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 194) -> SetHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+
+----------Bug[14]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+NonceAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 173) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:170
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+Successful. Package NO. 3 : github.com/ethereum/go-ethereum/core  Num of Lock & <-: 271
+
+----------Bug[15]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+validateTxPoolInternals (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/tx_pool_test.go: 120) -> Nonce
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/tx_pool_test.go	Line:100
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/tx_pool.go	Line:442
+Successful. Package NO. 4 : github.com/ethereum/go-ethereum/accounts  Num of Lock & <-: 197
+Successful. Package NO. 5 : github.com/ethereum/go-ethereum/eth/downloader  Num of Lock & <-: 182
+Successful. Package NO. 6 : github.com/ethereum/go-ethereum/rpc  Num of Lock & <-: 144
+Successful. Package NO. 7 : github.com/ethereum/go-ethereum/event  Num of Lock & <-: 100
+Successful. Package NO. 8 : github.com/ethereum/go-ethereum/accounts/abi  Num of Lock & <-: 77
+Successful. Package NO. 9 : github.com/ethereum/go-ethereum/accounts/abi/bind  Num of Lock & <-: 77
+Successful. Package NO. 10 : github.com/ethereum/go-ethereum/consensus  Num of Lock & <-: 76
+Successful. Package NO. 11 : github.com/ethereum/go-ethereum/consensus/ethash  Num of Lock & <-: 64
+Successful. Package NO. 12 : github.com/ethereum/go-ethereum/miner  Num of Lock & <-: 64
+Successful. Package NO. 13 : github.com/ethereum/go-ethereum/metrics  Num of Lock & <-: 59
+Successful. Package NO. 14 : github.com/ethereum/go-ethereum/accounts/abi/bind/backends  Num of Lock & <-: 44
+Successful. Package NO. 15 : github.com/ethereum/go-ethereum/accounts/usbwallet  Num of Lock & <-: 42
+Successful. Package NO. 16 : github.com/ethereum/go-ethereum/whisper/whisperv6  Num of Lock & <-: 41
+Successful. Package NO. 17 : github.com/ethereum/go-ethereum/signer/core  Num of Lock & <-: 37
+Successful. Package NO. 18 : github.com/ethereum/go-ethereum/light  Num of Lock & <-: 35
+Successful. Package NO. 19 : github.com/ethereum/go-ethereum/accounts/keystore  Num of Lock & <-: 35
+Successful. Package NO. 20 : github.com/ethereum/go-ethereum/accounts/scwallet  Num of Lock & <-: 30
+Successful. Package NO. 21 : github.com/ethereum/go-ethereum/common  Num of Lock & <-: 30
+Successful. Package NO. 22 : github.com/ethereum/go-ethereum/common/mclock  Num of Lock & <-: 26
+Successful. Package NO. 23 : github.com/ethereum/go-ethereum/node  Num of Lock & <-: 20
+
+----------Bug[16]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 484) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 354) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 565) -> ResetWithGenesisBlock
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:575
+
+----------Bug[17]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 484) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 354) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 565) -> ResetWithGenesisBlock (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 572) -> SetHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+
+----------Bug[18]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetThreads (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go: 625) -> SetThreads
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go	Line:620
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go	Line:620
+
+----------Bug[19]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+storage (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go: 406) -> storage
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:374
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:374
+
+----------Bug[20]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+newHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 268) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+
+----------Bug[21]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+accountRLP (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go: 340) -> accountRLP
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:314
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:314
+
+----------Bug[22]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+AddChildIndexer (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 455) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:442
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+
+----------Bug[23]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+updateLoop (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 358) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:345
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+Successful. Package NO. 24 : github.com/ethereum/go-ethereum/contracts/checkpointoracle  Num of Lock & <-: 20
+
+----------Bug[24]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+BalanceAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 160) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:157
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[25]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+NonceAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 173) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:170
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[26]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+StorageAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 186) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:183
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[27]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+CodeAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 147) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:144
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+Successful. Package NO. 25 : github.com/ethereum/go-ethereum/console  Num of Lock & <-: 18
+Fail. Package NO. 26 : github.com/ethereum/go-ethereum/build  Num of Lock & <-: 11  error: type_err
+Successful. Package NO. 27 : github.com/ethereum/go-ethereum/contracts/checkpointoracle/contract  Num of Lock & <-: 11
+Successful. Package NO. 28 : github.com/ethereum/go-ethereum/trie  Num of Lock & <-: 11
+Successful. Package NO. 29 : github.com/ethereum/go-ethereum/internal/ethapi  Num of Lock & <-: 10
+Successful. Package NO. 30 : github.com/ethereum/go-ethereum/consensus/clique  Num of Lock & <-: 10
+Successful. Package NO. 31 : github.com/ethereum/go-ethereum/cmd/devp2p  Num of Lock & <-: 9
+Successful. Package NO. 32 : github.com/ethereum/go-ethereum/internal/jsre  Num of Lock & <-: 9
+Successful. Package NO. 33 : github.com/ethereum/go-ethereum/cmd/faucet  Num of Lock & <-: 8
+
+----------Bug[28]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 177) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 156) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 187) -> ResetWithGenesisBlock
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:196
+
+----------Bug[29]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 177) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 156) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 187) -> ResetWithGenesisBlock (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 194) -> SetHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+Successful. Package NO. 34 : github.com/ethereum/go-ethereum/log  Num of Lock & <-: 7
+Successful. Package NO. 35 : github.com/ethereum/go-ethereum/mobile  Num of Lock & <-: 6
+Successful. Package NO. 36 : github.com/ethereum/go-ethereum/internal/testlog  Num of Lock & <-: 6
+Successful. Package NO. 37 : github.com/ethereum/go-ethereum/cmd/geth  Num of Lock & <-: 5
+Successful. Package NO. 38 : github.com/ethereum/go-ethereum/cmd/clef  Num of Lock & <-: 5
+Successful. Package NO. 39 : github.com/ethereum/go-ethereum/cmd/utils  Num of Lock & <-: 4
+Successful. Package NO. 40 : github.com/ethereum/go-ethereum/cmd/p2psim  Num of Lock & <-: 4
+Successful. Package NO. 41 : github.com/ethereum/go-ethereum/internal/debug  Num of Lock & <-: 4
+Successful. Package NO. 42 : github.com/ethereum/go-ethereum/common/prque  Num of Lock & <-: 4
+Successful. Package NO. 43 : github.com/ethereum/go-ethereum/cmd/puppeth  Num of Lock & <-: 3
+
+----------Bug[30]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 484) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 354) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 565) -> ResetWithGenesisBlock
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:575
+
+----------Bug[31]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 484) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 354) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 565) -> ResetWithGenesisBlock (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go: 572) -> SetHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/blockchain.go	Line:409
+
+----------Bug[32]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+accountRLP (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go: 340) -> accountRLP
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:314
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:314
+
+----------Bug[33]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+newHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 268) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+
+----------Bug[34]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+storage (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go: 406) -> storage
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:374
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/state/snapshot/difflayer.go	Line:374
+
+----------Bug[35]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+AddChildIndexer (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 455) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:442
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+
+----------Bug[36]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetThreads (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go: 625) -> SetThreads
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go	Line:620
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/consensus/ethash/ethash.go	Line:620
+
+----------Bug[37]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+updateLoop (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go: 358) -> newHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:345
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/core/chain_indexer.go	Line:241
+Successful. Package NO. 44 : github.com/ethereum/go-ethereum/cmd/wnode  Num of Lock & <-: 2
+
+----------Bug[38]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+BalanceAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 160) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:157
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[39]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+NonceAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 173) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:170
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[40]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 177) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 156) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 187) -> ResetWithGenesisBlock
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:196
+
+----------Bug[41]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+[Recursive] Call Chain:
+SetHead (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 177) -> loadLastState (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 156) -> Reset (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 187) -> ResetWithGenesisBlock (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go: 194) -> SetHead
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/light/lightchain.go	Line:173
+
+----------Bug[42]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+CodeAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 147) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:144
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+
+----------Bug[43]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Call Chain:
+StorageAt (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 186) -> stateByBlockNumber (at /data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go: 135) -> BlockByNumber
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:183
+	File:/data/suz305/go-workspace/stubs/ethereum/ethereum-last/src/github.com/ethereum/go-ethereum/accounts/abi/bind/backends/simulated.go	Line:243
+Successful. Package NO. 45 : github.com/ethereum/go-ethereum/internal/cmdtest  Num of Lock & <-: 2
+Successful. Package NO. 46 : github.com/ethereum/go-ethereum/whisper/shhclient  Num of Lock & <-: 1
+Successful. Package NO. 47 : github.com/ethereum/go-ethereum/rlp  Num of Lock & <-: 1

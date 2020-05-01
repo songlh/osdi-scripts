@@ -1,0 +1,13 @@
+Successfully built whole program. Now running checkers
+
+----------Bug[1]----------
+	Type: Double Lock 	Reason: A Mutex/RWMutex is locked twice. (Note: even double RWMutex.RLock() can produce deadlock bug)
+
+Same lock acquired in a loop
+Call Chain:
+
+	Location of the 2 lock operations:
+	File:/data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go	Line:1745
+	File:/data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go	Line:1745
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/junegunn/fzf/src  Num of Lock & <-: 62
