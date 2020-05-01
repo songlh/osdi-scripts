@@ -1,0 +1,11 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : gogs.io/gogs/internal/sync  Num of Lock & <-: 8
+Successful. Package NO. 1 : gogs.io/gogs/internal/process  Num of Lock & <-: 6
+Successful. Package NO. 2 : gogs.io/gogs/internal/email  Num of Lock & <-: 4
+Fail. Package NO. 3 : gogs.io/gogs/internal/db  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 4 : gogs.io/gogs/internal/ssh  Num of Lock & <-: 2  error: type_err
+Successful. Package NO. 5 : gogs.io/gogs/internal/httplib  Num of Lock & <-: 2
+Fail. Package NO. 6 : gogs.io/gogs/internal/route/repo  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 7 : gogs.io/gogs/internal/gitutil  Num of Lock & <-: 1  error: type_err
+Checked all packages containing concurrency. Now exit

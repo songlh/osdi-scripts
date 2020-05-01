@@ -1,0 +1,14 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/fatedier/frp/server  Num of Lock & <-: 50
+Successful. Package NO. 1 : github.com/fatedier/frp/client  Num of Lock & <-: 35
+Successful. Package NO. 2 : github.com/fatedier/frp/utils/net  Num of Lock & <-: 17
+Successful. Package NO. 3 : github.com/fatedier/frp/utils/vhost  Num of Lock & <-: 14
+Successful. Package NO. 4 : github.com/fatedier/frp/models/metrics/mem  Num of Lock & <-: 11
+Successful. Package NO. 5 : github.com/fatedier/frp/models/nathole  Num of Lock & <-: 7
+Successful. Package NO. 6 : github.com/fatedier/frp/utils/metric  Num of Lock & <-: 6
+Successful. Package NO. 7 : github.com/fatedier/frp/models/proto/udp  Num of Lock & <-: 6
+Successful. Package NO. 8 : github.com/fatedier/frp/models/plugin/client  Num of Lock & <-: 3
+Successful. Package NO. 9 : github.com/fatedier/frp/tests/ci/health  Num of Lock & <-: 2
+Successful. Package NO. 10 : github.com/fatedier/frp/cmd/frpc/sub  Num of Lock & <-: 2
+Checked all packages containing concurrency. Now exit
