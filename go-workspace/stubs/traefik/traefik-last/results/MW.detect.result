@@ -1,0 +1,35 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/containous/traefik/v2/pkg/server  Num of Lock & <-: 47
+Successful. Package NO. 1 : github.com/containous/traefik/v2/pkg/udp  Num of Lock & <-: 31
+Successful. Package NO. 2 : github.com/containous/traefik/v2/pkg/metrics  Num of Lock & <-: 28
+Successful. Package NO. 3 : github.com/containous/traefik/v2/pkg/provider/acme  Num of Lock & <-: 23
+Successful. Package NO. 4 : github.com/containous/traefik/v2/pkg/provider/kv  Num of Lock & <-: 22
+Successful. Package NO. 5 : github.com/containous/traefik/v2/pkg/provider/file  Num of Lock & <-: 17
+Successful. Package NO. 6 : github.com/containous/traefik/v2/integration  Num of Lock & <-: 19
+Successful. Package NO. 7 : github.com/containous/traefik/v2/pkg/provider/kubernetes/crd  Num of Lock & <-: 24
+Successful. Package NO. 8 : github.com/containous/traefik/v2/pkg/provider/kubernetes/ingress  Num of Lock & <-: 17
+Successful. Package NO. 9 : github.com/containous/traefik/v2/pkg/safe  Num of Lock & <-: 12
+Successful. Package NO. 10 : github.com/containous/traefik/v2/pkg/provider/docker  Num of Lock & <-: 12
+Successful. Package NO. 11 : github.com/containous/traefik/v2/pkg/middlewares/accesslog  Num of Lock & <-: 10
+Successful. Package NO. 12 : github.com/containous/traefik/v2/pkg/healthcheck  Num of Lock & <-: 9
+Successful. Package NO. 13 : github.com/containous/traefik/v2/pkg/provider/marathon  Num of Lock & <-: 5
+Successful. Package NO. 14 : github.com/containous/traefik/v2/pkg/provider/rancher  Num of Lock & <-: 4
+Successful. Package NO. 15 : github.com/containous/traefik/v2/pkg/tcp  Num of Lock & <-: 4
+Successful. Package NO. 16 : github.com/containous/traefik/v2/pkg/provider/consulcatalog  Num of Lock & <-: 4
+Successful. Package NO. 17 : github.com/containous/traefik/v2/pkg/provider/rest  Num of Lock & <-: 3
+Successful. Package NO. 18 : github.com/containous/traefik/v2/pkg/middlewares/customerrors  Num of Lock & <-: 3
+Successful. Package NO. 19 : github.com/containous/traefik/v2/pkg/middlewares/metrics  Num of Lock & <-: 2
+Successful. Package NO. 20 : github.com/containous/traefik/v2/cmd/traefik  Num of Lock & <-: 2
+Successful. Package NO. 21 : github.com/containous/traefik/v2/pkg/provider/traefik  Num of Lock & <-: 2
+Successful. Package NO. 22 : github.com/containous/traefik/v2/pkg/provider/aggregator  Num of Lock & <-: 2
+Successful. Package NO. 23 : github.com/containous/traefik/v2/pkg/config/runtime  Num of Lock & <-: 1
+Successful. Package NO. 24 : github.com/containous/traefik/v2/pkg/middlewares/pipelining  Num of Lock & <-: 1
+Successful. Package NO. 25 : github.com/containous/traefik/v2/pkg/tls  Num of Lock & <-: 1
+Successful. Package NO. 26 : github.com/containous/traefik/v2/pkg/provider  Num of Lock & <-: 136
+Successful. Package NO. 27 : github.com/containous/traefik/v2/pkg/ping  Num of Lock & <-: 1
+Successful. Package NO. 28 : github.com/containous/traefik/v2/pkg/middlewares/tracing  Num of Lock & <-: 1
+Successful. Package NO. 29 : github.com/containous/traefik/v2/pkg/middlewares/retry  Num of Lock & <-: 1
+Successful. Package NO. 30 : github.com/containous/traefik/v2/pkg/middlewares/ratelimiter  Num of Lock & <-: 1
+Successful. Package NO. 31 : github.com/containous/traefik/v2/cmd  Num of Lock & <-: 3
+Checked all packages containing concurrency. Now exit
