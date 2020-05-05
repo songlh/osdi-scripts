@@ -1,0 +1,40 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/pingcap/tidb/executor  Num of Lock & <-: 324
+Successful. Package NO. 1 : github.com/pingcap/tidb/store/tikv  Num of Lock & <-: 199
+Successful. Package NO. 2 : github.com/pingcap/tidb/ddl  Num of Lock & <-: 122
+Successful. Package NO. 3 : github.com/pingcap/tidb/statistics/handle  Num of Lock & <-: 57
+Successful. Package NO. 4 : github.com/pingcap/tidb/domain  Num of Lock & <-: 58
+Successful. Package NO. 5 : github.com/pingcap/tidb/session  Num of Lock & <-: 46
+Successful. Package NO. 6 : github.com/pingcap/tidb/store/mockstore/mocktikv  Num of Lock & <-: 44
+Successful. Package NO. 7 : github.com/pingcap/tidb/server  Num of Lock & <-: 23
+Successful. Package NO. 8 : github.com/pingcap/tidb/bindinfo  Num of Lock & <-: 22
+Successful. Package NO. 9 : github.com/pingcap/tidb/cmd/ddltest  Num of Lock & <-: 21
+Successful. Package NO. 10 : github.com/pingcap/tidb/util/stmtsummary  Num of Lock & <-: 17
+Successful. Package NO. 11 : github.com/pingcap/tidb/meta/autoid  Num of Lock & <-: 15
+Successful. Package NO. 12 : github.com/pingcap/tidb/statistics  Num of Lock & <-: 68
+Successful. Package NO. 13 : github.com/pingcap/tidb/util/memory  Num of Lock & <-: 11
+Successful. Package NO. 14 : github.com/pingcap/tidb/util/execdetails  Num of Lock & <-: 11
+Successful. Package NO. 15 : github.com/pingcap/tidb/expression  Num of Lock & <-: 10
+Successful. Package NO. 16 : github.com/pingcap/tidb/cmd/importer  Num of Lock & <-: 9
+Successful. Package NO. 17 : github.com/pingcap/tidb/planner/core  Num of Lock & <-: 7
+Successful. Package NO. 18 : github.com/pingcap/tidb/owner  Num of Lock & <-: 6
+Successful. Package NO. 19 : github.com/pingcap/tidb/infoschema/perfschema  Num of Lock & <-: 5
+Successful. Package NO. 20 : github.com/pingcap/tidb/store/mockoracle  Num of Lock & <-: 4
+Successful. Package NO. 21 : github.com/pingcap/tidb/util/deadlock  Num of Lock & <-: 4
+Successful. Package NO. 22 : github.com/pingcap/tidb/util/domainutil  Num of Lock & <-: 4
+Successful. Package NO. 23 : github.com/pingcap/tidb/util/chunk  Num of Lock & <-: 4
+Successful. Package NO. 24 : github.com/pingcap/tidb/util/signal  Num of Lock & <-: 3
+Successful. Package NO. 25 : github.com/pingcap/tidb/table/tables  Num of Lock & <-: 2
+Successful. Package NO. 26 : github.com/pingcap/tidb/util/testkit  Num of Lock & <-: 2
+Successful. Package NO. 27 : github.com/pingcap/tidb/util/filesort  Num of Lock & <-: 2
+Successful. Package NO. 28 : github.com/pingcap/tidb/util/expensivequery  Num of Lock & <-: 2
+Successful. Package NO. 29 : github.com/pingcap/tidb/kv  Num of Lock & <-: 2
+Successful. Package NO. 30 : github.com/pingcap/tidb/plugin  Num of Lock & <-: 2
+Successful. Package NO. 31 : github.com/pingcap/tidb/meta  Num of Lock & <-: 17
+Successful. Package NO. 32 : github.com/pingcap/tidb/distsql  Num of Lock & <-: 2
+Successful. Package NO. 33 : github.com/pingcap/tidb/util/systimemon  Num of Lock & <-: 1
+Successful. Package NO. 34 : github.com/pingcap/tidb/util/timeutil  Num of Lock & <-: 1
+Successful. Package NO. 35 : github.com/pingcap/tidb/errno  Num of Lock & <-: 1
+Successful. Package NO. 36 : github.com/pingcap/tidb/store  Num of Lock & <-: 250
+Checked all packages containing concurrency. Now exit
