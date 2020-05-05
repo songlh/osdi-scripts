@@ -1,0 +1,448 @@
+Successfully built whole program. Now running checkers
+
+----------Bug[1]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : go.etcd.io/etcd/etcdserver  Num of Lock & <-: 635
+
+----------Bug[2]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 295) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Successful. Package NO. 1 : go.etcd.io/etcd/clientv3  Num of Lock & <-: 412
+
+----------Bug[3]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 2 : go.etcd.io/etcd/integration  Num of Lock & <-: 214
+
+----------Bug[4]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 3 : go.etcd.io/etcd/mvcc  Num of Lock & <-: 206
+Successful. Package NO. 4 : go.etcd.io/etcd/clientv3/integration  Num of Lock & <-: 202
+
+----------Bug[5]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 5 : go.etcd.io/etcd/raft  Num of Lock & <-: 144
+Successful. Package NO. 6 : go.etcd.io/etcd/proxy/grpcproxy  Num of Lock & <-: 129
+
+----------Bug[6]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 7 : go.etcd.io/etcd/pkg/proxy  Num of Lock & <-: 97
+Successful. Package NO. 8 : go.etcd.io/etcd/lease  Num of Lock & <-: 63
+
+----------Bug[7]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 9 : go.etcd.io/etcd/contrib/raftexample  Num of Lock & <-: 60
+Successful. Package NO. 10 : go.etcd.io/etcd/client  Num of Lock & <-: 46
+Successful. Package NO. 11 : go.etcd.io/etcd/auth  Num of Lock & <-: 45
+
+----------Bug[8]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 12 : go.etcd.io/etcd/etcdctl  Num of Lock & <-: 43
+
+----------Bug[9]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 13 : go.etcd.io/etcd/pkg/transport  Num of Lock & <-: 41
+Successful. Package NO. 14 : go.etcd.io/etcd/tests/e2e  Num of Lock & <-: 39
+
+----------Bug[10]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Successful. Package NO. 15 : go.etcd.io/etcd/etcdctl/ctlv3/command  Num of Lock & <-: 36
+
+----------Bug[11]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 295) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Successful. Package NO. 16 : go.etcd.io/etcd/etcdctl/ctlv3  Num of Lock & <-: 36
+
+----------Bug[12]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 17 : go.etcd.io/etcd/tools/benchmark  Num of Lock & <-: 36
+
+----------Bug[13]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 18 : go.etcd.io/etcd/tools/benchmark/cmd  Num of Lock & <-: 36
+
+----------Bug[14]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 295) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Successful. Package NO. 19 : go.etcd.io/etcd/pkg/report  Num of Lock & <-: 32
+Successful. Package NO. 20 : go.etcd.io/etcd/pkg/fileutil  Num of Lock & <-: 31
+Successful. Package NO. 21 : go.etcd.io/etcd/pkg/wait  Num of Lock & <-: 29
+Successful. Package NO. 22 : go.etcd.io/etcd/pkg/adt  Num of Lock & <-: 28
+Successful. Package NO. 23 : go.etcd.io/etcd/functional/agent  Num of Lock & <-: 23
+
+----------Bug[15]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Successful. Package NO. 24 : go.etcd.io/etcd/functional/tester  Num of Lock & <-: 23
+
+----------Bug[16]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Successful. Package NO. 25 : go.etcd.io/etcd/pkg/testutil  Num of Lock & <-: 17
+Successful. Package NO. 26 : go.etcd.io/etcd/embed  Num of Lock & <-: 17
+
+----------Bug[17]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 27 : go.etcd.io/etcd/wal  Num of Lock & <-: 14
+Successful. Package NO. 28 : go.etcd.io/etcd/pkg/schedule  Num of Lock & <-: 13
+Successful. Package NO. 29 : go.etcd.io/etcd/functional/runner  Num of Lock & <-: 13
+Successful. Package NO. 30 : go.etcd.io/etcd/etcdmain  Num of Lock & <-: 11
+Successful. Package NO. 31 : go.etcd.io/etcd/tools/etcd-dump-metrics  Num of Lock & <-: 10
+
+----------Bug[18]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+Successful. Package NO. 32 : go.etcd.io/etcd/pkg/osutil  Num of Lock & <-: 8
+Successful. Package NO. 33 : go.etcd.io/etcd/etcdctl/ctlv2  Num of Lock & <-: 7
+Successful. Package NO. 34 : go.etcd.io/etcd/etcdctl/ctlv2/command  Num of Lock & <-: 7
+
+----------Bug[19]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  b.readTx ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex2:  b.mu ( **go.etcd.io/etcd/mvcc/backend.backend )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+defrag (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go: 357) -> unsafeCommit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 292) -> commit (at /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/batch_tx.go: 227) -> begin
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:511
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:350
+	File:/data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/mvcc/backend/backend.go	Line:354
+
+Successful. Package NO. 35 : go.etcd.io/etcd/proxy/tcpproxy  Num of Lock & <-: 7
+Successful. Package NO. 36 : go.etcd.io/etcd/functional/cmd/etcd-proxy  Num of Lock & <-: 6
+Successful. Package NO. 37 : go.etcd.io/etcd/proxy/httpproxy  Num of Lock & <-: 6
+Successful. Package NO. 38 : go.etcd.io/etcd/pkg/expect  Num of Lock & <-: 5
+Successful. Package NO. 39 : go.etcd.io/etcd/tools/local-tester/bridge  Num of Lock & <-: 4
+Successful. Package NO. 40 : go.etcd.io/etcd/pkg/mock/mockserver  Num of Lock & <-: 2
+Successful. Package NO. 41 : go.etcd.io/etcd/pkg/netutil  Num of Lock & <-: 2
+Successful. Package NO. 42 : go.etcd.io/etcd/pkg/types  Num of Lock & <-: 2
+Successful. Package NO. 43 : go.etcd.io/etcd/pkg/contention  Num of Lock & <-: 2
+Successful. Package NO. 44 : go.etcd.io/etcd/functional/rpcpb  Num of Lock & <-: 1
+Successful. Package NO. 45 : go.etcd.io/etcd/Documentation/learning/lock/client  Num of Lock & <-: 1
+Successful. Package NO. 46 : go.etcd.io/etcd/pkg/mock/mockwait  Num of Lock & <-: 1

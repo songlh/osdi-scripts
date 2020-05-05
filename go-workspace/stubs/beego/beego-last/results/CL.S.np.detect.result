@@ -1,0 +1,12 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/astaxie/beego/session  Num of Lock & <-: 50
+Successful. Package NO. 1 : github.com/astaxie/beego/logs  Num of Lock & <-: 21
+Successful. Package NO. 2 : github.com/astaxie/beego/toolbox  Num of Lock & <-: 15
+Successful. Package NO. 3 : github.com/astaxie/beego/cache  Num of Lock & <-: 7
+Successful. Package NO. 4 : github.com/astaxie/beego/grace  Num of Lock & <-: 5
+Successful. Package NO. 5 : github.com/astaxie/beego/context  Num of Lock & <-: 5
+Successful. Package NO. 6 : github.com/astaxie/beego/config  Num of Lock & <-: 5
+Successful. Package NO. 7 : github.com/astaxie/beego/orm  Num of Lock & <-: 3
+Successful. Package NO. 8 : github.com/astaxie/beego/utils  Num of Lock & <-: 3
+Successful. Package NO. 9 : github.com/astaxie/beego/httplib  Num of Lock & <-: 2

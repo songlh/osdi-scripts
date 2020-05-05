@@ -1,0 +1,34 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/gohugoio/hugo/resources  Num of Lock & <-: 84
+Successful. Package NO. 1 : github.com/gohugoio/hugo/hugolib  Num of Lock & <-: 24
+Successful. Package NO. 2 : github.com/gohugoio/hugo/tpl  Num of Lock & <-: 23
+Successful. Package NO. 3 : github.com/gohugoio/hugo/tpl/internal  Num of Lock & <-: 15
+Successful. Package NO. 4 : github.com/gohugoio/hugo/commands  Num of Lock & <-: 13
+Successful. Package NO. 5 : github.com/gohugoio/hugo/lazy  Num of Lock & <-: 10
+Successful. Package NO. 6 : github.com/gohugoio/hugo/tpl/internal/go_templates/htmltemplate  Num of Lock & <-: 9
+Successful. Package NO. 7 : github.com/gohugoio/hugo/deploy  Num of Lock & <-: 8
+Successful. Package NO. 8 : github.com/gohugoio/hugo/livereload  Num of Lock & <-: 8
+Successful. Package NO. 9 : github.com/gohugoio/hugo/tpl/internal/go_templates/texttemplate  Num of Lock & <-: 6
+Successful. Package NO. 10 : github.com/gohugoio/hugo/watcher  Num of Lock & <-: 5
+Successful. Package NO. 11 : github.com/gohugoio/hugo/metrics  Num of Lock & <-: 5
+Successful. Package NO. 12 : github.com/gohugoio/hugo/common/maps  Num of Lock & <-: 4
+Successful. Package NO. 13 : github.com/gohugoio/hugo/tpl/tplimpl  Num of Lock & <-: 4
+Successful. Package NO. 14 : github.com/gohugoio/hugo/common/para  Num of Lock & <-: 4
+Successful. Package NO. 15 : github.com/gohugoio/hugo/common/types  Num of Lock & <-: 4
+Successful. Package NO. 16 : github.com/gohugoio/hugo/identity  Num of Lock & <-: 4
+Successful. Package NO. 17 : github.com/gohugoio/hugo/tpl/internal/go_templates/texttemplate/parse  Num of Lock & <-: 4
+Successful. Package NO. 18 : github.com/gohugoio/hugo/hugofs  Num of Lock & <-: 4
+Successful. Package NO. 19 : github.com/gohugoio/hugo/deps  Num of Lock & <-: 3
+Successful. Package NO. 20 : github.com/gohugoio/hugo/cache  Num of Lock & <-: 3
+Successful. Package NO. 21 : github.com/gohugoio/hugo/helpers  Num of Lock & <-: 2
+Successful. Package NO. 22 : github.com/gohugoio/hugo/langs  Num of Lock & <-: 2
+Successful. Package NO. 23 : github.com/gohugoio/hugo/tpl/partials  Num of Lock & <-: 2
+Successful. Package NO. 24 : github.com/gohugoio/hugo/cache/namedmemcache  Num of Lock & <-: 2
+Successful. Package NO. 25 : github.com/gohugoio/hugo/tpl/images  Num of Lock & <-: 1
+Successful. Package NO. 26 : github.com/gohugoio/hugo/markup/blackfriday  Num of Lock & <-: 1
+Successful. Package NO. 27 : github.com/gohugoio/hugo/cache/filecache  Num of Lock & <-: 1
+Successful. Package NO. 28 : github.com/gohugoio/hugo/output  Num of Lock & <-: 1
+Successful. Package NO. 29 : github.com/gohugoio/hugo/tpl/strings  Num of Lock & <-: 1
+Successful. Package NO. 30 : github.com/gohugoio/hugo/publisher  Num of Lock & <-: 1
+Successful. Package NO. 31 : github.com/gohugoio/hugo/markup  Num of Lock & <-: 1

@@ -1,0 +1,331 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : runtime  Num of Lock & <-: 1460
+Error when building callgraph with nil Queries:
+ internal error in pointer analysis: ill-typed copy dst=n70894 src=n0 (please report this bug)
+Successful. Package NO. 1 : net  Num of Lock & <-: 1207
+Successful. Package NO. 2 : runtime/race  Num of Lock & <-: 906
+Fail. Package NO. 3 : runtime/race/testdata  Num of Lock & <-: 874  error: type_err
+Successful. Package NO. 4 : net/http  Num of Lock & <-: 861
+
+----------Bug[1]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex2:  c.in ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+Successful. Package NO. 5 : crypto  Num of Lock & <-: 183
+Successful. Package NO. 6 : cmd/compile  Num of Lock & <-: 154
+Successful. Package NO. 7 : sync  Num of Lock & <-: 148
+Successful. Package NO. 8 : database/sql  Num of Lock & <-: 135
+
+----------Bug[2]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex2:  c.in ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+Successful. Package NO. 9 : os  Num of Lock & <-: 132
+Successful. Package NO. 10 : go/types  Num of Lock & <-: 122
+Successful. Package NO. 11 : cmd/go  Num of Lock & <-: 122
+
+----------Bug[3]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.in ( **crypto/tls.Conn )
+Mutex2:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+Successful. Package NO. 12 : crypto/tls  Num of Lock & <-: 116
+
+----------Bug[4]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.in ( **crypto/tls.Conn )
+Mutex2:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+Example 1
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+Example 1
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+Successful. Package NO. 13 : cmd/internal/obj  Num of Lock & <-: 103
+Successful. Package NO. 14 : cmd/internal/obj/s390x  Num of Lock & <-: 97
+Successful. Package NO. 15 : context  Num of Lock & <-: 78
+Successful. Package NO. 16 : cmd/compile/internal/gc  Num of Lock & <-: 73
+Successful. Package NO. 17 : testing  Num of Lock & <-: 71
+Successful. Package NO. 18 : reflect  Num of Lock & <-: 68
+Error when building callgraph with nil Queries:
+ internal error in pointer analysis: ill-typed copy dst=n33269 src=n0 (please report this bug)
+Successful. Package NO. 19 : os/signal  Num of Lock & <-: 53
+Successful. Package NO. 20 : go/printer  Num of Lock & <-: 48
+Successful. Package NO. 21 : crypto/elliptic  Num of Lock & <-: 47
+Successful. Package NO. 22 : time  Num of Lock & <-: 47
+Successful. Package NO. 23 : cmd/compile/internal/syntax  Num of Lock & <-: 42
+Fail. Package NO. 24 : go/printer/testdata  Num of Lock & <-: 41  error: type_err
+Successful. Package NO. 25 : cmd/compile/internal/ssa  Num of Lock & <-: 37
+Successful. Package NO. 26 : syscall  Num of Lock & <-: 36
+Successful. Package NO. 27 : io  Num of Lock & <-: 33
+Successful. Package NO. 28 : cmd/go/internal/lockedfile  Num of Lock & <-: 25
+Successful. Package NO. 29 : log  Num of Lock & <-: 24
+Successful. Package NO. 30 : cmd/go/internal/modfetch  Num of Lock & <-: 23
+
+----------Bug[5]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex2:  c.in ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+Successful. Package NO. 31 : encoding  Num of Lock & <-: 22
+Successful. Package NO. 32 : go/parser  Num of Lock & <-: 21
+Successful. Package NO. 33 : go/token  Num of Lock & <-: 21
+Fail. Package NO. 34 : cmd/compile/internal/ssa/gen  Num of Lock & <-: 20  error: type_err
+Successful. Package NO. 35 : internal/poll  Num of Lock & <-: 18
+Successful. Package NO. 36 : cmd/go/internal/work  Num of Lock & <-: 16
+Successful. Package NO. 37 : cmd/go/internal/modfetch/codehost  Num of Lock & <-: 16
+
+----------Bug[6]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.in ( **crypto/tls.Conn )
+Mutex2:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+Successful. Package NO. 38 : cmd/dist  Num of Lock & <-: 15
+Successful. Package NO. 39 : log/syslog  Num of Lock & <-: 15
+Successful. Package NO. 40 : image  Num of Lock & <-: 14
+Fail. Package NO. 41 : go/doc/testdata  Num of Lock & <-: 12  error: type_err
+Successful. Package NO. 42 : go/doc  Num of Lock & <-: 12
+Successful. Package NO. 43 : expvar  Num of Lock & <-: 11
+
+----------Bug[7]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.in ( **crypto/tls.Conn )
+Mutex2:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+Successful. Package NO. 44 : internal/singleflight  Num of Lock & <-: 11
+Fail. Package NO. 45 : cmd/cover/testdata  Num of Lock & <-: 10  error: type_err
+	Successfully built sub-Package NO. 0 :	 cmd/cover/testdata/html  Num of Lock & <-: 1
+Successful. Package NO. 46 : encoding/gob  Num of Lock & <-: 10
+Successful. Package NO. 47 : cmd/cover  Num of Lock & <-: 10
+Successful. Package NO. 48 : internal/reflectlite  Num of Lock & <-: 10
+Successful. Package NO. 49 : html  Num of Lock & <-: 9
+Successful. Package NO. 50 : html/template  Num of Lock & <-: 9
+Successful. Package NO. 51 : mime  Num of Lock & <-: 9
+Successful. Package NO. 52 : crypto/rsa  Num of Lock & <-: 9
+Successful. Package NO. 53 : compress/flate  Num of Lock & <-: 9
+Successful. Package NO. 54 : math  Num of Lock & <-: 9
+Successful. Package NO. 55 : go/internal/gccgoimporter  Num of Lock & <-: 8
+Successful. Package NO. 56 : cmd/go/internal/test  Num of Lock & <-: 8
+
+----------Bug[8]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex2:  c.in ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+Successful. Package NO. 57 : cmd/link/internal/ld  Num of Lock & <-: 8
+Successful. Package NO. 58 : encoding/base64  Num of Lock & <-: 8
+Successful. Package NO. 59 : cmd/link  Num of Lock & <-: 8
+Successful. Package NO. 60 : go/internal/gcimporter  Num of Lock & <-: 6
+Successful. Package NO. 61 : text/template  Num of Lock & <-: 6
+Successful. Package NO. 62 : archive/zip  Num of Lock & <-: 6
+Fail. Package NO. 63 : go/internal/gcimporter/testdata  Num of Lock & <-: 5  error: type_err
+Fail. Package NO. 64 : go/internal/gccgoimporter/testdata  Num of Lock & <-: 5  error: type_err
+Successful. Package NO. 65 : math/rand  Num of Lock & <-: 5
+Successful. Package NO. 66 : text/template/parse  Num of Lock & <-: 4
+Successful. Package NO. 67 : mime/quotedprintable  Num of Lock & <-: 4
+Successful. Package NO. 68 : cmd/trace  Num of Lock & <-: 4
+
+----------Bug[9]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.in ( **crypto/tls.Conn )
+Mutex2:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+Successful. Package NO. 69 : compress/gzip  Num of Lock & <-: 3
+Successful. Package NO. 70 : go/ast  Num of Lock & <-: 3
+Successful. Package NO. 71 : cmd/internal/browser  Num of Lock & <-: 3
+Successful. Package NO. 72 : math/big  Num of Lock & <-: 3
+Successful. Package NO. 73 : go/constant  Num of Lock & <-: 3
+Successful. Package NO. 74 : bufio  Num of Lock & <-: 3
+Successful. Package NO. 75 : crypto/x509  Num of Lock & <-: 3
+Successful. Package NO. 76 : image/jpeg  Num of Lock & <-: 3
+Successful. Package NO. 77 : crypto/rand  Num of Lock & <-: 3
+Successful. Package NO. 78 : mime/multipart  Num of Lock & <-: 3
+Successful. Package NO. 79 : debug/pe  Num of Lock & <-: 2
+Successful. Package NO. 80 : cmd/doc  Num of Lock & <-: 2
+Successful. Package NO. 81 : text/tabwriter  Num of Lock & <-: 2
+Successful. Package NO. 82 : debug/gosym  Num of Lock & <-: 2
+Successful. Package NO. 83 : crypto/internal/randutil  Num of Lock & <-: 2
+Successful. Package NO. 84 : cmd/api  Num of Lock & <-: 2
+Successful. Package NO. 85 : strings  Num of Lock & <-: 2
+Successful. Package NO. 86 : cmd/vet  Num of Lock & <-: 2
+Fail. Package NO. 87 : builtin  Num of Lock & <-: 2  error: type_err
+Successful. Package NO. 88 : compress/bzip2  Num of Lock & <-: 2
+Successful. Package NO. 89 : go/scanner  Num of Lock & <-: 2
+Successful. Package NO. 90 : cmd/oldlink  Num of Lock & <-: 2
+Successful. Package NO. 91 : plugin  Num of Lock & <-: 2
+Successful. Package NO. 92 : cmd/oldlink/internal/ld  Num of Lock & <-: 2
+Successful. Package NO. 93 : cmd/pprof  Num of Lock & <-: 1
+
+----------Bug[10]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  c.in ( **crypto/tls.Conn )
+Mutex2:  c.handshakeMutex ( **crypto/tls.Conn )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Read (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1237) -> handlePostHandshakeMessage (at /data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go: 1164) -> handleRenegotiation
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1229
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1150
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1326
+	File:/data/suz305/go-workspace/go-4.10/src/go/src/crypto/tls/conn.go	Line:1336
+
+Successful. Package NO. 94 : cmd/asm  Num of Lock & <-: 1
+Successful. Package NO. 95 : cmd/compile/internal/types  Num of Lock & <-: 1
+Successful. Package NO. 96 : cmd/asm/internal/asm  Num of Lock & <-: 1
+Successful. Package NO. 97 : cmd/compile/internal/logopt  Num of Lock & <-: 1
+Successful. Package NO. 98 : container/ring  Num of Lock & <-: 1
+Successful. Package NO. 99 : text/scanner  Num of Lock & <-: 1
+Successful. Package NO. 100 : cmd/vet/testdata/assign  Num of Lock & <-: 1
+Successful. Package NO. 101 : debug/elf  Num of Lock & <-: 1

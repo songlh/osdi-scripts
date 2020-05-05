@@ -1,0 +1,86 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/pingcap/tidb/executor  Num of Lock & <-: 324
+Successful. Package NO. 1 : github.com/pingcap/tidb/store  Num of Lock & <-: 251
+Successful. Package NO. 2 : github.com/pingcap/tidb/store/tikv  Num of Lock & <-: 202
+Successful. Package NO. 3 : github.com/pingcap/tidb/ddl  Num of Lock & <-: 122
+Successful. Package NO. 4 : github.com/pingcap/tidb/statistics  Num of Lock & <-: 68
+Successful. Package NO. 5 : github.com/pingcap/tidb/util  Num of Lock & <-: 62
+Successful. Package NO. 6 : github.com/pingcap/tidb/domain  Num of Lock & <-: 58
+Successful. Package NO. 7 : github.com/pingcap/tidb/statistics/handle  Num of Lock & <-: 57
+Successful. Package NO. 8 : github.com/pingcap/tidb/session  Num of Lock & <-: 46
+Successful. Package NO. 9 : github.com/pingcap/tidb/store/mockstore/mocktikv  Num of Lock & <-: 44
+Successful. Package NO. 10 : github.com/pingcap/tidb/store/mockstore  Num of Lock & <-: 44
+Successful. Package NO. 11 : github.com/pingcap/tidb/server  Num of Lock & <-: 23
+Successful. Package NO. 12 : github.com/pingcap/tidb/bindinfo  Num of Lock & <-: 22
+Successful. Package NO. 13 : github.com/pingcap/tidb/cmd/ddltest  Num of Lock & <-: 21
+Successful. Package NO. 14 : github.com/pingcap/tidb/util/stmtsummary  Num of Lock & <-: 17
+Successful. Package NO. 15 : github.com/pingcap/tidb/meta  Num of Lock & <-: 17
+Successful. Package NO. 16 : github.com/pingcap/tidb/meta/autoid  Num of Lock & <-: 15
+Successful. Package NO. 17 : github.com/pingcap/tidb/util/memory  Num of Lock & <-: 11
+Successful. Package NO. 18 : github.com/pingcap/tidb/util/execdetails  Num of Lock & <-: 11
+Successful. Package NO. 19 : github.com/pingcap/tidb/expression  Num of Lock & <-: 10
+Successful. Package NO. 20 : github.com/pingcap/tidb/cmd/importer  Num of Lock & <-: 9
+Successful. Package NO. 21 : github.com/pingcap/tidb/planner  Num of Lock & <-: 7
+Successful. Package NO. 22 : github.com/pingcap/tidb/planner/core  Num of Lock & <-: 7
+Successful. Package NO. 23 : github.com/pingcap/tidb/owner  Num of Lock & <-: 6
+Successful. Package NO. 24 : github.com/pingcap/tidb/infoschema/perfschema  Num of Lock & <-: 5
+Successful. Package NO. 25 : github.com/pingcap/tidb/infoschema  Num of Lock & <-: 5
+Successful. Package NO. 26 : github.com/pingcap/tidb/store/mockoracle  Num of Lock & <-: 4
+Successful. Package NO. 27 : github.com/pingcap/tidb/util/deadlock  Num of Lock & <-: 4
+Successful. Package NO. 28 : github.com/pingcap/tidb/util/domainutil  Num of Lock & <-: 4
+Successful. Package NO. 29 : github.com/pingcap/tidb/util/chunk  Num of Lock & <-: 4
+Successful. Package NO. 30 : github.com/pingcap/tidb/util/signal  Num of Lock & <-: 3
+Successful. Package NO. 31 : github.com/pingcap/tidb/kv  Num of Lock & <-: 2
+Successful. Package NO. 32 : github.com/pingcap/tidb/distsql  Num of Lock & <-: 2
+
+----------Bug[1]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  t.mu ( **github.com/pingcap/tidb/util/memory.Tracker )
+Mutex2:  rootExceed.actionMu ( **github.com/pingcap/tidb/util/memory.Tracker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+remove (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 147) -> Consume
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go	Line:140
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go	Line:202
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain (with FN Pointer):
+remove (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 147) -> Consume (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 205) -> Action (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/action.go: 61) -> String (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 238) -> toString
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go	Line:202
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go	Line:249
+
+
+----------Bug[2]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  t.mu ( **github.com/pingcap/tidb/util/memory.Tracker )
+Mutex2:  a.mutex ( **github.com/pingcap/tidb/util/memory.LogOnExceed )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain (with FN Pointer):
+remove (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 147) -> Consume (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 205) -> Action
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go	Line:140
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/action.go	Line:55
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain (with FN Pointer):
+remove (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 147) -> Consume (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 205) -> Action (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/action.go: 61) -> String (at /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go: 238) -> toString
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/action.go	Line:55
+	File:/data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/util/memory/tracker.go	Line:249
+
+Successful. Package NO. 33 : github.com/pingcap/tidb/util/expensivequery  Num of Lock & <-: 2
+Successful. Package NO. 34 : github.com/pingcap/tidb/util/filesort  Num of Lock & <-: 2
+Successful. Package NO. 35 : github.com/pingcap/tidb/table  Num of Lock & <-: 2
+Successful. Package NO. 36 : github.com/pingcap/tidb/util/testkit  Num of Lock & <-: 2
+Successful. Package NO. 37 : github.com/pingcap/tidb/table/tables  Num of Lock & <-: 2
+Successful. Package NO. 38 : github.com/pingcap/tidb/plugin  Num of Lock & <-: 2
+Successful. Package NO. 39 : github.com/pingcap/tidb/errno  Num of Lock & <-: 1
+Successful. Package NO. 40 : github.com/pingcap/tidb/util/systimemon  Num of Lock & <-: 1
+Successful. Package NO. 41 : github.com/pingcap/tidb/util/timeutil  Num of Lock & <-: 1

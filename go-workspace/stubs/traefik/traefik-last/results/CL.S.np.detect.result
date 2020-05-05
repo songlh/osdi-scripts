@@ -1,0 +1,44 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : github.com/containous/traefik/pkg/provider  Num of Lock & <-: 136  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/containous/traefik/pkg/provider/acme  Num of Lock & <-: 23
+Fail. Package NO. 1 : github.com/containous/traefik/pkg/server  Num of Lock & <-: 47  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/containous/traefik/pkg/server/service  Num of Lock & <-: 7
+	Successfully built sub-Package NO. 1 :	 github.com/containous/traefik/pkg/server/service/loadbalancer/mirror  Num of Lock & <-: 4
+	Successfully built sub-Package NO. 2 :	 github.com/containous/traefik/pkg/server/service/loadbalancer/wrr  Num of Lock & <-: 1
+Fail. Package NO. 2 : github.com/containous/traefik/pkg/udp  Num of Lock & <-: 31  error: type_err
+Fail. Package NO. 3 : github.com/containous/traefik/pkg/metrics  Num of Lock & <-: 28  error: type_err
+Fail. Package NO. 4 : github.com/containous/traefik/pkg/provider/kubernetes/crd  Num of Lock & <-: 24  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/containous/traefik/pkg/provider/kubernetes/crd/generated/informers/externalversions  Num of Lock & <-: 7
+	Successfully built sub-Package NO. 1 :	 github.com/containous/traefik/pkg/provider/kubernetes/crd/generated/informers/externalversions/internalinterfaces  Num of Lock & <-: 1
+Fail. Package NO. 5 : github.com/containous/traefik/pkg/provider/acme  Num of Lock & <-: 23  error: type_err
+Fail. Package NO. 6 : github.com/containous/traefik/pkg/provider/kv  Num of Lock & <-: 22  error: type_err
+Fail. Package NO. 7 : github.com/containous/traefik/pkg/middlewares  Num of Lock & <-: 19  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/containous/traefik/pkg/middlewares/accesslog  Num of Lock & <-: 10
+Fail. Package NO. 8 : github.com/containous/traefik/integration  Num of Lock & <-: 19  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/containous/traefik/integration/try  Num of Lock & <-: 2
+Fail. Package NO. 9 : github.com/containous/traefik/pkg/provider/kubernetes/ingress  Num of Lock & <-: 17  error: type_err
+Fail. Package NO. 10 : github.com/containous/traefik/pkg/provider/file  Num of Lock & <-: 17  error: type_err
+Fail. Package NO. 11 : github.com/containous/traefik/pkg/provider/docker  Num of Lock & <-: 12  error: type_err
+Fail. Package NO. 12 : github.com/containous/traefik/pkg/safe  Num of Lock & <-: 12  error: type_err
+Fail. Package NO. 13 : github.com/containous/traefik/pkg/middlewares/accesslog  Num of Lock & <-: 10  error: type_err
+Fail. Package NO. 14 : github.com/containous/traefik/pkg/healthcheck  Num of Lock & <-: 9  error: type_err
+Fail. Package NO. 15 : github.com/containous/traefik/pkg/provider/marathon  Num of Lock & <-: 5  error: type_err
+Fail. Package NO. 16 : github.com/containous/traefik/pkg/provider/rancher  Num of Lock & <-: 4  error: type_err
+Fail. Package NO. 17 : github.com/containous/traefik/pkg/tcp  Num of Lock & <-: 4  error: type_err
+Fail. Package NO. 18 : github.com/containous/traefik/pkg/provider/consulcatalog  Num of Lock & <-: 4  error: type_err
+Fail. Package NO. 19 : github.com/containous/traefik/pkg/provider/rest  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 20 : github.com/containous/traefik/pkg/middlewares/customerrors  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 21 : github.com/containous/traefik/cmd  Num of Lock & <-: 3  error: type_err
+	Failed to build sub-Package NO. 0 :	 github.com/containous/traefik/cmd/traefik  Num of Lock & <-: 2
+Fail. Package NO. 22 : github.com/containous/traefik/cmd/traefik  Num of Lock & <-: 2  error: load_err
+Fail. Package NO. 23 : github.com/containous/traefik/pkg/provider/traefik  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 24 : github.com/containous/traefik/pkg/provider/aggregator  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 25 : github.com/containous/traefik/pkg/middlewares/metrics  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 26 : github.com/containous/traefik/pkg/tls  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 27 : github.com/containous/traefik/pkg/ping  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 28 : github.com/containous/traefik/pkg/middlewares/tracing  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 29 : github.com/containous/traefik/pkg/middlewares/retry  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 30 : github.com/containous/traefik/pkg/middlewares/ratelimiter  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 31 : github.com/containous/traefik/pkg/middlewares/pipelining  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 32 : github.com/containous/traefik/pkg/config/runtime  Num of Lock & <-: 1  error: type_err

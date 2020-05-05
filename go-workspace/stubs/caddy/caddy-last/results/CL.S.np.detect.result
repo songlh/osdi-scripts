@@ -1,0 +1,12 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : github.com/caddyserver/caddy/modules/caddytls  Num of Lock & <-: 24  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/modules/caddytls/standardstek  Num of Lock & <-: 8
+	Successfully built sub-Package NO. 1 :	 github.com/caddyserver/caddy/modules/caddytls/distributedstek  Num of Lock & <-: 6
+Fail. Package NO. 1 : github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy  Num of Lock & <-: 12  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy/fastcgi  Num of Lock & <-: 1
+Fail. Package NO. 2 : github.com/caddyserver/caddy/modules/caddyhttp  Num of Lock & <-: 12  error: type_err
+	Successfully built sub-Package NO. 0 :	 github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy  Num of Lock & <-: 12
+	Successfully built sub-Package NO. 1 :	 github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy/fastcgi  Num of Lock & <-: 1
+Fail. Package NO. 3 : github.com/caddyserver/caddy/modules/caddypki  Num of Lock & <-: 5  error: type_err
+Fail. Package NO. 4 : github.com/caddyserver/caddy/cmd  Num of Lock & <-: 3  error: type_err

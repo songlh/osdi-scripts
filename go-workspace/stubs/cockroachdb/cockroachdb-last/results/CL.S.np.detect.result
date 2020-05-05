@@ -1,0 +1,1292 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/cockroachdb/cockroach/pkg/ui  Num of Lock & <-: 3910
+
+----------Bug[1]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Fail. Package NO. 1 : github.com/cockroachdb/cockroach/pkg/kv  Num of Lock & <-: 1600  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver  Num of Lock & <-: 1395
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/concurrency  Num of Lock & <-: 98
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/rangefeed  Num of Lock & <-: 87
+	Failed to build sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/kv/kvnemesis  Num of Lock & <-: 11
+Fail. Package NO. 2 : github.com/cockroachdb/cockroach/pkg/kv/kvserver  Num of Lock & <-: 1395  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/concurrency  Num of Lock & <-: 98
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/rangefeed  Num of Lock & <-: 87
+	Successfully built sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts  Num of Lock & <-: 84
+	Successfully built sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnwait  Num of Lock & <-: 44
+
+----------Bug[2]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Failed to build sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/spanlatch  Num of Lock & <-: 37
+	Successfully built sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/provider  Num of Lock & <-: 33
+
+----------Bug[3]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Successfully built sub-Package NO. 6 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/transport  Num of Lock & <-: 29
+
+----------Bug[4]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Successfully built sub-Package NO. 7 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts  Num of Lock & <-: 27
+
+----------Bug[5]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Failed to build sub-Package NO. 8 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptcache  Num of Lock & <-: 19
+	Failed to build sub-Package NO. 9 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/idalloc  Num of Lock & <-: 19
+	Successfully built sub-Package NO. 10 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/tscache  Num of Lock & <-: 16
+
+----------Bug[6]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Successfully built sub-Package NO. 11 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/intentresolver  Num of Lock & <-: 15
+
+----------Bug[7]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Successfully built sub-Package NO. 12 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/raftentry  Num of Lock & <-: 10
+	Successfully built sub-Package NO. 13 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/transport/testutils  Num of Lock & <-: 10
+
+----------Bug[8]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Successfully built sub-Package NO. 14 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/minprop  Num of Lock & <-: 9
+	Successfully built sub-Package NO. 15 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/provider/testutils  Num of Lock & <-: 8
+
+----------Bug[9]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Failed to build sub-Package NO. 16 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/reports  Num of Lock & <-: 7
+	Failed to build sub-Package NO. 17 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/compactor  Num of Lock & <-: 7
+	Failed to build sub-Package NO. 18 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptreconcile  Num of Lock & <-: 7
+	Successfully built sub-Package NO. 19 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/txnrecovery  Num of Lock & <-: 5
+
+----------Bug[10]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Successfully built sub-Package NO. 20 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/container  Num of Lock & <-: 4
+
+----------Bug[11]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Successfully built sub-Package NO. 21 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/split  Num of Lock & <-: 4
+
+----------Bug[12]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Successfully built sub-Package NO. 22 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/closedts/storage  Num of Lock & <-: 3
+	Failed to build sub-Package NO. 23 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/batcheval  Num of Lock & <-: 3
+	Failed to build sub-Package NO. 24 :	 github.com/cockroachdb/cockroach/pkg/kv/kvserver/protectedts/ptstorage  Num of Lock & <-: 1
+Fail. Package NO. 3 : github.com/cockroachdb/cockroach/pkg/sql  Num of Lock & <-: 1005  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/sql/opt  Num of Lock & <-: 188
+
+----------Bug[13]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Successfully built sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/memo  Num of Lock & <-: 175
+
+----------Bug[14]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/sql/flowinfra  Num of Lock & <-: 83
+	Failed to build sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/sql/colflow  Num of Lock & <-: 72
+	Failed to build sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/sql/colexec  Num of Lock & <-: 63
+	Successfully built sub-Package NO. 5 :	 github.com/cockroachdb/cockroach/pkg/sql/colflow/colrpc  Num of Lock & <-: 62
+
+----------Bug[15]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Failed to build sub-Package NO. 6 :	 github.com/cockroachdb/cockroach/pkg/sql/stats  Num of Lock & <-: 59
+	Failed to build sub-Package NO. 7 :	 github.com/cockroachdb/cockroach/pkg/sql/pgwire  Num of Lock & <-: 41
+	Failed to build sub-Package NO. 8 :	 github.com/cockroachdb/cockroach/pkg/sql/rowflow  Num of Lock & <-: 34
+	Failed to build sub-Package NO. 9 :	 github.com/cockroachdb/cockroach/pkg/sql/logictest  Num of Lock & <-: 31
+	Failed to build sub-Package NO. 10 :	 github.com/cockroachdb/cockroach/pkg/sql/tests  Num of Lock & <-: 24
+	Failed to build sub-Package NO. 11 :	 github.com/cockroachdb/cockroach/pkg/sql/rowexec  Num of Lock & <-: 21
+	Failed to build sub-Package NO. 12 :	 github.com/cockroachdb/cockroach/pkg/sqlmigrations  Num of Lock & <-: 16
+	Failed to build sub-Package NO. 13 :	 github.com/cockroachdb/cockroach/pkg/sql/stmtdiagnostics  Num of Lock & <-: 14
+	Successfully built sub-Package NO. 14 :	 github.com/cockroachdb/cockroach/pkg/sql/parser  Num of Lock & <-: 9
+
+----------Bug[16]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Successfully built sub-Package NO. 15 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/props  Num of Lock & <-: 8
+
+----------Bug[17]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Failed to build sub-Package NO. 16 :	 github.com/cockroachdb/cockroach/pkg/sqlmigrations/leasemanager  Num of Lock & <-: 8
+	Successfully built sub-Package NO. 17 :	 github.com/cockroachdb/cockroach/pkg/sql/execinfrapb  Num of Lock & <-: 7
+
+----------Bug[18]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Successfully built sub-Package NO. 18 :	 github.com/cockroachdb/cockroach/pkg/sql/gcjob  Num of Lock & <-: 7
+
+----------Bug[19]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Successfully built sub-Package NO. 19 :	 github.com/cockroachdb/cockroach/pkg/sql/querycache  Num of Lock & <-: 6
+
+----------Bug[20]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Successfully built sub-Package NO. 20 :	 github.com/cockroachdb/cockroach/pkg/sql/sessiondata  Num of Lock & <-: 5
+	Failed to build sub-Package NO. 21 :	 github.com/cockroachdb/cockroach/pkg/sql/execinfra  Num of Lock & <-: 5
+	Failed to build sub-Package NO. 22 :	 github.com/cockroachdb/cockroach/pkg/sql/sem/tree  Num of Lock & <-: 5
+	Failed to build sub-Package NO. 23 :	 github.com/cockroachdb/cockroach/pkg/sql/row  Num of Lock & <-: 5
+	Successfully built sub-Package NO. 24 :	 github.com/cockroachdb/cockroach/pkg/sql/opt/xform  Num of Lock & <-: 4
+
+----------Bug[21]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Failed to build sub-Package NO. 25 :	 github.com/cockroachdb/cockroach/pkg/sql/sem/builtins  Num of Lock & <-: 3
+	Failed to build sub-Package NO. 26 :	 github.com/cockroachdb/cockroach/pkg/sql/sqlbase  Num of Lock & <-: 1
+	Failed to build sub-Package NO. 27 :	 github.com/cockroachdb/cockroach/pkg/sql/distsql  Num of Lock & <-: 1
+Successful. Package NO. 4 : github.com/cockroachdb/cockroach/pkg/util  Num of Lock & <-: 362
+Fail. Package NO. 5 : github.com/cockroachdb/cockroach/pkg/ccl  Num of Lock & <-: 319  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl  Num of Lock & <-: 135
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/kvfeed  Num of Lock & <-: 25
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/schemafeed  Num of Lock & <-: 24
+	Failed to build sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/cdctest  Num of Lock & <-: 2
+Fail. Package NO. 6 : github.com/cockroachdb/cockroach/pkg/cmd/roachtest  Num of Lock & <-: 306  error: load_err
+Fail. Package NO. 7 : github.com/cockroachdb/cockroach/pkg/server  Num of Lock & <-: 305  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/server/serverpb  Num of Lock & <-: 178
+
+----------Bug[22]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/server/debug  Num of Lock & <-: 18
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/server/status  Num of Lock & <-: 6
+	Successfully built sub-Package NO. 3 :	 github.com/cockroachdb/cockroach/pkg/server/debug/pprofui  Num of Lock & <-: 3
+	Successfully built sub-Package NO. 4 :	 github.com/cockroachdb/cockroach/pkg/server/telemetry  Num of Lock & <-: 1
+Fail. Package NO. 8 : github.com/cockroachdb/cockroach/pkg/jobs  Num of Lock & <-: 181  error: load_err
+Successful. Package NO. 9 : github.com/cockroachdb/cockroach/pkg/server/serverpb  Num of Lock & <-: 178
+
+----------Bug[23]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Successful. Package NO. 10 : github.com/cockroachdb/cockroach/pkg/gossip  Num of Lock & <-: 153
+
+----------Bug[24]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Fail. Package NO. 11 : github.com/cockroachdb/cockroach/pkg/kv/kvclient/kvcoord  Num of Lock & <-: 149  error: load_err
+Successful. Package NO. 12 : github.com/cockroachdb/cockroach/pkg/kv/kvclient  Num of Lock & <-: 149
+Fail. Package NO. 13 : github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl  Num of Lock & <-: 135  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/kvfeed  Num of Lock & <-: 25
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/schemafeed  Num of Lock & <-: 24
+	Failed to build sub-Package NO. 2 :	 github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl/cdctest  Num of Lock & <-: 2
+Fail. Package NO. 14 : github.com/cockroachdb/cockroach/pkg/ccl/importccl  Num of Lock & <-: 132  error: load_err
+Successful. Package NO. 15 : github.com/cockroachdb/cockroach/pkg/cmd/github-pull-request-make  Num of Lock & <-: 130
+Successful. Package NO. 16 : github.com/cockroachdb/cockroach/pkg/testutils  Num of Lock & <-: 109
+
+----------Bug[25]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Fail. Package NO. 17 : github.com/cockroachdb/cockroach/pkg/cli  Num of Lock & <-: 93  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/cli/systembench  Num of Lock & <-: 16
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/cli/syncbench  Num of Lock & <-: 6
+Successful. Package NO. 18 : github.com/cockroachdb/cockroach/pkg/rpc  Num of Lock & <-: 71
+
+----------Bug[26]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 19 : github.com/cockroachdb/cockroach/pkg/util/stop  Num of Lock & <-: 71
+
+----------Bug[27]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 20 : github.com/cockroachdb/cockroach/pkg/util/quotapool  Num of Lock & <-: 63
+
+----------Bug[28]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Successful. Package NO. 21 : github.com/cockroachdb/cockroach/pkg/internal/client/requestbatcher  Num of Lock & <-: 62
+
+----------Bug[29]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Fail. Package NO. 22 : github.com/cockroachdb/cockroach/pkg/util/log  Num of Lock & <-: 54  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/util/log/logflags  Num of Lock & <-: 2
+Fail. Package NO. 23 : github.com/cockroachdb/cockroach/pkg/workload  Num of Lock & <-: 52  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/workload/tpcc  Num of Lock & <-: 12
+
+----------Bug[30]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+	Successfully built sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/workload/schemachange  Num of Lock & <-: 1
+
+----------Bug[31]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 24 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod  Num of Lock & <-: 50
+Successful. Package NO. 25 : github.com/cockroachdb/cockroach/pkg/acceptance  Num of Lock & <-: 49
+
+----------Bug[32]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Fail. Package NO. 26 : github.com/cockroachdb/cockroach/pkg/ccl/backupccl  Num of Lock & <-: 44  error: load_err
+Successful. Package NO. 27 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/install  Num of Lock & <-: 39
+Fail. Package NO. 28 : github.com/cockroachdb/cockroach/pkg/storage  Num of Lock & <-: 37  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/storage/cloud  Num of Lock & <-: 4
+
+----------Bug[33]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+	Failed to build sub-Package NO. 1 :	 github.com/cockroachdb/cockroach/pkg/storage/metamorphic  Num of Lock & <-: 1
+Successful. Package NO. 29 : github.com/cockroachdb/cockroach/pkg/util/syncutil  Num of Lock & <-: 34
+Successful. Package NO. 30 : github.com/cockroachdb/cockroach/pkg/acceptance/localcluster  Num of Lock & <-: 26
+
+----------Bug[34]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 31 : github.com/cockroachdb/cockroach/pkg/util/hlc  Num of Lock & <-: 24
+Successful. Package NO. 32 : github.com/cockroachdb/cockroach/pkg/util/timeutil  Num of Lock & <-: 23
+Successful. Package NO. 33 : github.com/cockroachdb/cockroach/pkg/acceptance/cluster  Num of Lock & <-: 18
+
+----------Bug[35]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Successful. Package NO. 34 : github.com/cockroachdb/cockroach/pkg/util/syncutil/singleflight  Num of Lock & <-: 18
+Successful. Package NO. 35 : github.com/cockroachdb/cockroach/pkg/cmd/cmp-protocol  Num of Lock & <-: 17
+
+----------Bug[36]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 36 : github.com/cockroachdb/cockroach/pkg/util/tracing  Num of Lock & <-: 16
+Successful. Package NO. 37 : github.com/cockroachdb/cockroach/pkg/util/metric  Num of Lock & <-: 15
+Successful. Package NO. 38 : github.com/cockroachdb/cockroach/pkg/cmd/cmp-protocol/pgconnect  Num of Lock & <-: 15
+
+----------Bug[37]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Fail. Package NO. 39 : github.com/cockroachdb/cockroach/pkg/ts  Num of Lock & <-: 15  error: load_err
+	Successfully built sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ts/tspb  Num of Lock & <-: 4
+Fail. Package NO. 40 : github.com/cockroachdb/cockroach/pkg/internal/sqlsmith  Num of Lock & <-: 14  error: load_err
+Fail. Package NO. 41 : github.com/cockroachdb/cockroach/pkg/workload/tpcc  Num of Lock & <-: 12  error: type_err
+Successful. Package NO. 42 : github.com/cockroachdb/cockroach/pkg/util/retry  Num of Lock & <-: 11
+Fail. Package NO. 43 : github.com/cockroachdb/cockroach/pkg/workload/ycsb  Num of Lock & <-: 10  error: type_err
+Successful. Package NO. 44 : github.com/cockroachdb/cockroach/pkg/config  Num of Lock & <-: 10
+
+----------Bug[38]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Fail. Package NO. 45 : github.com/cockroachdb/cockroach/pkg/workload/workloadsql  Num of Lock & <-: 9  error: load_err
+Fail. Package NO. 46 : github.com/cockroachdb/cockroach/pkg/workload/cli  Num of Lock & <-: 9  error: type_err
+Successful. Package NO. 47 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm  Num of Lock & <-: 9
+Successful. Package NO. 48 : github.com/cockroachdb/cockroach/pkg/util/interval  Num of Lock & <-: 8
+Successful. Package NO. 49 : github.com/cockroachdb/cockroach/pkg/internal/rsg  Num of Lock & <-: 8
+
+----------Bug[39]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Successful. Package NO. 50 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/azure  Num of Lock & <-: 8
+Fail. Package NO. 51 : github.com/cockroachdb/cockroach/pkg/security  Num of Lock & <-: 8  error: load_err
+Fail. Package NO. 52 : github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl  Num of Lock & <-: 7  error: load_err
+Fail. Package NO. 53 : github.com/cockroachdb/cockroach/pkg/ccl/storageccl  Num of Lock & <-: 7  error: load_err
+	Failed to build sub-Package NO. 0 :	 github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl  Num of Lock & <-: 7
+Successful. Package NO. 54 : github.com/cockroachdb/cockroach/pkg/util/ctxgroup  Num of Lock & <-: 6
+
+----------Bug[40]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Successful. Package NO. 55 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod-stress  Num of Lock & <-: 6
+Successful. Package NO. 56 : github.com/cockroachdb/cockroach/pkg/workload/histogram  Num of Lock & <-: 5
+Successful. Package NO. 57 : github.com/cockroachdb/cockroach/pkg/cmd/urlcheck/lib/urlcheck  Num of Lock & <-: 5
+Successful. Package NO. 58 : github.com/cockroachdb/cockroach/pkg/cmd/urlcheck  Num of Lock & <-: 5
+Fail. Package NO. 59 : github.com/cockroachdb/cockroach/pkg/cmd/allocsim  Num of Lock & <-: 5  error: load_err
+Successful. Package NO. 60 : github.com/cockroachdb/cockroach/pkg/util/netutil  Num of Lock & <-: 5
+
+----------Bug[41]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 61 : github.com/cockroachdb/cockroach/pkg/util/grpcutil  Num of Lock & <-: 5
+
+----------Bug[42]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 62 : github.com/cockroachdb/cockroach/pkg/cmd/zerosum  Num of Lock & <-: 5
+
+----------Bug[43]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+----------Bug[44]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  l.mu ( **github.com/cockroachdb/cockroach/pkg/util/log.loggerT )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Quiesce (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 539) -> Infof (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 70) -> logDepth (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 44) -> addStructured (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/structured.go: 66) -> outputLogEntry
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:533
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+
+Example 1
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 458) -> Recover (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 181) -> ReportPanic (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/crash_reporting.go: 230) -> Flush (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log_flush.go: 35) -> lockAndFlushAndSync
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log_flush.go	Line:108
+
+Example 2
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 458) -> Recover (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 181) -> ReportPanic (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/crash_reporting.go: 223) -> printPanicToFile
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:315
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain (with FN Pointer):
+outputLogEntry (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 263) -> outputToStderr (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 335) -> exitLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 79) -> SetExitFunc$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 26) -> main$2 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/cmd/zerosum/main.go: 441) -> Close (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 222) -> Stop
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:449
+
+Example 1
+Call Chain (with FN Pointer):
+outputLogEntry (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 263) -> outputToStderr (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 335) -> exitLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 79) -> SetExitFunc$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 26) -> main$2 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/cmd/zerosum/main.go: 441) -> Close (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 222) -> Stop
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:483
+
+Example 2
+Call Chain (with FN Pointer):
+outputLogEntry (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 263) -> outputToStderr (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 335) -> exitLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 79) -> SetExitFunc$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 26) -> main$2 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/cmd/zerosum/main.go: 441) -> Close (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 222) -> Stop
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+
+Example 3
+Call Chain (with FN Pointer):
+outputLogEntry (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 263) -> outputToStderr (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 335) -> exitLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 79) -> SetExitFunc$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 26) -> main$2 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/cmd/zerosum/main.go: 441) -> Close (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 222) -> Stop
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:474
+
+Example 4
+Call Chain (with FN Pointer):
+outputLogEntry (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 273) -> exitLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 79) -> SetExitFunc$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 26) -> main$2 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/cmd/zerosum/main.go: 441) -> Close (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 222) -> Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 482) -> Quiesce
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:533
+
+
+----------Bug[45]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  n ( **github.com/cockroachdb/cockroach/pkg/acceptance/localcluster.Node )
+Mutex2:  l.mu ( **github.com/cockroachdb/cockroach/pkg/util/log.loggerT )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+StartAsync$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 614) -> startAsyncInnerLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 570) -> Warning (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 112) -> logDepth (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 44) -> addStructured (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/structured.go: 66) -> outputLogEntry
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go	Line:609
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+
+Example 1
+Call Chain:
+Signal (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 801) -> Warning (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 112) -> logDepth (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 44) -> addStructured (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/structured.go: 66) -> outputLogEntry
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go	Line:795
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+
+Example 2
+Call Chain:
+waitUntilLive (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 744) -> makeDB (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 642) -> Fatal (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 164) -> logDepth (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/log.go: 44) -> addStructured (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/structured.go: 66) -> outputLogEntry
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go	Line:743
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain (with FN Pointer):
+outputLogEntry (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 263) -> outputToStderr (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 335) -> exitLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 79) -> SetExitFunc$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 26) -> main$2 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/cmd/zerosum/main.go: 441) -> Close (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 220) -> Kill
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go	Line:773
+
+Example 1
+Call Chain (with FN Pointer):
+outputLogEntry (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go: 273) -> exitLocked (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 79) -> SetExitFunc$1 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/exit_override.go: 26) -> main$2 (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/cmd/zerosum/main.go: 441) -> Close (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 220) -> Kill (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go: 769) -> Signal
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/log/clog.go	Line:201
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/acceptance/localcluster/cluster.go	Line:795
+
+Successful. Package NO. 63 : github.com/cockroachdb/cockroach/pkg/util/sdnotify  Num of Lock & <-: 5
+Successful. Package NO. 64 : github.com/cockroachdb/cockroach/pkg/cmd/cr2pg  Num of Lock & <-: 4
+
+----------Bug[46]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Fail. Package NO. 65 : github.com/cockroachdb/cockroach/pkg/cmd/smithtest  Num of Lock & <-: 4  error: load_err
+Successful. Package NO. 66 : github.com/cockroachdb/cockroach/pkg/settings  Num of Lock & <-: 4
+
+----------Bug[47]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 67 : github.com/cockroachdb/cockroach/pkg/util/mon  Num of Lock & <-: 4
+Successful. Package NO. 68 : github.com/cockroachdb/cockroach/pkg/clusterversion  Num of Lock & <-: 4
+Successful. Package NO. 69 : github.com/cockroachdb/cockroach/pkg/util/envutil  Num of Lock & <-: 4
+Fail. Package NO. 70 : github.com/cockroachdb/cockroach/pkg/workload/tpcds  Num of Lock & <-: 3  error: type_err
+Successful. Package NO. 71 : github.com/cockroachdb/cockroach/pkg/base  Num of Lock & <-: 3
+
+----------Bug[48]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 72 : github.com/cockroachdb/cockroach/pkg/cmd/docgen  Num of Lock & <-: 3
+
+----------Bug[49]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex2:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+Successful. Package NO. 73 : github.com/cockroachdb/cockroach/pkg/cmd/reduce  Num of Lock & <-: 3
+
+----------Bug[50]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 74 : github.com/cockroachdb/cockroach/pkg/util/sysutil  Num of Lock & <-: 3
+Successful. Package NO. 75 : github.com/cockroachdb/cockroach/pkg/util/protoutil  Num of Lock & <-: 3
+
+----------Bug[51]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  s.mu ( **github.com/cockroachdb/cockroach/pkg/util/stop.Stopper )
+Mutex2:  trackedStoppers ( *struct{github.com/cockroachdb/cockroach/pkg/util/syncutil.Mutex; stoppers []*github.com/cockroachdb/cockroach/pkg/util/stop.Stopper} )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+Stop (at /data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go: 459) -> unregister
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:491
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:50
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:70
+	File:/data/suz305/go-workspace/stubs/cockroachdb/cockroachdb-last/src/github.com/cockroachdb/cockroach/pkg/util/stop/stopper.go	Line:73
+
+Successful. Package NO. 76 : github.com/cockroachdb/cockroach/pkg/util/json  Num of Lock & <-: 2
+Successful. Package NO. 77 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/ssh  Num of Lock & <-: 2
+Fail. Package NO. 78 : github.com/cockroachdb/cockroach/pkg/bench  Num of Lock & <-: 2  error: load_err
+Successful. Package NO. 79 : github.com/cockroachdb/cockroach/pkg/util/contextutil  Num of Lock & <-: 2
+Successful. Package NO. 80 : github.com/cockroachdb/cockroach/pkg/compose/compare/compare  Num of Lock & <-: 1
+Successful. Package NO. 81 : github.com/cockroachdb/cockroach/pkg/util/uuid  Num of Lock & <-: 1
+Successful. Package NO. 82 : github.com/cockroachdb/cockroach/pkg/util/caller  Num of Lock & <-: 1
+Successful. Package NO. 83 : github.com/cockroachdb/cockroach/pkg/compose  Num of Lock & <-: 1
+Successful. Package NO. 84 : github.com/cockroachdb/cockroach/pkg/util/limit  Num of Lock & <-: 1
+Fail. Package NO. 85 : github.com/cockroachdb/cockroach/pkg/ccl/partitionccl  Num of Lock & <-: 1  error: load_err
+Successful. Package NO. 86 : github.com/cockroachdb/cockroach/pkg/cmd/roachprod/vm/aws  Num of Lock & <-: 1

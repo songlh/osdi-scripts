@@ -1,0 +1,502 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/docker/docker/daemon  Num of Lock & <-: 642
+
+----------Bug[1]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain (with FN Pointer):
+get (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/daemon/logger/factory.go: 88) -> getPlugin (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/daemon/logger/plugin.go: 37) -> Get (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/plugin/store.go: 165) -> Get (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 260) -> get (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 250) -> activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 1 : github.com/docker/docker/integration-cli  Num of Lock & <-: 251
+
+----------Bug[2]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain (with FN Pointer):
+Close (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/daemon/logger/adapter.go: 80) -> Get (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/plugin/store.go: 165) -> Get (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 260) -> get (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 250) -> activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 126) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 2 : github.com/docker/docker/distribution  Num of Lock & <-: 130
+
+----------Bug[3]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 3 : github.com/docker/docker/distribution/xfer  Num of Lock & <-: 110
+
+----------Bug[4]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 4 : github.com/docker/docker/builder  Num of Lock & <-: 54
+
+----------Bug[5]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  p.activateWait.L ( sync.Locker )
+Mutex2:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 126) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Successful. Package NO. 5 : github.com/docker/docker/pkg/discovery  Num of Lock & <-: 53
+Successful. Package NO. 6 : github.com/docker/docker/container  Num of Lock & <-: 52
+
+----------Bug[6]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 126) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 7 : github.com/docker/docker/libcontainerd  Num of Lock & <-: 46
+Successful. Package NO. 8 : github.com/docker/docker/builder/builder-next  Num of Lock & <-: 36
+
+----------Bug[7]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  p.activateWait.L ( sync.Locker )
+Mutex2:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Successful. Package NO. 9 : github.com/docker/docker/integration  Num of Lock & <-: 34
+Successful. Package NO. 10 : github.com/docker/docker/client  Num of Lock & <-: 34
+Successful. Package NO. 11 : github.com/docker/docker/volume  Num of Lock & <-: 31
+Successful. Package NO. 12 : github.com/docker/docker/plugin  Num of Lock & <-: 28
+
+----------Bug[8]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 126) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 13 : github.com/docker/docker/pkg/filenotify  Num of Lock & <-: 23
+Successful. Package NO. 14 : github.com/docker/docker/api  Num of Lock & <-: 23
+Successful. Package NO. 15 : github.com/docker/docker/api/server  Num of Lock & <-: 23
+Successful. Package NO. 16 : github.com/docker/docker/layer  Num of Lock & <-: 22
+
+----------Bug[9]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 17 : github.com/docker/docker/pkg/discovery/kv  Num of Lock & <-: 22
+Successful. Package NO. 18 : github.com/docker/docker/volume/service  Num of Lock & <-: 20
+
+----------Bug[10]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Fail. Package NO. 19 : github.com/docker/docker/libcontainerd/local  Num of Lock & <-: 20  error: type_err
+Successful. Package NO. 20 : github.com/docker/docker/cmd/dockerd  Num of Lock & <-: 19
+Error when building callgraph with nil Queries:
+ internal error in pointer analysis: not a tagged object: n868981 (please report this bug)
+Successful. Package NO. 21 : github.com/docker/docker/api/server/router  Num of Lock & <-: 17
+Successful. Package NO. 22 : github.com/docker/docker/testutil  Num of Lock & <-: 17
+Successful. Package NO. 23 : github.com/docker/docker/pkg/pubsub  Num of Lock & <-: 15
+Successful. Package NO. 24 : github.com/docker/docker/pkg/ioutils  Num of Lock & <-: 15
+Successful. Package NO. 25 : github.com/docker/docker/integration/container  Num of Lock & <-: 15
+Successful. Package NO. 26 : github.com/docker/docker/pkg/discovery/memory  Num of Lock & <-: 14
+Successful. Package NO. 27 : github.com/docker/docker/testutil/daemon  Num of Lock & <-: 14
+Successful. Package NO. 28 : github.com/docker/docker/pkg/locker  Num of Lock & <-: 14
+Successful. Package NO. 29 : github.com/docker/docker/registry  Num of Lock & <-: 14
+Successful. Package NO. 30 : github.com/docker/docker/pkg/plugins  Num of Lock & <-: 13
+
+----------Bug[11]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  p.activateWait.L ( sync.Locker )
+Mutex2:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Example 1
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Example 1
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Successful. Package NO. 31 : github.com/docker/docker/libcontainerd/supervisor  Num of Lock & <-: 13
+Successful. Package NO. 32 : github.com/docker/docker/builder/dockerfile  Num of Lock & <-: 13
+
+----------Bug[12]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  p.activateWait.L ( sync.Locker )
+Mutex2:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 126) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Successful. Package NO. 33 : github.com/docker/docker/pkg/discovery/file  Num of Lock & <-: 12
+Successful. Package NO. 34 : github.com/docker/docker/integration/plugin  Num of Lock & <-: 12
+Successful. Package NO. 35 : github.com/docker/docker/libcontainerd/remote  Num of Lock & <-: 10
+Successful. Package NO. 36 : github.com/docker/docker/pkg/archive  Num of Lock & <-: 9
+Successful. Package NO. 37 : github.com/docker/docker/integration/plugin/logging  Num of Lock & <-: 8
+
+----------Bug[13]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 38 : github.com/docker/docker/image  Num of Lock & <-: 8
+
+----------Bug[14]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 39 : github.com/docker/docker/api/server/router/container  Num of Lock & <-: 7
+
+----------Bug[15]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 40 : github.com/docker/docker/restartmanager  Num of Lock & <-: 7
+Successful. Package NO. 41 : github.com/docker/docker/pkg/progress  Num of Lock & <-: 7
+Successful. Package NO. 42 : github.com/docker/docker/volume/local  Num of Lock & <-: 6
+Successful. Package NO. 43 : github.com/docker/docker/pkg/truncindex  Num of Lock & <-: 5
+Successful. Package NO. 44 : github.com/docker/docker/volume/drivers  Num of Lock & <-: 5
+
+----------Bug[16]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  p.activateWait.L ( sync.Locker )
+Mutex2:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Successful. Package NO. 45 : github.com/docker/docker/pkg/broadcaster  Num of Lock & <-: 5
+Successful. Package NO. 46 : github.com/docker/docker/api/server/router/build  Num of Lock & <-: 5
+Successful. Package NO. 47 : github.com/docker/docker/pkg/system  Num of Lock & <-: 4
+Successful. Package NO. 48 : github.com/docker/docker/integration/plugin/authz  Num of Lock & <-: 4
+
+----------Bug[17]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  p.activateWait.L ( sync.Locker )
+Mutex2:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Successful. Package NO. 49 : github.com/docker/docker/pkg/discovery/nodes  Num of Lock & <-: 4
+Successful. Package NO. 50 : github.com/docker/docker/api/server/router/system  Num of Lock & <-: 4
+
+----------Bug[18]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 51 : github.com/docker/docker/builder/remotecontext  Num of Lock & <-: 4
+
+----------Bug[19]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  p.activateWait.L ( sync.Locker )
+Mutex2:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+Successful. Package NO. 52 : github.com/docker/docker/pkg/authorization  Num of Lock & <-: 4
+
+----------Bug[20]----------
+	Type: Conflict Lock 	Reason: Two Mutexes are acquired in a conflicting order
+
+Mutex1:  handlers ( *github.com/docker/docker/pkg/plugins.extpointHandlers )
+Mutex2:  p.activateWait.L ( sync.Locker )
+Mutex1 -> Mutex2: 
+Example 0
+Call Chain:
+
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:273
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:284
+
+
+Mutex2 -> Mutex1: 
+Example 0
+Call Chain:
+activate (at /data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go: 119) -> runHandlers
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:116
+	File:/data/suz305/go-workspace/stubs/docker/docker-last/src/github.com/docker/docker/pkg/plugins/plugins.go	Line:139
+
+Successful. Package NO. 53 : github.com/docker/docker/libcontainerd/queue  Num of Lock & <-: 3
+Successful. Package NO. 54 : github.com/docker/docker/integration/system  Num of Lock & <-: 3
+Successful. Package NO. 55 : github.com/docker/docker/integration/internal/container  Num of Lock & <-: 3
+Successful. Package NO. 56 : github.com/docker/docker/pkg/signal  Num of Lock & <-: 3
+Successful. Package NO. 57 : github.com/docker/docker/reference  Num of Lock & <-: 2
+Successful. Package NO. 58 : github.com/docker/docker/testutil/fixtures/load  Num of Lock & <-: 2
+Successful. Package NO. 59 : github.com/docker/docker/pkg/directory  Num of Lock & <-: 2
+Successful. Package NO. 60 : github.com/docker/docker/pkg/parsers  Num of Lock & <-: 2
+Successful. Package NO. 61 : github.com/docker/docker/pkg/containerfs  Num of Lock & <-: 2
+Successful. Package NO. 62 : github.com/docker/docker/testutil/registry  Num of Lock & <-: 1
+Successful. Package NO. 63 : github.com/docker/docker/integration/secret  Num of Lock & <-: 1
+Successful. Package NO. 64 : github.com/docker/docker/pkg/term  Num of Lock & <-: 1
+Successful. Package NO. 65 : github.com/docker/docker/pkg/tailfile  Num of Lock & <-: 1
