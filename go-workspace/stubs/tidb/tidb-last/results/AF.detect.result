@@ -1,0 +1,406 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/pingcap/tidb/executor  Num of Lock & <-: 322
+Successful. Package NO. 1 : github.com/pingcap/tidb/store/tikv  Num of Lock & <-: 199
+----------Bug[1]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new error (errStdout) 	Function: create 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/cmd/explaintest/main.go:390:6
+Access1: *t38 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/cmd/explaintest/main.go:410:5	Atomic:false	Write:false
+Access2: *errStdout = t5 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/cmd/explaintest/main.go:399:6	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[2]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new error (errStderr) 	Function: create 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/cmd/explaintest/main.go:390:17
+Access1: *t39 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/cmd/explaintest/main.go:414:5	Atomic:false	Write:false
+Access2: *errStderr = t5 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/cmd/explaintest/main.go:402:6	Atomic:false	Write:true
+	 and more 1 race ...
+Successful. Package NO. 2 : github.com/pingcap/tidb/ddl  Num of Lock & <-: 122
+----------Bug[3]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *ddl (d) 	Function: TestForeignKey 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:114:2
+Access1: *t1 = t12 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:114:2	Atomic:false	Write:true
+Access2: *d @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:192:34	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[4]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *github.com/pingcap/parser/model.TableInfo (tblInfo) 	Function: TestForeignKey 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:125:2
+Access1: *t30 = t32 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:125:2	Atomic:false	Write:true
+Access2: *tblInfo @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:149:50	Atomic:false	Write:false
+	 and more 3 race ...
+----------Bug[5]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new error (err) 	Function: TestForeignKey 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:127:2
+Access1: *t33 = t35 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:127:2	Atomic:false	Write:true
+Access2: *err = t15 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:149:6	Atomic:false	Write:true
+	 and more 63 race ...
+----------Bug[6]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (checkOK) 	Function: TestForeignKey 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:139:2
+Access1: *t60 = false:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:139:2	Atomic:false	Write:true
+Access2: *checkOK = true:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/foreign_key_test.go:159:3	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[7]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *ddl (d) 	Function: TestAddColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:829:2
+Access1: *t1 = t12 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:829:2	Atomic:false	Write:true
+Access2: *d @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:877:41	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[8]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *github.com/pingcap/parser/model.TableInfo (tblInfo) 	Function: TestAddColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:834:2
+Access1: *t13 = t15 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:834:2	Atomic:false	Write:true
+Access2: *t9 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:867:60	Atomic:false	Write:false
+	 and more 2 race ...
+----------Bug[9]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []github.com/pingcap/tidb/types.Datum (oldRow) 	Function: TestAddColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:843:2
+Access1: *t39 = t48 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:843:2	Atomic:false	Write:true
+Access2: *oldRow @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:877:69	Atomic:false	Write:false
+----------Bug[10]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (handle) 	Function: TestAddColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:844:2
+Access1: *t49 = t52 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:844:2	Atomic:false	Write:true
+Access2: *handle @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:877:53	Atomic:false	Write:false
+----------Bug[11]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (newColName) 	Function: TestAddColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:852:2
+Access1: *t68 = "c4":string @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:852:2	Atomic:false	Write:true
+Access2: *newColName @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:872:60	Atomic:false	Write:false
+----------Bug[12]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (defaultColValue) 	Function: TestAddColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:853:2
+Access1: *t69 = 4:int64 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:853:2	Atomic:false	Write:true
+Access2: *defaultColValue @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:877:77	Atomic:false	Write:false
+----------Bug[13]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (checkOK) 	Function: TestAddColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:857:2
+Access1: *t72 = false:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:857:2	Atomic:false	Write:true
+Access2: *checkOK = true:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:884:4	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[14]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *ddl (d) 	Function: TestAddColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:915:2
+Access1: *t1 = t12 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:915:2	Atomic:false	Write:true
+Access2: *d @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:957:36	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[15]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *github.com/pingcap/parser/model.TableInfo (tblInfo) 	Function: TestAddColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:920:2
+Access1: *t13 = t15 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:920:2	Atomic:false	Write:true
+Access2: *t9 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:957:60	Atomic:false	Write:false
+	 and more 2 race ...
+----------Bug[16]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []github.com/pingcap/tidb/types.Datum (oldRow) 	Function: TestAddColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:929:2
+Access1: *t39 = t48 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:929:2	Atomic:false	Write:true
+Access2: *oldRow @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:968:70	Atomic:false	Write:false
+----------Bug[17]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (handle) 	Function: TestAddColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:930:2
+Access1: *t49 = t52 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:930:2	Atomic:false	Write:true
+Access2: *handle @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:968:54	Atomic:false	Write:false
+----------Bug[18]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []string (newColNames) 	Function: TestAddColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:938:2
+Access1: *t68 = t71 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:938:25	Atomic:false	Write:true
+Access2: *newColNames @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:962:30	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[19]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (defaultColValue) 	Function: TestAddColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:943:2
+Access1: *t81 = 4:int64 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:943:2	Atomic:false	Write:true
+Access2: *defaultColValue @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:968:78	Atomic:false	Write:false
+----------Bug[20]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (checkOK) 	Function: TestAddColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:947:2
+Access1: *t84 = false:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:947:2	Atomic:false	Write:true
+Access2: *checkOK @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:953:6	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[21]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *ddl (d) 	Function: TestDropColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:998:2
+Access1: *d @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1034:36	Atomic:false	Write:false
+Access2: *t1 = t12 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:998:2	Atomic:false	Write:true
+----------Bug[22]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *github.com/pingcap/parser/model.TableInfo (tblInfo) 	Function: TestDropColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1003:2
+Access1: *t9 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1034:60	Atomic:false	Write:false
+Access2: *t13 = t15 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1003:2	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[23]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (colName) 	Function: TestDropColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1012:2
+Access1: *colName @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1039:57	Atomic:false	Write:false
+Access2: *t39 = "c4":string @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1012:2	Atomic:false	Write:true
+----------Bug[24]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (checkOK) 	Function: TestDropColumn 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1023:2
+Access1: *checkOK = true:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1041:4	Atomic:false	Write:true
+Access2: *t72 = false:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1023:2	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[25]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *ddl (d) 	Function: TestDropColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1072:2
+Access1: *t1 = t12 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1072:2	Atomic:false	Write:true
+Access2: *d @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1108:36	Atomic:false	Write:false
+----------Bug[26]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *github.com/pingcap/parser/model.TableInfo (tblInfo) 	Function: TestDropColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1077:2
+Access1: *t13 = t15 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1077:2	Atomic:false	Write:true
+Access2: *tblInfo @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1108:52	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[27]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []string (colNames) 	Function: TestDropColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1086:2
+Access1: *t39 = t43 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1086:22	Atomic:false	Write:true
+Access2: *t21 @ -	Atomic:false	Write:false
+	 and more 2 race ...
+----------Bug[28]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (checkOK) 	Function: TestDropColumns 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1097:2
+Access1: *t76 = false:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1097:2	Atomic:false	Write:true
+Access2: *checkOK = true:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_test.go:1116:5	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[29]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *ddl (d) 	Function: TestIndexChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:55:2
+Access1: *d @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:97:26	Atomic:false	Write:false
+Access2: *t1 = t12 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:55:2	Atomic:false	Write:true
+	 and more 11 race ...
+----------Bug[30]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *github.com/pingcap/parser/model.TableInfo (tblInfo) 	Function: TestIndexChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:62:2
+Access1: *t69 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:118:63	Atomic:false	Write:false
+Access2: *t14 = t16 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:62:2	Atomic:false	Write:true
+	 and more 11 race ...
+----------Bug[31]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new error (err) 	Function: TestIndexChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:66:2
+Access1: *err = t22 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:101:21	Atomic:false	Write:true
+Access2: *t28 = t30 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:66:2	Atomic:false	Write:true
+	 and more 139 race ...
+----------Bug[32]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new github.com/pingcap/parser/model.SchemaState (prevState) 	Function: TestIndexChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:86:2
+Access1: *prevState @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:94:25	Atomic:false	Write:false
+Access2: *t107 = 0:github.com/pingcap/parser/model.SchemaState @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:134:2	Atomic:false	Write:true
+	 and more 7 race ...
+----------Bug[33]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new github.com/pingcap/tidb/table.Table (publicTable) 	Function: TestIndexChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:90:3
+Access1: *publicTable = t72 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:118:4	Atomic:false	Write:true
+Access2: *t110 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:172:37	Atomic:false	Write:false
+----------Bug[34]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new error (checkErr) 	Function: TestIndexChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:91:3
+Access1: *checkErr = t46 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:108:5	Atomic:false	Write:true
+Access2: *t111 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/index_change_test.go:130:28	Atomic:false	Write:false
+	 and more 23 race ...
+----------Bug[35]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *ddl (d) 	Function: TestColumnChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:62:2
+Access1: *d @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:122:39	Atomic:false	Write:false
+Access2: *t1 = t12 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:62:2	Atomic:false	Write:true
+	 and more 4 race ...
+----------Bug[36]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *github.com/pingcap/parser/model.TableInfo (tblInfo) 	Function: TestColumnChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:69:2
+Access1: *t42 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:112:66	Atomic:false	Write:false
+Access2: *t14 = t16 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:69:2	Atomic:false	Write:true
+	 and more 5 race ...
+----------Bug[37]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (h) 	Function: TestColumnChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:77:2
+Access1: *h @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:116:75	Atomic:false	Write:false
+Access2: *t47 = t49 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:77:2	Atomic:false	Write:true
+----------Bug[38]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new github.com/pingcap/parser/model.SchemaState (prevState) 	Function: TestColumnChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:87:2
+Access1: *prevState @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:95:25	Atomic:false	Write:false
+Access2: *t67 = 0:github.com/pingcap/parser/model.SchemaState @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:87:2	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[39]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new error (checkErr) 	Function: TestColumnChange 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:93:6
+Access1: *checkErr = t74 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:118:5	Atomic:false	Write:true
+Access2: *t71 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/ddl/column_change_test.go:144:29	Atomic:false	Write:false
+	 and more 7 race ...
+Successful. Package NO. 3 : github.com/pingcap/tidb/statistics/handle  Num of Lock & <-: 57
+----------Bug[40]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (i) 	Function: startIndexMergeTableScanWorker 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/index_merge_reader.go:390:6
+Access1: *t12 = t39 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/index_merge_reader.go:390:42	Atomic:false	Write:true
+Access2: *i @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/index_merge_reader.go:396:113	Atomic:false	Write:false
+----------Bug[41]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (workerID) 	Function: startWorkers 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/index_lookup_hash_join.go:183:3
+Access1: *workerID @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/index_lookup_hash_join.go:184:59	Atomic:false	Write:false
+Access2: *t90 = t96 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/index_lookup_hash_join.go:183:3	Atomic:false	Write:true
+----------Bug[42]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new error (err) 	Function: Next 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/executor.go:686:22
+Access1: *err @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/executor.go:710:70	Atomic:false	Write:false
+Access2: *t33 = t105 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/executor.go:721:3	Atomic:false	Write:true
+----------Bug[43]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []int (probeKeyColIdx) 	Function: fetchAndProbeHashTable 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/join.go:313:2
+Access1: *t24 = t31 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/join.go:315:17	Atomic:false	Write:true
+Access2: *probeKeyColIdx @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/join.go:323:57	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[44]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new uint (workID) 	Function: fetchAndProbeHashTable 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/join.go:322:3
+Access1: *t35 = t42 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/join.go:322:3	Atomic:false	Write:true
+Access2: *workID @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/executor/join.go:323:49	Atomic:false	Write:false
+Successful. Package NO. 4 : github.com/pingcap/tidb/domain  Num of Lock & <-: 58
+----------Bug[45]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (filename) 	Function: TestTiKVProfileCPU$1 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:428:22
+Access1: *filename @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:430:59	Atomic:false	Write:false
+Access2: *t0 = filename @ -	Atomic:false	Write:true
+----------Bug[46]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new map[string]struct{} (accessed) 	Function: TestTiKVProfileCPU 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:491:2
+Access1: *t97 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:543:15	Atomic:false	Write:false
+Access2: t16[t17] = t19 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:507:12	Atomic:false	Write:true
+	 and more 4 race ...
+----------Bug[47]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (name) 	Function: TestTiKVProfileCPU$3 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:492:25
+Access1: t16[t17] = t19 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:507:12	Atomic:false	Write:false
+Access2: *t0 = name @ -	Atomic:false	Write:true
+	 and more 3 race ...
+----------Bug[48]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (debugLevel) 	Function: TestTiKVProfileCPU$3 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:493:3
+Access1: *debugLevel @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:503:33	Atomic:false	Write:false
+Access2: *t1 = 0:int @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/infoschema/perfschema/tables_test.go:493:3	Atomic:false	Write:true
+	 and more 1 race ...
+Successful. Package NO. 5 : github.com/pingcap/tidb/session  Num of Lock & <-: 46
+Successful. Package NO. 6 : github.com/pingcap/tidb/store/mockstore/mocktikv  Num of Lock & <-: 44
+Successful. Package NO. 7 : github.com/pingcap/tidb/server  Num of Lock & <-: 23
+Successful. Package NO. 8 : github.com/pingcap/tidb/bindinfo  Num of Lock & <-: 22
+Successful. Package NO. 9 : github.com/pingcap/tidb/cmd/ddltest  Num of Lock & <-: 21
+----------Bug[49]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *twoPhaseCommitter (c) 	Function: execute 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/2pc.go:1131:7
+Access1: *t0 = c @ -	Atomic:false	Write:true
+Access2: *c @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/2pc.go:1143:12	Atomic:false	Write:false
+	 and more 5 race ...
+----------Bug[50]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new context.Context (ctx) 	Function: execute 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/2pc.go:1131:37
+Access1: *t1 = ctx @ -	Atomic:false	Write:true
+Access2: *ctx @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/2pc.go:1142:76	Atomic:false	Write:false
+	 and more 2 race ...
+----------Bug[51]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []writeRecord (writes) 	Function: TestReadWriteConflict 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/isolation_test.go:144:3
+Access1: *t2 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/isolation_test.go:195:66	Atomic:false	Write:false
+Access2: *writes = t16 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/isolation_test.go:156:4	Atomic:false	Write:true
+	 and more 5 race ...
+----------Bug[52]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (timeouted) 	Function: TestCoprocessorStreamRecvTimeout 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:118:3
+Access1: *t21 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:149:13	Atomic:false	Write:false
+Access2: *timeouted = true:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:129:5	Atomic:false	Write:true
+----------Bug[53]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (enable) 	Function: TestCoprocessorStreamRecvTimeout 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:156:3
+Access1: *enable = false:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:171:4	Atomic:false	Write:true
+Access2: *t58 = true:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:156:3	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[54]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (timeouted) 	Function: TestCoprocessorStreamRecvTimeout 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:158:3
+Access1: *timeouted = true:bool @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:169:5	Atomic:false	Write:true
+Access2: *t61 @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:189:13	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[55]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new time.Duration (timeout) 	Function: TestCoprocessorStreamRecvTimeout 
+Position: /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:159:3
+Access1: *timeout @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:168:22	Atomic:false	Write:false
+Access2: *t62 = 1000000:time.Duration @ /data/suz305/go-workspace/stubs/tidb/tidb-last/src/github.com/pingcap/tidb/store/tikv/sql_fail_test.go:159:3	Atomic:false	Write:true
+Successful. Package NO. 10 : github.com/pingcap/tidb/util/stmtsummary  Num of Lock & <-: 17
+Successful. Package NO. 11 : github.com/pingcap/tidb/meta/autoid  Num of Lock & <-: 15
+Successful. Package NO. 12 : github.com/pingcap/tidb/statistics  Num of Lock & <-: 68
+Successful. Package NO. 13 : github.com/pingcap/tidb/util/memory  Num of Lock & <-: 11
+Successful. Package NO. 14 : github.com/pingcap/tidb/util/execdetails  Num of Lock & <-: 11
+Successful. Package NO. 15 : github.com/pingcap/tidb/expression  Num of Lock & <-: 10
+Successful. Package NO. 16 : github.com/pingcap/tidb/cmd/importer  Num of Lock & <-: 9
+Successful. Package NO. 17 : github.com/pingcap/tidb/planner/core  Num of Lock & <-: 7
+Successful. Package NO. 18 : github.com/pingcap/tidb/owner  Num of Lock & <-: 6
+Successful. Package NO. 19 : github.com/pingcap/tidb/infoschema/perfschema  Num of Lock & <-: 5
+Successful. Package NO. 20 : github.com/pingcap/tidb/store/mockoracle  Num of Lock & <-: 4
+Successful. Package NO. 21 : github.com/pingcap/tidb/util/deadlock  Num of Lock & <-: 4
+Successful. Package NO. 22 : github.com/pingcap/tidb/util/domainutil  Num of Lock & <-: 4
+Successful. Package NO. 23 : github.com/pingcap/tidb/util/chunk  Num of Lock & <-: 4
+Successful. Package NO. 24 : github.com/pingcap/tidb/util/signal  Num of Lock & <-: 3
+Successful. Package NO. 25 : github.com/pingcap/tidb/table/tables  Num of Lock & <-: 2
+Successful. Package NO. 26 : github.com/pingcap/tidb/util/testkit  Num of Lock & <-: 2
+Successful. Package NO. 27 : github.com/pingcap/tidb/util/filesort  Num of Lock & <-: 2
+Successful. Package NO. 28 : github.com/pingcap/tidb/util/expensivequery  Num of Lock & <-: 2
+Successful. Package NO. 29 : github.com/pingcap/tidb/kv  Num of Lock & <-: 2
+Successful. Package NO. 30 : github.com/pingcap/tidb/plugin  Num of Lock & <-: 2
+Successful. Package NO. 31 : github.com/pingcap/tidb/meta  Num of Lock & <-: 17
+Successful. Package NO. 32 : github.com/pingcap/tidb/distsql  Num of Lock & <-: 2
+Successful. Package NO. 33 : github.com/pingcap/tidb/util/systimemon  Num of Lock & <-: 1
+Successful. Package NO. 34 : github.com/pingcap/tidb/util/timeutil  Num of Lock & <-: 1
+Successful. Package NO. 35 : github.com/pingcap/tidb/errno  Num of Lock & <-: 1
+Successful. Package NO. 36 : github.com/pingcap/tidb/store  Num of Lock & <-: 251
+Checked all packages containing concurrency. Now exit

@@ -1,0 +1,135 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : runtime/race/testdata  Num of Lock & <-: 799  error: type_err
+Successful. Package NO. 1 : net/http  Num of Lock & <-: 855
+Successful. Package NO. 2 : runtime  Num of Lock & <-: 1430
+Error when building callgraph with nil Queries:
+ internal error in pointer analysis: ill-typed copy dst=n122178 src=n0 (please report this bug)
+Successful. Package NO. 3 : net  Num of Lock & <-: 1200
+Successful. Package NO. 4 : database/sql  Num of Lock & <-: 135
+Successful. Package NO. 5 : sync  Num of Lock & <-: 148
+Successful. Package NO. 6 : crypto/tls  Num of Lock & <-: 116
+Successful. Package NO. 7 : cmd/internal/obj/s390x  Num of Lock & <-: 97
+Successful. Package NO. 8 : context  Num of Lock & <-: 78
+Successful. Package NO. 9 : testing  Num of Lock & <-: 71
+Successful. Package NO. 10 : reflect  Num of Lock & <-: 68
+Error when building callgraph with nil Queries:
+ internal error in pointer analysis: ill-typed copy dst=n8042 src=n0 (please report this bug)
+Successful. Package NO. 11 : os/signal  Num of Lock & <-: 53
+Successful. Package NO. 12 : os  Num of Lock & <-: 132
+Successful. Package NO. 13 : cmd/compile/internal/gc  Num of Lock & <-: 73
+----------Bug[1]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new testStruct (tt) 	Function: TestPragcgo 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/lex_test.go:93:9
+Access1: *t2 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/lex_test.go:99:24	Atomic:false	Write:false
+Access2: *t129 = t153 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/lex_test.go:93:9	Atomic:false	Write:true
+Successful. Package NO. 14 : crypto/elliptic  Num of Lock & <-: 47
+Successful. Package NO. 15 : time  Num of Lock & <-: 47
+Fail. Package NO. 16 : go/printer/testdata  Num of Lock & <-: 41  error: type_err
+Successful. Package NO. 17 : cmd/compile/internal/syntax  Num of Lock & <-: 42
+Successful. Package NO. 18 : go/types  Num of Lock & <-: 122
+Successful. Package NO. 19 : runtime/race  Num of Lock & <-: 898
+Successful. Package NO. 20 : io  Num of Lock & <-: 33
+Successful. Package NO. 21 : syscall  Num of Lock & <-: 36
+Successful. Package NO. 22 : go/token  Num of Lock & <-: 21
+Fail. Package NO. 23 : cmd/compile/internal/ssa/gen  Num of Lock & <-: 20  error: type_err
+Successful. Package NO. 24 : go/parser  Num of Lock & <-: 21
+Successful. Package NO. 25 : internal/poll  Num of Lock & <-: 17
+Successful. Package NO. 26 : cmd/compile/internal/ssa  Num of Lock & <-: 37
+Successful. Package NO. 27 : cmd/go/internal/modfetch/codehost  Num of Lock & <-: 16
+----------Bug[2]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []byte (b) 	Function: main1 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/dupLoad_test.go:23:2
+Access1: *b @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/dupLoad_test.go:33:18	Atomic:false	Write:false
+Access2: *t4 = t5 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/dupLoad_test.go:27:5	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[3]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []byte (b) 	Function: main2 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/dupLoad_test.go:57:2
+Access1: *b @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/dupLoad_test.go:67:18	Atomic:false	Write:false
+Access2: *t4 = t5 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/dupLoad_test.go:61:5	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[4]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *X (x) 	Function: TestSlice 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/slice_test.go:23:2
+Access1: *t1 = t5 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/slice_test.go:27:6	Atomic:false	Write:true
+Access2: *t3 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/compile/internal/gc/testdata/slice_test.go:33:12	Atomic:false	Write:false
+	 and more 6 race ...
+Successful. Package NO. 28 : cmd/go/internal/work  Num of Lock & <-: 16
+Successful. Package NO. 29 : cmd/go/internal/lockedfile  Num of Lock & <-: 25
+Successful. Package NO. 30 : cmd/dist  Num of Lock & <-: 15
+Successful. Package NO. 31 : log/syslog  Num of Lock & <-: 15
+Fail. Package NO. 32 : go/doc/testdata  Num of Lock & <-: 12  error: type_err
+----------Bug[5]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new map[string]string (need) 	Function: ConvertLegacyConfig 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/modconv/convert.go:48:3
+Access1: t36[t31] = t38 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/modconv/convert.go:79:8	Atomic:false	Write:true
+Access2: *t43 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/modconv/convert.go:85:20	Atomic:false	Write:false
+	 and more 4 race ...
+Successful. Package NO. 33 : internal/singleflight  Num of Lock & <-: 11
+Successful. Package NO. 34 : expvar  Num of Lock & <-: 11
+Successful. Package NO. 35 : internal/reflectlite  Num of Lock & <-: 10
+----------Bug[6]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new map[cmd/vendor/golang.org/x/mod/module.Version]*modGraphNode (modGraph) 	Function: buildList 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:134:3
+Access1: t103[t104] @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:210:19	Atomic:false	Write:false
+Access2: t6[t7] = t2 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:150:11	Atomic:false	Write:true
+	 and more 7 race ...
+----------Bug[7]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new map[string]string (min) 	Function: buildList 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:135:3
+Access1: t30[t32] @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:222:13	Atomic:false	Write:false
+Access2: t14[t16] = t18 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:152:7	Atomic:false	Write:true
+	 and more 4 race ...
+----------Bug[8]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int32 (haveErr) 	Function: buildList 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:136:3
+Access1: *t8 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:181:5	Atomic:false	Write:false
+Access2: sync/atomic.StoreInt32(haveErr, 1:int32) @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/mvs/mvs.go:140:20	Atomic:true	Write:true
+Successful. Package NO. 36 : encoding/gob  Num of Lock & <-: 10
+----------Bug[9]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int32 (n) 	Function: TestWork 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/par/work_test.go:17:2
+Access1: sync/atomic.AddInt32(n, 1:int32) @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/par/work_test.go:20:18	Atomic:true	Write:true
+Access2: *t1 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/par/work_test.go:30:41	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[10]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int32 (n) 	Function: TestWorkParallel 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/par/work_test.go:42:7
+Access1: *t10 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/par/work_test.go:47:6	Atomic:false	Write:false
+Access2: sync/atomic.AddInt32(n, 1:int32) @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/par/work_test.go:45:19	Atomic:true	Write:true
+----------Bug[11]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (writeSuccesses) 	Function: TestConcurrentReadsAndWrites 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/renameio/renameio_test.go:55:3
+Access1: sync/atomic.AddInt64(writeSuccesses, 1:int64) @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/renameio/renameio_test.go:68:20	Atomic:true	Write:true
+Access2: *t39 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/renameio/renameio_test.go:136:54	Atomic:false	Write:false
+	 and more 2 race ...
+----------Bug[12]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (readSuccesses) 	Function: TestConcurrentReadsAndWrites 
+Position: /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/renameio/renameio_test.go:55:19
+Access1: sync/atomic.AddInt64(readSuccesses, 1:int64) @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/renameio/renameio_test.go:87:20	Atomic:true	Write:true
+Access2: *t40 @ /data/suz305/go-workspace/go-4.10/src/go/src/cmd/go/internal/renameio/renameio_test.go:155:55	Atomic:false	Write:false
+	 and more 2 race ...
+Fail. Package NO. 37 : cmd/cover/testdata  Num of Lock & <-: 10  error: type_err
+Successful. Package NO. 38 : log  Num of Lock & <-: 24
+Successful. Package NO. 39 : crypto/rsa  Num of Lock & <-: 9
+Successful. Package NO. 40 : html/template  Num of Lock & <-: 9
+Successful. Package NO. 41 : encoding/base64  Num of Lock & <-: 8
+Successful. Package NO. 42 : cmd/link/internal/ld  Num of Lock & <-: 8
+Successful. Package NO. 43 : cmd/go/internal/test  Num of Lock & <-: 8
+Successful. Package NO. 44 : cmd/go/internal/modfetch  Num of Lock & <-: 23
+Successful. Package NO. 45 : cmd/go  Num of Lock & <-: 122
+Successful. Package NO. 46 : go/printer  Num of Lock & <-: 46
+Successful. Package NO. 47 : archive/zip  Num of Lock & <-: 6

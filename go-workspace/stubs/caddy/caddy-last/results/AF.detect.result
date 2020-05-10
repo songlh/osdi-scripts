@@ -1,0 +1,7 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : github.com/caddyserver/caddy/modules/caddyhttp/reverseproxy  Num of Lock & <-: 12  error: type_err
+Fail. Package NO. 1 : github.com/caddyserver/caddy/modules/caddytls  Num of Lock & <-: 24  error: type_err
+Fail. Package NO. 2 : github.com/caddyserver/caddy/modules/caddypki  Num of Lock & <-: 5  error: type_err
+Successful. Package NO. 3 : github.com/caddyserver/caddy/cmd  Num of Lock & <-: 3
+Checked all packages containing concurrency. Now exit

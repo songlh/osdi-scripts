@@ -1,0 +1,95 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : go.etcd.io/etcd/integration  Num of Lock & <-: 211
+Successful. Package NO. 1 : go.etcd.io/etcd/clientv3/integration  Num of Lock & <-: 199
+Successful. Package NO. 2 : go.etcd.io/etcd/etcdserver  Num of Lock & <-: 630
+----------Bug[1]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (i) 	Function: TestDialTimeout 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/client_test.go:101:6
+Access1: *t28 = t32 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/client_test.go:101:6	Atomic:false	Write:true
+Access2: *i @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/client_test.go:107:45	Atomic:false	Write:false
+----------Bug[2]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new Config (cfg) 	Function: TestDialTimeout 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/client_test.go:101:9
+Access1: *t29 = t35 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/client_test.go:101:9	Atomic:false	Write:true
+Access2: *cfg @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/client_test.go:105:18	Atomic:false	Write:false
+Successful. Package NO. 3 : go.etcd.io/etcd/mvcc  Num of Lock & <-: 206
+Successful. Package NO. 4 : go.etcd.io/etcd/raft  Num of Lock & <-: 142
+Successful. Package NO. 5 : go.etcd.io/etcd/clientv3  Num of Lock & <-: 411
+----------Bug[3]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new net.Listener (ln) 	Function: TestV3ClientMetrics 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/integration/metrics_test.go:43:3
+Access1: *t3 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/integration/metrics_test.go:113:2	Atomic:false	Write:false
+Access2: *ln = t7 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/integration/metrics_test.go:56:3	Atomic:false	Write:true
+----------Bug[4]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (i) 	Function: TestTxnReadRetry 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/integration/txn_test.go:118:6
+Access1: *i @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/integration/txn_test.go:124:50	Atomic:false	Write:false
+Access2: *t39 = t43 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/clientv3/integration/txn_test.go:118:6	Atomic:false	Write:true
+Successful. Package NO. 6 : go.etcd.io/etcd/proxy/grpcproxy  Num of Lock & <-: 127
+----------Bug[5]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *raftNode (rc) 	Function: serveChannels 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/raft.go:381:7
+Access1: *t26 = nil:<-chan string @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/raft.go:403:9	Atomic:false	Write:true
+Access2: *t0 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/raft.go:437:4	Atomic:false	Write:false
+	 and more 15 race ...
+----------Bug[6]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *kvstore (kvs) 	Function: main 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/main.go:37:6
+Access1: *kvs @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/main.go:38:49	Atomic:false	Write:false
+Access2: *t7 = t21 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/main.go:41:2	Atomic:false	Write:true
+----------Bug[7]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *kvstore (kvs) 	Function: TestPutAndGetKeyValue 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/raftexample_test.go:175:6
+Access1: *t5 = t15 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/raftexample_test.go:179:2	Atomic:false	Write:true
+Access2: *kvs @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/contrib/raftexample/raftexample_test.go:176:49	Atomic:false	Write:false
+Successful. Package NO. 7 : go.etcd.io/etcd/pkg/proxy  Num of Lock & <-: 97
+Successful. Package NO. 8 : go.etcd.io/etcd/contrib/raftexample  Num of Lock & <-: 60
+----------Bug[8]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *go.etcd.io/etcd/vendor/google.golang.org/grpc.Server (gs) 	Function: serve 
+Position: /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/embed/serve.go:104:6
+Access1: *gs @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/embed/serve.go:119:26	Atomic:false	Write:false
+Access2: *t15 = t100 @ /data/suz305/go-workspace/stubs/etcd/etcd-last/src/go.etcd.io/etcd/embed/serve.go:150:3	Atomic:false	Write:true
+Successful. Package NO. 9 : go.etcd.io/etcd/lease  Num of Lock & <-: 63
+Successful. Package NO. 10 : go.etcd.io/etcd/client  Num of Lock & <-: 46
+Successful. Package NO. 11 : go.etcd.io/etcd/auth  Num of Lock & <-: 45
+Successful. Package NO. 12 : go.etcd.io/etcd/pkg/transport  Num of Lock & <-: 41
+Successful. Package NO. 13 : go.etcd.io/etcd/tests/e2e  Num of Lock & <-: 38
+Successful. Package NO. 14 : go.etcd.io/etcd/tools/benchmark/cmd  Num of Lock & <-: 36
+Successful. Package NO. 15 : go.etcd.io/etcd/etcdctl/ctlv3/command  Num of Lock & <-: 36
+Successful. Package NO. 16 : go.etcd.io/etcd/pkg/report  Num of Lock & <-: 32
+Successful. Package NO. 17 : go.etcd.io/etcd/pkg/fileutil  Num of Lock & <-: 31
+Successful. Package NO. 18 : go.etcd.io/etcd/pkg/wait  Num of Lock & <-: 28
+Successful. Package NO. 19 : go.etcd.io/etcd/functional/tester  Num of Lock & <-: 23
+Successful. Package NO. 20 : go.etcd.io/etcd/functional/agent  Num of Lock & <-: 23
+Successful. Package NO. 21 : go.etcd.io/etcd/embed  Num of Lock & <-: 17
+Successful. Package NO. 22 : go.etcd.io/etcd/pkg/testutil  Num of Lock & <-: 17
+Successful. Package NO. 23 : go.etcd.io/etcd/wal  Num of Lock & <-: 14
+Successful. Package NO. 24 : go.etcd.io/etcd/pkg/schedule  Num of Lock & <-: 13
+Successful. Package NO. 25 : go.etcd.io/etcd/functional/runner  Num of Lock & <-: 13
+Successful. Package NO. 26 : go.etcd.io/etcd/etcdmain  Num of Lock & <-: 11
+Successful. Package NO. 27 : go.etcd.io/etcd/tools/etcd-dump-metrics  Num of Lock & <-: 10
+Successful. Package NO. 28 : go.etcd.io/etcd/pkg/osutil  Num of Lock & <-: 8
+Successful. Package NO. 29 : go.etcd.io/etcd/etcdctl/ctlv2/command  Num of Lock & <-: 7
+Successful. Package NO. 30 : go.etcd.io/etcd/proxy/tcpproxy  Num of Lock & <-: 7
+Successful. Package NO. 31 : go.etcd.io/etcd/functional/cmd/etcd-proxy  Num of Lock & <-: 6
+Successful. Package NO. 32 : go.etcd.io/etcd/proxy/httpproxy  Num of Lock & <-: 6
+Successful. Package NO. 33 : go.etcd.io/etcd/pkg/expect  Num of Lock & <-: 5
+Successful. Package NO. 34 : go.etcd.io/etcd/tools/local-tester/bridge  Num of Lock & <-: 4
+Successful. Package NO. 35 : go.etcd.io/etcd/pkg/types  Num of Lock & <-: 2
+Successful. Package NO. 36 : go.etcd.io/etcd/pkg/contention  Num of Lock & <-: 2
+Successful. Package NO. 37 : go.etcd.io/etcd/pkg/netutil  Num of Lock & <-: 2
+Successful. Package NO. 38 : go.etcd.io/etcd/pkg/mock/mockserver  Num of Lock & <-: 2
+Successful. Package NO. 39 : go.etcd.io/etcd/Documentation/learning/lock/client  Num of Lock & <-: 1
+Successful. Package NO. 40 : go.etcd.io/etcd/pkg/mock/mockwait  Num of Lock & <-: 1
+Successful. Package NO. 41 : go.etcd.io/etcd/functional/rpcpb  Num of Lock & <-: 1
+Successful. Package NO. 42 : go.etcd.io/etcd/pkg/adt  Num of Lock & <-: 28
+Checked all packages containing concurrency. Now exit

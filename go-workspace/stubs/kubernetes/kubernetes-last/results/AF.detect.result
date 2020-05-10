@@ -1,0 +1,589 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/cache  Num of Lock & <-: 147  error: type_err
+Successful. Package NO. 1 : k8s.io/kubernetes/pkg/kubelet/config  Num of Lock & <-: 106
+Fail. Package NO. 2 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/watch  Num of Lock & <-: 77  error: type_err
+Fail. Package NO. 3 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/wait  Num of Lock & <-: 76  error: type_err
+Successful. Package NO. 4 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/cacher  Num of Lock & <-: 72
+Successful. Package NO. 5 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/clock  Num of Lock & <-: 67
+Fail. Package NO. 6 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/azure  Num of Lock & <-: 72  error: type_err
+Successful. Package NO. 7 : k8s.io/kubernetes/pkg/kubelet  Num of Lock & <-: 670
+----------Bug[1]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new k8s.io/kubernetes/vendor/k8s.io/apimachinery/pkg/labels.Selector (labelSelector) 	Function: Run 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/cmd/kube-proxy/app/server.go:724:2
+Access1: *t151 = t152 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/cmd/kube-proxy/app/server.go:724:2	Atomic:false	Write:true
+Access2: *labelSelector @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/cmd/kube-proxy/app/server.go:730:28	Atomic:false	Write:false
+	 and more 1 race ...
+Fail. Package NO. 8 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/server/filters  Num of Lock & <-: 48  error: type_err
+Successful. Package NO. 9 : k8s.io/kubernetes/pkg/util/async  Num of Lock & <-: 45
+Fail. Package NO. 10 : k8s.io/kubernetes/staging/src/k8s.io/client-go/util/workqueue  Num of Lock & <-: 43  error: type_err
+Successful. Package NO. 11 : k8s.io/kubernetes/pkg/controller/podautoscaler  Num of Lock & <-: 42
+Fail. Package NO. 12 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/server  Num of Lock & <-: 110  error: type_err
+Successful. Package NO. 13 : k8s.io/kubernetes/staging/src/k8s.io/cri-api/pkg/apis/testing  Num of Lock & <-: 39
+Successful. Package NO. 14 : k8s.io/kubernetes/pkg/controller/garbagecollector  Num of Lock & <-: 37
+Successful. Package NO. 15 : k8s.io/kubernetes/pkg/controller/nodelifecycle/scheduler  Num of Lock & <-: 33
+Successful. Package NO. 16 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/watch  Num of Lock & <-: 34
+----------Bug[2]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *DaemonSetsController (dsc) 	Function: NewDaemonSetsController 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/daemon/daemon_controller.go:150:2
+Access1: *t11 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/daemon/daemon_controller.go:169:8	Atomic:false	Write:false
+Access2: *t147 = t149 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/daemon/daemon_controller.go:215:6	Atomic:false	Write:true
+	 and more 1 race ...
+Successful. Package NO. 17 : k8s.io/kubernetes/pkg/proxy/userspace  Num of Lock & <-: 33
+Successful. Package NO. 18 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/etcd3  Num of Lock & <-: 32
+Successful. Package NO. 19 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/httpstream/spdy  Num of Lock & <-: 32
+Successful. Package NO. 20 : k8s.io/kubernetes/test/e2e/framework  Num of Lock & <-: 62
+Successful. Package NO. 21 : k8s.io/kubernetes/staging/src/k8s.io/component-base/metrics  Num of Lock & <-: 32
+Fail. Package NO. 22 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/record  Num of Lock & <-: 30  error: type_err
+Successful. Package NO. 23 : k8s.io/kubernetes/pkg/scheduler  Num of Lock & <-: 93
+----------Bug[3]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *Controller (nc) 	Function: NewNodeLifecycleController 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/nodelifecycle/node_lifecycle_controller.go:394:2
+Access1: *t30 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/nodelifecycle/node_lifecycle_controller.go:455:8	Atomic:false	Write:false
+Access2: *t109 = t116 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/nodelifecycle/node_lifecycle_controller.go:495:6	Atomic:false	Write:true
+	 and more 25 race ...
+----------Bug[4]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new k8s.io/kubernetes/vendor/k8s.io/client-go/tools/cache.Indexer (podIndexer) 	Function: NewNodeLifecycleController 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/nodelifecycle/node_lifecycle_controller.go:473:2
+Access1: *podIndexer @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/nodelifecycle/node_lifecycle_controller.go:475:16	Atomic:false	Write:false
+Access2: *t92 = t94 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/nodelifecycle/node_lifecycle_controller.go:473:2	Atomic:false	Write:true
+Successful. Package NO. 24 : k8s.io/kubernetes/pkg/volume/testing  Num of Lock & <-: 28
+----------Bug[5]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (callCnt) 	Function: TestSlowStartBatch 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/replicaset/replica_set_test.go:1718:2
+Access1: *t2 = 0:int @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/replicaset/replica_set_test.go:1770:3	Atomic:false	Write:true
+Access2: *callCnt @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/replicaset/replica_set_test.go:1724:3	Atomic:false	Write:false
+	 and more 4 race ...
+----------Bug[6]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (callLimit) 	Function: TestSlowStartBatch 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/replicaset/replica_set_test.go:1719:2
+Access1: *t3 = t42 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/replicaset/replica_set_test.go:1771:3	Atomic:false	Write:true
+Access2: *callLimit @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/replicaset/replica_set_test.go:1725:16	Atomic:false	Write:false
+Fail. Package NO. 25 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/events  Num of Lock & <-: 28  error: type_err
+Successful. Package NO. 26 : k8s.io/kubernetes/test/e2e/upgrades  Num of Lock & <-: 41
+----------Bug[7]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *PersistentVolumeController (controller) 	Function: NewController 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/volume/persistentvolume/pv_controller_base.go:84:2
+Access1: *controller @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/volume/persistentvolume/pv_controller_base.go:110:63	Atomic:false	Write:false
+Access2: *t80 = t83 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/controller/volume/persistentvolume/pv_controller_base.go:113:13	Atomic:false	Write:true
+	 and more 11 race ...
+Fail. Package NO. 27 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/registry/generic/registry  Num of Lock & <-: 27  error: type_err
+Successful. Package NO. 28 : k8s.io/kubernetes/pkg/util/goroutinemap  Num of Lock & <-: 25
+Successful. Package NO. 29 : k8s.io/kubernetes/pkg/controller/nodeipam/ipam  Num of Lock & <-: 39
+Successful. Package NO. 30 : k8s.io/kubernetes/pkg/controller/resourcequota  Num of Lock & <-: 25
+----------Bug[8]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *k8s.io/kubernetes/vendor/k8s.io/kubelet/pkg/apis/deviceplugin/v1beta1.AllocateResponse (resp) 	Function: TestAllocate 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/cm/devicemanager/endpoint_test.go:122:2
+Access1: *resp @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/cm/devicemanager/endpoint_test.go:145:10	Atomic:false	Write:false
+Access2: *t20 = t21 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/cm/devicemanager/endpoint_test.go:122:2	Atomic:false	Write:true
+	 and more 1 race ...
+Successful. Package NO. 31 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/test/integration  Num of Lock & <-: 32
+----------Bug[9]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *testCase (testCase) 	Function: watchFileAdded 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/config/file_linux_test.go:230:13
+Access1: *t8 = t14 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/config/file_linux_test.go:230:13	Atomic:false	Write:true
+Access2: *testCase @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/config/file_linux_test.go:260:6	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[10]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *testCase (testCase) 	Function: watchFileChanged 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/config/file_linux_test.go:283:13
+Access1: *t8 = t14 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/config/file_linux_test.go:283:13	Atomic:false	Write:true
+Access2: *testCase @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/config/file_linux_test.go:338:12	Atomic:false	Write:false
+	 and more 7 race ...
+Successful. Package NO. 32 : k8s.io/kubernetes/pkg/volume/util/nestedpendingoperations  Num of Lock & <-: 25
+Successful. Package NO. 33 : k8s.io/kubernetes/pkg/controller/replicaset  Num of Lock & <-: 23
+Successful. Package NO. 34 : k8s.io/kubernetes/test/e2e/node  Num of Lock & <-: 23
+----------Bug[11]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (prevImageGCFailed) 	Function: StartGarbageCollection 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/kubelet.go:1264:2
+Access1: *prevImageGCFailed = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/kubelet.go:1274:4	Atomic:false	Write:true
+Access2: *t11 = false:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/kubelet.go:1264:2	Atomic:false	Write:true
+	 and more 3 race ...
+----------Bug[12]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (ready) 	Function: TestSyncPodsDeletesWhenSourcesAreReady 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/kubelet_test.go:402:2
+Access1: *t0 = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/kubelet_test.go:424:2	Atomic:false	Write:true
+Access2: *ready @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/kubelet_test.go:408:82	Atomic:false	Write:false
+Successful. Package NO. 35 : k8s.io/kubernetes/pkg/proxy/ipvs  Num of Lock & <-: 22
+Successful. Package NO. 36 : k8s.io/kubernetes/staging/src/k8s.io/client-go/dynamic/dynamicinformer  Num of Lock & <-: 21
+Successful. Package NO. 37 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/vsphere  Num of Lock & <-: 24
+Fail. Package NO. 38 : k8s.io/kubernetes/test/e2e_node/services  Num of Lock & <-: 20  error: type_err
+Fail. Package NO. 39 : k8s.io/kubernetes/test/integration/client  Num of Lock & <-: 19  error: type_err
+----------Bug[13]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *testStreamingServer (s) 	Function: newTestStreamingServer 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:170:63
+Access1: *t1 @ -	Atomic:false	Write:false
+Access2: *t0 = t48 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:196:2	Atomic:false	Write:true
+	 and more 7 race ...
+----------Bug[14]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *k8s.io/kubernetes/vendor/github.com/google/cadvisor/info/v1.ContainerInfo (expectedInfo) 	Function: TestContainerInfo 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:360:2
+Access1: *t3 = t4 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:360:2	Atomic:false	Write:true
+Access2: *expectedInfo @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:368:10	Atomic:false	Write:false
+----------Bug[15]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedPodID) 	Function: TestContainerInfo 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:362:2
+Access1: *t5 = t6 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:362:2	Atomic:false	Write:true
+Access2: *expectedPodID @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:365:15	Atomic:false	Write:false
+----------Bug[16]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedContainerName) 	Function: TestContainerInfo 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:363:2
+Access1: *t7 = "goodcontainer":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:363:2	Atomic:false	Write:true
+Access2: *expectedContainerName @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:365:49	Atomic:false	Write:false
+----------Bug[17]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *k8s.io/kubernetes/vendor/github.com/google/cadvisor/info/v1.ContainerInfo (expectedInfo) 	Function: TestContainerInfoWithUidNamespace 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:389:2
+Access1: *t3 = t4 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:389:2	Atomic:false	Write:true
+Access2: *expectedInfo @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:398:10	Atomic:false	Write:false
+----------Bug[18]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedPodID) 	Function: TestContainerInfoWithUidNamespace 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:392:2
+Access1: *t5 = t6 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:392:2	Atomic:false	Write:true
+Access2: *expectedPodID @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:395:15	Atomic:false	Write:false
+----------Bug[19]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedContainerName) 	Function: TestContainerInfoWithUidNamespace 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:393:2
+Access1: *t7 = "goodcontainer":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:393:2	Atomic:false	Write:true
+Access2: *expectedContainerName @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:395:75	Atomic:false	Write:false
+----------Bug[20]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *k8s.io/kubernetes/vendor/github.com/google/cadvisor/info/v1.ContainerInfo (expectedInfo) 	Function: TestRootInfo 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:438:2
+Access1: *expectedInfo @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:445:4	Atomic:false	Write:false
+Access2: *t3 = t4 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:438:2	Atomic:false	Write:true
+	 and more 3 race ...
+----------Bug[21]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *k8s.io/kubernetes/vendor/github.com/google/cadvisor/info/v1.MachineInfo (expectedInfo) 	Function: TestMachineInfo 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:513:2
+Access1: *t3 = t4 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:513:2	Atomic:false	Write:true
+Access2: *expectedInfo @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:518:10	Atomic:false	Write:false
+----------Bug[22]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (content) 	Function: TestServeLogs 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:540:2
+Access1: *t3 = "<pre><a href=\"kub...":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:540:2	Atomic:false	Write:true
+Access2: *content @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:545:18	Atomic:false	Write:false
+----------Bug[23]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (output) 	Function: TestServeRunInContainer 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:568:2
+Access1: *t4 = "foo bar":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:568:2	Atomic:false	Write:true
+Access2: *output @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:585:17	Atomic:false	Write:false
+----------Bug[24]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedPodName) 	Function: TestServeRunInContainer 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:571:2
+Access1: *t5 = t6 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:571:2	Atomic:false	Write:true
+Access2: *expectedPodName @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:576:36	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[25]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedContainerName) 	Function: TestServeRunInContainer 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:572:2
+Access1: *t7 = "baz":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:572:2	Atomic:false	Write:true
+Access2: *expectedContainerName @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:579:36	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[26]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedCommand) 	Function: TestServeRunInContainer 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:573:2
+Access1: *t8 = "ls -a":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:573:2	Atomic:false	Write:true
+Access2: *expectedCommand @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:582:37	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[27]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (output) 	Function: TestServeRunInContainerWithUID 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:609:2
+Access1: *t4 = "foo bar":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:609:2	Atomic:false	Write:true
+Access2: *output @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:629:17	Atomic:false	Write:false
+----------Bug[28]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedPodName) 	Function: TestServeRunInContainerWithUID 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:612:2
+Access1: *t5 = t6 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:612:2	Atomic:false	Write:true
+Access2: *expectedPodName @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:616:21	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[29]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedContainerName) 	Function: TestServeRunInContainerWithUID 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:613:2
+Access1: *t7 = "baz":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:613:2	Atomic:false	Write:true
+Access2: *expectedContainerName @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:623:36	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[30]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new string (expectedCommand) 	Function: TestServeRunInContainerWithUID 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:614:2
+Access1: *t8 = "ls -a":string @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:614:2	Atomic:false	Write:true
+Access2: *expectedCommand @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:625:32	Atomic:false	Write:false
+	 and more 1 race ...
+----------Bug[31]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new k8s.io/kubernetes/vendor/k8s.io/apiserver/pkg/authorization/authorizer.RequestAttributesGetter (attributesGetter) 	Function: TestAuthFilters 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:723:2
+Access1: *attributesGetter @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:742:12	Atomic:false	Write:false
+Access2: *t5 = t6 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:723:2	Atomic:false	Write:true
+----------Bug[32]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAuthenticate) 	Function: TestAuthenticationError 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:770:3
+Access1: *t8 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:792:6	Atomic:false	Write:false
+Access2: *calledAuthenticate = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:778:3	Atomic:false	Write:true
+----------Bug[33]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAuthorize) 	Function: TestAuthenticationError 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:771:3
+Access1: *calledAuthorize = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:786:3	Atomic:false	Write:true
+Access2: *t9 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:798:6	Atomic:false	Write:false
+----------Bug[34]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAttributes) 	Function: TestAuthenticationError 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:772:3
+Access1: *calledAttributes = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:782:3	Atomic:false	Write:true
+Access2: *t10 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:795:6	Atomic:false	Write:false
+----------Bug[35]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAuthenticate) 	Function: TestAuthenticationFailure 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:808:3
+Access1: *t6 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:830:6	Atomic:false	Write:false
+Access2: *calledAuthenticate = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:816:3	Atomic:false	Write:true
+----------Bug[36]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAuthorize) 	Function: TestAuthenticationFailure 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:809:3
+Access1: *calledAuthorize = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:824:3	Atomic:false	Write:true
+Access2: *t7 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:836:5	Atomic:false	Write:false
+----------Bug[37]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAttributes) 	Function: TestAuthenticationFailure 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:810:3
+Access1: *calledAttributes = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:820:3	Atomic:false	Write:true
+Access2: *t8 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:833:5	Atomic:false	Write:false
+----------Bug[38]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAuthenticate) 	Function: TestAuthorizationSuccess 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:846:3
+Access1: *t8 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:868:6	Atomic:false	Write:false
+Access2: *calledAuthenticate = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:854:3	Atomic:false	Write:true
+----------Bug[39]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAuthorize) 	Function: TestAuthorizationSuccess 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:847:3
+Access1: *t9 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:874:6	Atomic:false	Write:false
+Access2: *calledAuthorize = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:862:3	Atomic:false	Write:true
+----------Bug[40]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (calledAttributes) 	Function: TestAuthorizationSuccess 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:848:3
+Access1: *calledAttributes = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:858:3	Atomic:false	Write:true
+Access2: *t10 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:871:6	Atomic:false	Write:false
+----------Bug[41]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *k8s.io/kubernetes/vendor/github.com/google/cadvisor/info/v1.ContainerInfo (containerInfo) 	Function: TestDebuggingDisabledHandlers 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:1553:2
+Access1: *t86 = t87 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:1553:2	Atomic:false	Write:true
+Access2: &t2.Name [#1] @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:1560:18	Atomic:false	Write:false
+	 and more 3 race ...
+----------Bug[42]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *k8s.io/kubernetes/vendor/github.com/google/cadvisor/info/v1.MachineInfo (machineInfo) 	Function: TestDebuggingDisabledHandlers 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:1568:2
+Access1: *t110 = t111 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:1568:2	Atomic:false	Write:true
+Access2: *machineInfo @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/server_test.go:1573:10	Atomic:false	Write:false
+Successful. Package NO. 40 : k8s.io/kubernetes/pkg/proxy/winuserspace  Num of Lock & <-: 19
+----------Bug[43]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new Server (s) 	Function: startTestServer 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/streaming/server_test.go:376:6
+Access1: *t0 = t23 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/streaming/server_test.go:393:2	Atomic:false	Write:true
+Access2: *s @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/server/streaming/server_test.go:378:3	Atomic:false	Write:false
+Successful. Package NO. 41 : k8s.io/kubernetes/pkg/registry/registrytest  Num of Lock & <-: 19
+----------Bug[44]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new k8s.io/kubernetes/vendor/k8s.io/api/core/v1.UniqueVolumeName (generatedVolumeName) 	Function: Test_Run_Positive_VolumeMountControllerAttachEnabledRace 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/volumemanager/reconciler/reconciler_test.go:1715:2
+Access1: *t49 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/volumemanager/reconciler/reconciler_test.go:1763:30	Atomic:false	Write:false
+Access2: *generatedVolumeName = t8 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/kubelet/volumemanager/reconciler/reconciler_test.go:1738:3	Atomic:false	Write:true
+	 and more 1 race ...
+Fail. Package NO. 42 : k8s.io/kubernetes/test/integration/apiserver/admissionwebhook  Num of Lock & <-: 19  error: type_err
+Successful. Package NO. 43 : k8s.io/kubernetes/pkg/proxy/config  Num of Lock & <-: 18
+Successful. Package NO. 44 : k8s.io/kubernetes/plugin/pkg/auth/authorizer/node  Num of Lock & <-: 18
+Successful. Package NO. 45 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver  Num of Lock & <-: 19
+Successful. Package NO. 46 : k8s.io/kubernetes/pkg/controller/volume/persistentvolume/testing  Num of Lock & <-: 17
+Fail. Package NO. 47 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/buffered  Num of Lock & <-: 16  error: type_err
+Successful. Package NO. 48 : k8s.io/kubernetes/pkg/util/config  Num of Lock & <-: 16
+Fail. Package NO. 49 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/portforward  Num of Lock & <-: 16  error: type_err
+Successful. Package NO. 50 : k8s.io/kubernetes/staging/src/k8s.io/client-go/metadata/metadatainformer  Num of Lock & <-: 16
+Fail. Package NO. 51 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/util/wsstream  Num of Lock & <-: 15  error: type_err
+Successful. Package NO. 52 : k8s.io/kubernetes/pkg/util/iptables  Num of Lock & <-: 16
+Successful. Package NO. 53 : k8s.io/kubernetes/staging/src/k8s.io/client-go/testing  Num of Lock & <-: 15
+Fail. Package NO. 54 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/endpoints/handlers  Num of Lock & <-: 18  error: type_err
+Successful. Package NO. 55 : k8s.io/kubernetes/pkg/controller  Num of Lock & <-: 437
+Successful. Package NO. 56 : k8s.io/kubernetes/pkg/controller/nodelifecycle  Num of Lock & <-: 49
+Successful. Package NO. 57 : k8s.io/kubernetes/staging/src/k8s.io/client-go/rest  Num of Lock & <-: 18
+Fail. Package NO. 58 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/gce  Num of Lock & <-: 14  error: type_err
+Successful. Package NO. 59 : k8s.io/kubernetes/pkg/volume/util/fsquota  Num of Lock & <-: 15
+Successful. Package NO. 60 : k8s.io/kubernetes/test/e2e/network  Num of Lock & <-: 19
+Successful. Package NO. 61 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/util/flowcontrol  Num of Lock & <-: 37
+Successful. Package NO. 62 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/controllers/status  Num of Lock & <-: 13
+Successful. Package NO. 63 : k8s.io/kubernetes/cmd/kube-proxy/app  Num of Lock & <-: 13
+Successful. Package NO. 64 : k8s.io/kubernetes/pkg/volume/util/operationexecutor  Num of Lock & <-: 13
+Fail. Package NO. 65 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/remotecommand  Num of Lock & <-: 13  error: type_err
+Fail. Package NO. 66 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/endpoints/filters  Num of Lock & <-: 12  error: type_err
+Successful. Package NO. 67 : k8s.io/kubernetes/staging/src/k8s.io/client-go/util/certificate  Num of Lock & <-: 12
+Fail. Package NO. 68 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/endpoints  Num of Lock & <-: 45  error: type_err
+Successful. Package NO. 69 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/tests  Num of Lock & <-: 12
+Successful. Package NO. 70 : k8s.io/kubernetes/test/e2e/apimachinery  Num of Lock & <-: 12
+Successful. Package NO. 71 : k8s.io/kubernetes/pkg/volume/util/recyclerclient  Num of Lock & <-: 12
+Successful. Package NO. 72 : k8s.io/kubernetes/staging/src/k8s.io/kubectl/pkg/util/term  Num of Lock & <-: 12
+Successful. Package NO. 73 : k8s.io/kubernetes/cmd/kubelet/app  Num of Lock & <-: 11
+----------Bug[45]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *genericScheduler (g) 	Function: findNodesThatPassFilters 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:419:7
+Access1: *t2 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:446:27	Atomic:false	Write:false
+Access2: *t56 = t63 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:482:4	Atomic:false	Write:true
+----------Bug[46]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new k8s.io/kubernetes/pkg/scheduler/framework/v1alpha1.NodeToStatusMap (statuses) 	Function: findNodesThatPassFilters 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:419:139
+Access1: t36[t40] = t17 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:463:13	Atomic:false	Write:true
+Access2: *t5 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:481:43	Atomic:false	Write:false
+----------Bug[47]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []*k8s.io/kubernetes/vendor/k8s.io/api/core/v1.Node (filtered) 	Function: findNodesThatPassFilters 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:429:2
+Access1: *t34 = t35 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:458:13	Atomic:false	Write:true
+Access2: *t21 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:489:9	Atomic:false	Write:false
+	 and more 3 race ...
+----------Bug[48]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int32 (filteredLen) 	Function: findNodesThatPassFilters 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:441:6
+Access1: sync/atomic.AddInt32(filteredLen, -1:int32) @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:456:20	Atomic:true	Write:true
+Access2: *t33 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:481:24	Atomic:false	Write:false
+	 and more 3 race ...
+----------Bug[49]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new map[*k8s.io/kubernetes/vendor/k8s.io/api/core/v1.Node]*k8s.io/kubernetes/vendor/k8s.io/kube-scheduler/extender/v1.Victims (nodeToVictims) 	Function: selectNodesForPreemption 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:860:2
+Access1: *t7 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:878:9	Atomic:false	Write:false
+Access2: t20[t24] = t16 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/scheduler/core/generic_scheduler.go:873:17	Atomic:false	Write:true
+----------Bug[50]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new []string (events) 	Function: TestRunner 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/util/async/runner_test.go:28:3
+Access1: *t1 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/util/async/runner_test.go:52:9	Atomic:false	Write:false
+Access2: *events = t11 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/util/async/runner_test.go:36:4	Atomic:false	Write:true
+	 and more 5 race ...
+----------Bug[51]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new bool (timeout) 	Function: Run 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/volume/flexvolume/driver-call.go:127:2
+Access1: *timeout = true:bool @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/volume/flexvolume/driver-call.go:130:4	Atomic:false	Write:true
+Access2: *t17 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/pkg/volume/flexvolume/driver-call.go:138:6	Atomic:false	Write:false
+----------Bug[52]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new *CustomResourceDefinitions (s) 	Function: New 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver/apiserver.go:136:2
+Access1: *t1 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver/apiserver.go:260:13	Atomic:false	Write:false
+Access2: *t90 = t92 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver/apiserver.go:177:4	Atomic:false	Write:true
+----------Bug[53]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int (i) 	Function: TestUpgradeResponse 
+Position: /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/httpstream/spdy/upgrade_test.go:53:6
+Access1: *t19 = t23 @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/httpstream/spdy/upgrade_test.go:53:6	Atomic:false	Write:true
+Access2: *i @ /data/suz305/go-workspace/stubs/kubernetes/kubernetes-last/src/k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/httpstream/spdy/upgrade_test.go:65:41	Atomic:false	Write:false
+	 and more 1 race ...
+Successful. Package NO. 74 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/aws  Num of Lock & <-: 11
+Fail. Package NO. 75 : k8s.io/kubernetes/pkg/windows/service  Num of Lock & <-: 11  error: type_err
+Successful. Package NO. 76 : k8s.io/kubernetes/staging/src/k8s.io/client-go/discovery/cached/memory  Num of Lock & <-: 11
+Successful. Package NO. 77 : k8s.io/kubernetes/plugin/pkg/admission/resourcequota  Num of Lock & <-: 10
+Fail. Package NO. 78 : k8s.io/kubernetes/test/integration/volume  Num of Lock & <-: 10  error: type_err
+Successful. Package NO. 79 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/admission/configuration  Num of Lock & <-: 10
+Successful. Package NO. 80 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/dynamic  Num of Lock & <-: 11
+Successful. Package NO. 81 : k8s.io/kubernetes/pkg/util/ipvs  Num of Lock & <-: 10
+Successful. Package NO. 82 : k8s.io/kubernetes/pkg/kubemark  Num of Lock & <-: 10
+Successful. Package NO. 83 : k8s.io/kubernetes/pkg/proxy/iptables  Num of Lock & <-: 9
+Successful. Package NO. 84 : k8s.io/kubernetes/pkg/volume/scaleio  Num of Lock & <-: 9
+Successful. Package NO. 85 : k8s.io/kubernetes/pkg/proxy/winkernel  Num of Lock & <-: 9
+Successful. Package NO. 86 : k8s.io/kubernetes/staging/src/k8s.io/kubectl/pkg/drain  Num of Lock & <-: 9
+Successful. Package NO. 87 : k8s.io/kubernetes/test/e2e/apps  Num of Lock & <-: 9
+Successful. Package NO. 88 : k8s.io/kubernetes/pkg/client/tests  Num of Lock & <-: 9
+Successful. Package NO. 89 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/registry/rest/resttest  Num of Lock & <-: 8
+Fail. Package NO. 90 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/runtime  Num of Lock & <-: 8  error: type_err
+Successful. Package NO. 91 : k8s.io/kubernetes/pkg/proxy  Num of Lock & <-: 120
+Fail. Package NO. 92 : k8s.io/kubernetes/staging/src/k8s.io/cloud-provider/fake  Num of Lock & <-: 8  error: type_err
+Successful. Package NO. 93 : k8s.io/kubernetes/pkg/registry/core/service/allocator  Num of Lock & <-: 15
+Fail. Package NO. 94 : k8s.io/kubernetes/test/integration/apimachinery  Num of Lock & <-: 8  error: type_err
+Successful. Package NO. 95 : k8s.io/kubernetes/staging/src/k8s.io/client-go/util/flowcontrol  Num of Lock & <-: 8
+Successful. Package NO. 96 : k8s.io/kubernetes/pkg/volume/glusterfs  Num of Lock & <-: 8
+Successful. Package NO. 97 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/pager  Num of Lock & <-: 8
+Successful. Package NO. 98 : k8s.io/kubernetes/test/utils  Num of Lock & <-: 8
+Successful. Package NO. 99 : k8s.io/kubernetes/staging/src/k8s.io/client-go/util/connrotation  Num of Lock & <-: 8
+Fail. Package NO. 100 : k8s.io/kubernetes/test/integration/scheduler  Num of Lock & <-: 8  error: type_err
+Successful. Package NO. 101 : k8s.io/kubernetes/staging/src/k8s.io/client-go/transport  Num of Lock & <-: 7
+Successful. Package NO. 102 : k8s.io/kubernetes/test/e2e/common  Num of Lock & <-: 7
+Successful. Package NO. 103 : k8s.io/kubernetes/pkg/volume/csi  Num of Lock & <-: 7
+Successful. Package NO. 104 : k8s.io/kubernetes/test/e2e/scheduling  Num of Lock & <-: 7
+Successful. Package NO. 105 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/rand  Num of Lock & <-: 7
+Successful. Package NO. 106 : k8s.io/kubernetes/cmd/cloud-controller-manager/app  Num of Lock & <-: 10
+Successful. Package NO. 107 : k8s.io/kubernetes/test/e2e/chaosmonkey  Num of Lock & <-: 7
+Successful. Package NO. 108 : k8s.io/kubernetes/staging/src/k8s.io/code-generator/cmd/informer-gen/generators  Num of Lock & <-: 7
+Successful. Package NO. 109 : k8s.io/kubernetes/pkg/ssh  Num of Lock & <-: 7
+Successful. Package NO. 110 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/cache  Num of Lock & <-: 7
+Successful. Package NO. 111 : k8s.io/kubernetes/staging/src/k8s.io/client-go/plugin/pkg/client/auth/exec  Num of Lock & <-: 7
+Successful. Package NO. 112 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/apiserver  Num of Lock & <-: 7
+Successful. Package NO. 113 : k8s.io/kubernetes/test/images/agnhost/nettest  Num of Lock & <-: 7
+Successful. Package NO. 114 : k8s.io/kubernetes/cluster/images/etcd/migrate  Num of Lock & <-: 7
+Successful. Package NO. 115 : k8s.io/kubernetes/staging/src/k8s.io/code-generator/_examples/MixedCase/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 116 : k8s.io/kubernetes/staging/src/k8s.io/client-go/informers  Num of Lock & <-: 7
+Successful. Package NO. 117 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/authentication/token/cache  Num of Lock & <-: 6
+Successful. Package NO. 118 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/admission  Num of Lock & <-: 24
+Successful. Package NO. 119 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/client/informers/externalversions  Num of Lock & <-: 7
+Fail. Package NO. 120 : k8s.io/kubernetes/test/integration/master  Num of Lock & <-: 6  error: type_err
+Successful. Package NO. 121 : k8s.io/kubernetes/staging/src/k8s.io/sample-apiserver/pkg/generated/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 122 : k8s.io/kubernetes/staging/src/k8s.io/code-generator/_examples/crd/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 123 : k8s.io/kubernetes/staging/src/k8s.io/code-generator/_examples/apiserver/informers/internalversion  Num of Lock & <-: 7
+Successful. Package NO. 124 : k8s.io/kubernetes/staging/src/k8s.io/code-generator/_examples/apiserver/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 125 : k8s.io/kubernetes/staging/src/k8s.io/code-generator/_examples/HyphenGroup/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 126 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/examples/client-go/pkg/client/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 127 : k8s.io/kubernetes/staging/src/k8s.io/sample-controller/pkg/generated/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 128 : k8s.io/kubernetes/test/e2e/storage/podlogs  Num of Lock & <-: 6
+Successful. Package NO. 129 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/client/informers/externalversions  Num of Lock & <-: 7
+Successful. Package NO. 130 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/registry/customresource  Num of Lock & <-: 6
+Successful. Package NO. 131 : k8s.io/kubernetes/test/e2e/storage/vsphere  Num of Lock & <-: 6
+Successful. Package NO. 132 : k8s.io/kubernetes/test/e2e/storage/testsuites  Num of Lock & <-: 6
+Successful. Package NO. 133 : k8s.io/kubernetes/staging/src/k8s.io/metrics/pkg/client/custom_metrics  Num of Lock & <-: 6
+Successful. Package NO. 134 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/controller/apiapproval  Num of Lock & <-: 5
+Successful. Package NO. 135 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/controller/nonstructuralschema  Num of Lock & <-: 5
+Successful. Package NO. 136 : k8s.io/kubernetes/cmd/kubeadm/app/phases/upgrade  Num of Lock & <-: 5
+Successful. Package NO. 137 : k8s.io/kubernetes/pkg/volume  Num of Lock & <-: 142
+Successful. Package NO. 138 : k8s.io/kubernetes/test/e2e/storage  Num of Lock & <-: 23
+Fail. Package NO. 139 : k8s.io/kubernetes/cmd/kube-apiserver/app/testing  Num of Lock & <-: 5  error: type_err
+Successful. Package NO. 140 : k8s.io/kubernetes/plugin/pkg/admission/storage/persistentvolume/label  Num of Lock & <-: 5
+Successful. Package NO. 141 : k8s.io/kubernetes/staging/src/k8s.io/client-go/discovery/cached/disk  Num of Lock & <-: 5
+Successful. Package NO. 142 : k8s.io/kubernetes/staging/src/k8s.io/client-go/plugin/pkg/client/auth/azure  Num of Lock & <-: 5
+Successful. Package NO. 143 : k8s.io/kubernetes/test/soak/serve_hostnames  Num of Lock & <-: 5
+Successful. Package NO. 144 : k8s.io/kubernetes/pkg/master/reconcilers  Num of Lock & <-: 5
+Successful. Package NO. 145 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/controllers/autoregister  Num of Lock & <-: 5
+Successful. Package NO. 146 : k8s.io/kubernetes/staging/src/k8s.io/client-go/plugin/pkg/client/auth/gcp  Num of Lock & <-: 5
+Successful. Package NO. 147 : k8s.io/kubernetes/test/images/agnhost/pause  Num of Lock & <-: 4
+Successful. Package NO. 148 : k8s.io/kubernetes/test/images/agnhost/net/nat  Num of Lock & <-: 4
+Successful. Package NO. 149 : k8s.io/kubernetes/pkg/credentialprovider  Num of Lock & <-: 5
+Fail. Package NO. 150 : k8s.io/kubernetes/test/integration/apiserver  Num of Lock & <-: 25  error: type_err
+Fail. Package NO. 151 : k8s.io/kubernetes/staging/src/k8s.io/cloud-provider  Num of Lock & <-: 12  error: type_err
+Successful. Package NO. 152 : k8s.io/kubernetes/pkg/controller/volume/persistentvolume  Num of Lock & <-: 33
+Successful. Package NO. 153 : k8s.io/kubernetes/staging/src/k8s.io/client-go/util/testing  Num of Lock & <-: 4
+Fail. Package NO. 154 : k8s.io/kubernetes/test/integration/kubelet  Num of Lock & <-: 4  error: type_err
+Successful. Package NO. 155 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/authenticator/token/oidc  Num of Lock & <-: 4
+Successful. Package NO. 156 : k8s.io/kubernetes/test/e2e/servicecatalog  Num of Lock & <-: 4
+Successful. Package NO. 157 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/value/encrypt/envelope/testing  Num of Lock & <-: 4
+Successful. Package NO. 158 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/util/webhook  Num of Lock & <-: 4
+Fail. Package NO. 159 : k8s.io/kubernetes/test/integration/evictions  Num of Lock & <-: 4  error: type_err
+Fail. Package NO. 160 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/proxy  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 161 : k8s.io/kubernetes/test/integration/etcd  Num of Lock & <-: 3  error: type_err
+Successful. Package NO. 162 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/cmd/server/testing  Num of Lock & <-: 3
+Successful. Package NO. 163 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/value/encrypt/envelope  Num of Lock & <-: 7
+Fail. Package NO. 164 : k8s.io/kubernetes/test/integration/garbagecollector  Num of Lock & <-: 3  error: type_err
+Successful. Package NO. 165 : k8s.io/kubernetes/test/e2e/kubectl  Num of Lock & <-: 3
+Successful. Package NO. 166 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/storagebackend/factory  Num of Lock & <-: 3
+Successful. Package NO. 167 : k8s.io/kubernetes/test/e2e/instrumentation/logging/utils  Num of Lock & <-: 3
+Successful. Package NO. 168 : k8s.io/kubernetes/pkg/master/controller/crdregistration  Num of Lock & <-: 3
+Successful. Package NO. 169 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/controller/openapi  Num of Lock & <-: 3
+Fail. Package NO. 170 : k8s.io/kubernetes/staging/src/k8s.io/cli-runtime/pkg/resource  Num of Lock & <-: 3  error: type_err
+Fail. Package NO. 171 : k8s.io/kubernetes/cmd/kube-apiserver/app  Num of Lock & <-: 8  error: type_err
+Successful. Package NO. 172 : k8s.io/kubernetes/staging/src/k8s.io/client-go/examples/fake-client  Num of Lock & <-: 3
+Fail. Package NO. 173 : k8s.io/kubernetes/test/integration/ipamperf  Num of Lock & <-: 3  error: type_err
+Successful. Package NO. 174 : k8s.io/kubernetes/test/images/resource-consumer  Num of Lock & <-: 3
+Successful. Package NO. 175 : k8s.io/kubernetes/staging/src/k8s.io/sample-controller/pkg/signals  Num of Lock & <-: 3
+Successful. Package NO. 176 : k8s.io/kubernetes/test/e2e_node/runner/remote  Num of Lock & <-: 3
+Successful. Package NO. 177 : k8s.io/kubernetes/cmd/kube-controller-manager/app  Num of Lock & <-: 6
+Fail. Package NO. 178 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/httpstream  Num of Lock & <-: 35  error: type_err
+Fail. Package NO. 179 : k8s.io/kubernetes/test/e2e_node  Num of Lock & <-: 27  error: type_err
+Successful. Package NO. 180 : k8s.io/kubernetes/cluster/images/etcd-version-monitor  Num of Lock & <-: 3
+Successful. Package NO. 181 : k8s.io/kubernetes/staging/src/k8s.io/component-base/featuregate  Num of Lock & <-: 3
+Successful. Package NO. 182 : k8s.io/kubernetes/cmd/kubeadm/app/util/apiclient  Num of Lock & <-: 3
+Successful. Package NO. 183 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/runtime  Num of Lock & <-: 3
+Successful. Package NO. 184 : k8s.io/kubernetes/test/images/agnhost/resource-consumer-controller  Num of Lock & <-: 3
+Successful. Package NO. 185 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/audit  Num of Lock & <-: 3
+Successful. Package NO. 186 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/controllers/openapi/aggregator  Num of Lock & <-: 3
+Successful. Package NO. 187 : k8s.io/kubernetes/test/typecheck  Num of Lock & <-: 3
+Fail. Package NO. 188 : k8s.io/kubernetes/test/integration/util  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 189 : k8s.io/kubernetes/test/integration/quota  Num of Lock & <-: 2  error: type_err
+Successful. Package NO. 190 : k8s.io/kubernetes/pkg/capabilities  Num of Lock & <-: 2
+Fail. Package NO. 191 : k8s.io/kubernetes/test/integration/node  Num of Lock & <-: 2  error: type_err
+Successful. Package NO. 192 : k8s.io/kubernetes/pkg/quota/v1/generic  Num of Lock & <-: 2
+Successful. Package NO. 193 : k8s.io/kubernetes/pkg/util/filesystem  Num of Lock & <-: 2
+Successful. Package NO. 194 : k8s.io/kubernetes/pkg/master/controller/clusterauthenticationtrust  Num of Lock & <-: 2
+Fail. Package NO. 195 : k8s.io/kubernetes/test/integration/framework  Num of Lock & <-: 2  error: type_err
+Successful. Package NO. 196 : k8s.io/kubernetes/pkg/util/procfs  Num of Lock & <-: 2
+Successful. Package NO. 197 : k8s.io/kubernetes/cmd/kube-scheduler/app/testing  Num of Lock & <-: 2
+Fail. Package NO. 198 : k8s.io/kubernetes/pkg/master  Num of Lock & <-: 12  error: type_err
+Successful. Package NO. 199 : k8s.io/kubernetes/test/e2e/instrumentation/logging/stackdriver  Num of Lock & <-: 2
+Successful. Package NO. 200 : k8s.io/kubernetes/staging/src/k8s.io/sample-controller  Num of Lock & <-: 12
+Successful. Package NO. 201 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/cmd/server  Num of Lock & <-: 5
+Successful. Package NO. 202 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/controller/establish  Num of Lock & <-: 2
+Successful. Package NO. 203 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/controller/finalizer  Num of Lock & <-: 2
+Successful. Package NO. 204 : k8s.io/kubernetes/pkg/controller/nodeipam  Num of Lock & <-: 41
+Successful. Package NO. 205 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/controller/status  Num of Lock & <-: 2
+Fail. Package NO. 206 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/api/meta  Num of Lock & <-: 2  error: type_err
+Fail. Package NO. 207 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/errors  Num of Lock & <-: 2  error: type_err
+Successful. Package NO. 208 : k8s.io/kubernetes/staging/src/k8s.io/sample-apiserver/pkg/cmd/server  Num of Lock & <-: 2
+Successful. Package NO. 209 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/controllers/openapi  Num of Lock & <-: 5
+Successful. Package NO. 210 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/cmd/server  Num of Lock & <-: 2
+Successful. Package NO. 211 : k8s.io/kubernetes/staging/src/k8s.io/csi-translation-lib  Num of Lock & <-: 2
+Successful. Package NO. 212 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/leaderelection  Num of Lock & <-: 2
+Successful. Package NO. 213 : k8s.io/kubernetes/staging/src/k8s.io/client-go/plugin/pkg/client/auth/oidc  Num of Lock & <-: 2
+Successful. Package NO. 214 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/webhook  Num of Lock & <-: 1
+Successful. Package NO. 215 : k8s.io/kubernetes/staging/src/k8s.io/client-go/dynamic  Num of Lock & <-: 22
+Fail. Package NO. 216 : k8s.io/kubernetes/staging/src/k8s.io/client-go/discovery  Num of Lock & <-: 17  error: type_err
+Successful. Package NO. 217 : k8s.io/kubernetes/staging/src/k8s.io/client-go/examples/workqueue  Num of Lock & <-: 1
+Fail. Package NO. 218 : k8s.io/kubernetes/staging/src/k8s.io/cli-runtime/pkg/genericclioptions  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 219 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/truncate  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 220 : k8s.io/kubernetes/staging/src/k8s.io/client-go/scale  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 221 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/clientcmd  Num of Lock & <-: 1  error: type_err
+Successful. Package NO. 222 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/log  Num of Lock & <-: 1
+Fail. Package NO. 223 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/fake  Num of Lock & <-: 1  error: type_err
+Successful. Package NO. 224 : k8s.io/kubernetes/staging/src/k8s.io/code-generator/cmd/conversion-gen/generators  Num of Lock & <-: 1
+Successful. Package NO. 225 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/value  Num of Lock & <-: 8
+Successful. Package NO. 226 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/controllers  Num of Lock & <-: 24
+Successful. Package NO. 227 : k8s.io/kubernetes/cmd/kubeadm/app/util/kustomize  Num of Lock & <-: 1
+Successful. Package NO. 228 : k8s.io/kubernetes/staging/src/k8s.io/kubectl/pkg/cmd/portforward  Num of Lock & <-: 1
+Successful. Package NO. 229 : k8s.io/kubernetes/staging/src/k8s.io/kubectl/pkg/util/interrupt  Num of Lock & <-: 1
+Successful. Package NO. 230 : k8s.io/kubernetes/staging/src/k8s.io/client-go/examples/leader-election  Num of Lock & <-: 1
+Successful. Package NO. 231 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/openstack  Num of Lock & <-: 1
+Successful. Package NO. 232 : k8s.io/kubernetes/pkg/apis/core/v1  Num of Lock & <-: 1
+Successful. Package NO. 233 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/third_party/forked/golang/json  Num of Lock & <-: 1
+Successful. Package NO. 234 : k8s.io/kubernetes/test/e2e/windows  Num of Lock & <-: 1
+Successful. Package NO. 235 : k8s.io/kubernetes/test/images/agnhost/inclusterclient  Num of Lock & <-: 1
+Successful. Package NO. 236 : k8s.io/kubernetes/test/images/agnhost/logs-generator  Num of Lock & <-: 1
+Successful. Package NO. 237 : k8s.io/kubernetes/test/images/agnhost/serve-hostname  Num of Lock & <-: 1
+Successful. Package NO. 238 : k8s.io/kubernetes/test/images/agnhost/webhook  Num of Lock & <-: 1
+Fail. Package NO. 239 : k8s.io/kubernetes/test/integration/examples  Num of Lock & <-: 1  error: type_err
+Successful. Package NO. 240 : k8s.io/kubernetes/pkg/registry/core/componentstatus  Num of Lock & <-: 1
+Fail. Package NO. 241 : k8s.io/kubernetes/test/integration/secrets  Num of Lock & <-: 1  error: type_err
+Fail. Package NO. 242 : k8s.io/kubernetes/test/integration/serviceaccount  Num of Lock & <-: 1  error: type_err
+Successful. Package NO. 243 : k8s.io/kubernetes/cluster/images/conformance/go-runner  Num of Lock & <-: 1
+Successful. Package NO. 244 : k8s.io/kubernetes/pkg/util/interrupt  Num of Lock & <-: 1
+Checked all packages containing concurrency. Now exit

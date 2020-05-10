@@ -1,0 +1,17 @@
+Successfully built whole program. Now running checkers
+Now trying to build unchecked packages separately...
+Successful. Package NO. 0 : github.com/junegunn/fzf/src  Num of Lock & <-: 62
+----------Bug[1]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int32 (focusedIndex) 	Function: Loop$8 
+Position: /data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go:1663:7
+Access1: *focusedIndex = t38 @ /data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go:1687:8	Atomic:false	Write:true
+Access2: *t0 = t1 @ /data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go:1663:7	Atomic:false	Write:true
+	 and more 1 race ...
+----------Bug[2]----------
+Type: Data Race 	Reason: Two goroutines access the same variable concurrently and at least one of the accesses is a write. 
+Variable: new int64 (version) 	Function: Loop$8 
+Position: /data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go:1664:7
+Access1: *version = t43 @ /data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go:1686:8	Atomic:false	Write:true
+Access2: *t2 = -1:int64 @ /data/suz305/go-workspace/stubs/fzf/fzf-last/src/github.com/junegunn/fzf/src/terminal.go:1664:7	Atomic:false	Write:true
+	 and more 1 race ...
