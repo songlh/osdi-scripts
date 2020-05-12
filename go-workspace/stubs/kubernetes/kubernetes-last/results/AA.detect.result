@@ -1,0 +1,89 @@
+Failed to build the whole program. The entrance package or its dependencies have error. type_err
+Now trying to build unchecked packages separately...
+Fail. Package NO. 0 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/cache  Num of Lock & <-: 146  error: type_err
+Successful. Package NO. 1 : k8s.io/kubernetes/pkg/kubelet/config  Num of Lock & <-: 105
+Fail. Package NO. 2 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/watch  Num of Lock & <-: 79  error: type_err
+Fail. Package NO. 3 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/wait  Num of Lock & <-: 76  error: type_err
+Successful. Package NO. 4 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/cacher  Num of Lock & <-: 72
+Successful. Package NO. 5 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/clock  Num of Lock & <-: 66
+Fail. Package NO. 6 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/azure  Num of Lock & <-: 72  error: type_err
+Successful. Package NO. 7 : k8s.io/kubernetes/pkg/kubelet  Num of Lock & <-: 667
+Fail. Package NO. 8 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/server/filters  Num of Lock & <-: 48  error: type_err
+Successful. Package NO. 9 : k8s.io/kubernetes/pkg/util/async  Num of Lock & <-: 45
+Fail. Package NO. 10 : k8s.io/kubernetes/staging/src/k8s.io/client-go/util/workqueue  Num of Lock & <-: 42  error: type_err
+Successful. Package NO. 11 : k8s.io/kubernetes/pkg/controller/podautoscaler  Num of Lock & <-: 42
+Fail. Package NO. 12 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/server  Num of Lock & <-: 110  error: type_err
+Successful. Package NO. 13 : k8s.io/kubernetes/staging/src/k8s.io/cri-api/pkg/apis/testing  Num of Lock & <-: 39
+Successful. Package NO. 14 : k8s.io/kubernetes/pkg/controller/garbagecollector  Num of Lock & <-: 37
+Successful. Package NO. 15 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/watch  Num of Lock & <-: 35
+Successful. Package NO. 16 : k8s.io/kubernetes/pkg/controller/nodelifecycle/scheduler  Num of Lock & <-: 34
+Successful. Package NO. 17 : k8s.io/kubernetes/pkg/proxy/userspace  Num of Lock & <-: 33
+Successful. Package NO. 18 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/etcd3  Num of Lock & <-: 32
+Successful. Package NO. 19 : k8s.io/kubernetes/test/e2e/framework  Num of Lock & <-: 62
+Successful. Package NO. 20 : k8s.io/kubernetes/staging/src/k8s.io/apimachinery/pkg/util/httpstream/spdy  Num of Lock & <-: 32
+Successful. Package NO. 21 : k8s.io/kubernetes/staging/src/k8s.io/component-base/metrics  Num of Lock & <-: 32
+Fail. Package NO. 22 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/record  Num of Lock & <-: 30  error: type_err
+Successful. Package NO. 23 : k8s.io/kubernetes/pkg/scheduler  Num of Lock & <-: 93
+Successful. Package NO. 24 : k8s.io/kubernetes/pkg/volume/testing  Num of Lock & <-: 28
+Fail. Package NO. 25 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/events  Num of Lock & <-: 28  error: type_err
+Fail. Package NO. 26 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/registry/generic/registry  Num of Lock & <-: 27  error: type_err
+Successful. Package NO. 27 : k8s.io/kubernetes/test/e2e/upgrades  Num of Lock & <-: 41
+Successful. Package NO. 28 : k8s.io/kubernetes/pkg/controller/resourcequota  Num of Lock & <-: 25
+Successful. Package NO. 29 : k8s.io/kubernetes/pkg/controller/nodeipam/ipam  Num of Lock & <-: 39
+Successful. Package NO. 30 : k8s.io/kubernetes/pkg/util/goroutinemap  Num of Lock & <-: 25
+Successful. Package NO. 31 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/test/integration  Num of Lock & <-: 32
+Successful. Package NO. 32 : k8s.io/kubernetes/pkg/volume/util/nestedpendingoperations  Num of Lock & <-: 25
+Successful. Package NO. 33 : k8s.io/kubernetes/pkg/controller/replicaset  Num of Lock & <-: 23
+Successful. Package NO. 34 : k8s.io/kubernetes/test/e2e/node  Num of Lock & <-: 23
+Successful. Package NO. 35 : k8s.io/kubernetes/pkg/proxy/ipvs  Num of Lock & <-: 22
+Successful. Package NO. 36 : k8s.io/kubernetes/staging/src/k8s.io/client-go/dynamic/dynamicinformer  Num of Lock & <-: 21
+Fail. Package NO. 37 : k8s.io/kubernetes/test/e2e_node/services  Num of Lock & <-: 20  error: type_err
+Successful. Package NO. 38 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/vsphere  Num of Lock & <-: 24
+Fail. Package NO. 39 : k8s.io/kubernetes/test/integration/client  Num of Lock & <-: 19  error: type_err
+Fail. Package NO. 40 : k8s.io/kubernetes/test/integration/apiserver/admissionwebhook  Num of Lock & <-: 19  error: type_err
+Successful. Package NO. 41 : k8s.io/kubernetes/pkg/registry/registrytest  Num of Lock & <-: 19
+Successful. Package NO. 42 : k8s.io/kubernetes/pkg/proxy/winuserspace  Num of Lock & <-: 19
+Successful. Package NO. 43 : k8s.io/kubernetes/pkg/proxy/config  Num of Lock & <-: 18
+Successful. Package NO. 44 : k8s.io/kubernetes/plugin/pkg/auth/authorizer/node  Num of Lock & <-: 18
+Successful. Package NO. 45 : k8s.io/kubernetes/staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver  Num of Lock & <-: 19
+Successful. Package NO. 46 : k8s.io/kubernetes/pkg/controller/volume/persistentvolume/testing  Num of Lock & <-: 17
+Fail. Package NO. 47 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/portforward  Num of Lock & <-: 16  error: type_err
+Successful. Package NO. 48 : k8s.io/kubernetes/pkg/util/config  Num of Lock & <-: 16
+Fail. Package NO. 49 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/buffered  Num of Lock & <-: 16  error: type_err
+Successful. Package NO. 50 : k8s.io/kubernetes/staging/src/k8s.io/client-go/metadata/metadatainformer  Num of Lock & <-: 15
+Fail. Package NO. 51 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/util/wsstream  Num of Lock & <-: 15  error: type_err
+Successful. Package NO. 52 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/util/flowcontrol  Num of Lock & <-: 37
+Successful. Package NO. 53 : k8s.io/kubernetes/pkg/util/iptables  Num of Lock & <-: 16
+Successful. Package NO. 54 : k8s.io/kubernetes/pkg/controller/nodelifecycle  Num of Lock & <-: 49
+Fail. Package NO. 55 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/endpoints/handlers  Num of Lock & <-: 18  error: type_err
+Successful. Package NO. 56 : k8s.io/kubernetes/staging/src/k8s.io/client-go/testing  Num of Lock & <-: 15
+Successful. Package NO. 57 : k8s.io/kubernetes/pkg/controller  Num of Lock & <-: 437
+Successful. Package NO. 58 : k8s.io/kubernetes/staging/src/k8s.io/client-go/rest  Num of Lock & <-: 18
+Successful. Package NO. 59 : k8s.io/kubernetes/pkg/volume/util/fsquota  Num of Lock & <-: 15
+Successful. Package NO. 60 : k8s.io/kubernetes/test/e2e/network  Num of Lock & <-: 19
+Fail. Package NO. 61 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/gce  Num of Lock & <-: 14  error: type_err
+Successful. Package NO. 62 : k8s.io/kubernetes/staging/src/k8s.io/kube-aggregator/pkg/controllers/status  Num of Lock & <-: 13
+Successful. Package NO. 63 : k8s.io/kubernetes/pkg/volume/util/operationexecutor  Num of Lock & <-: 13
+Successful. Package NO. 64 : k8s.io/kubernetes/cmd/kube-proxy/app  Num of Lock & <-: 13
+Fail. Package NO. 65 : k8s.io/kubernetes/staging/src/k8s.io/client-go/tools/remotecommand  Num of Lock & <-: 13  error: type_err
+Successful. Package NO. 66 : k8s.io/kubernetes/staging/src/k8s.io/client-go/util/certificate  Num of Lock & <-: 12
+Fail. Package NO. 67 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/endpoints  Num of Lock & <-: 45  error: type_err
+Successful. Package NO. 68 : k8s.io/kubernetes/staging/src/k8s.io/kubectl/pkg/util/term  Num of Lock & <-: 12
+Successful. Package NO. 69 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/storage/tests  Num of Lock & <-: 12
+Successful. Package NO. 70 : k8s.io/kubernetes/test/e2e/apimachinery  Num of Lock & <-: 12
+Successful. Package NO. 71 : k8s.io/kubernetes/pkg/volume/util/recyclerclient  Num of Lock & <-: 12
+Successful. Package NO. 72 : k8s.io/kubernetes/cmd/kubelet/app  Num of Lock & <-: 11
+Successful. Package NO. 73 : k8s.io/kubernetes/staging/src/k8s.io/legacy-cloud-providers/aws  Num of Lock & <-: 11
+Fail. Package NO. 74 : k8s.io/kubernetes/pkg/windows/service  Num of Lock & <-: 11  error: type_err
+Successful. Package NO. 75 : k8s.io/kubernetes/staging/src/k8s.io/client-go/discovery/cached/memory  Num of Lock & <-: 11
+Successful. Package NO. 76 : k8s.io/kubernetes/plugin/pkg/admission/resourcequota  Num of Lock & <-: 10
+Fail. Package NO. 77 : k8s.io/kubernetes/test/integration/volume  Num of Lock & <-: 10  error: type_err
+Successful. Package NO. 78 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/pkg/admission/configuration  Num of Lock & <-: 10
+Successful. Package NO. 79 : k8s.io/kubernetes/staging/src/k8s.io/apiserver/plugin/pkg/audit/dynamic  Num of Lock & <-: 11
+Successful. Package NO. 80 : k8s.io/kubernetes/pkg/util/ipvs  Num of Lock & <-: 10
+Successful. Package NO. 81 : k8s.io/kubernetes/pkg/kubemark  Num of Lock & <-: 10
+Successful. Package NO. 82 : k8s.io/kubernetes/pkg/proxy/iptables  Num of Lock & <-: 9
+Successful. Package NO. 83 : k8s.io/kubernetes/pkg/volume/scaleio  Num of Lock & <-: 9
+Successful. Package NO. 84 : k8s.io/kubernetes/pkg/proxy/winkernel  Num of Lock & <-: 9
+Successful. Package NO. 85 : k8s.io/kubernetes/staging/src/k8s.io/kubectl/pkg/drain  Num of Lock & <-: 9
+Successful. Package NO. 86 : k8s.io/kubernetes/test/e2e/apps  Num of Lock & <-: 9
